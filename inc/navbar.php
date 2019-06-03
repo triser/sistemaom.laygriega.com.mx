@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand">&nbsp;&nbsp; SISTEMA OM Y GRIEGA &nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.6</span></small></sup></a>
+            <a class="navbar-brand">&nbsp;&nbsp; GIT 2019&nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.6</span></small></sup></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <?php if(isset($_SESSION['tipo']) && isset($_SESSION['nombre'])): ?>
