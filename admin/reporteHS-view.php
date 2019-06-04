@@ -109,7 +109,7 @@
 
                                 if(mysqli_num_rows($selticket)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin ">
+                            <table class="table table-hover table-striped table-bordered points_table_admin2 ">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>

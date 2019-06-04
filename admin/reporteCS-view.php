@@ -109,7 +109,7 @@
 
                                 if(mysqli_num_rows($selticket)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin ">
+                            <table class="table table-hover table-striped table-bordered points_table_admin3 ">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
@@ -117,6 +117,7 @@
                                         <th class="text-center" scope="col">Folio</th>
                                         <th class="text-center" scope="col">Departamento</th>
                                         <th class="text-center" scope="col">Estado</th>
+                                         <th class="text-center" scope="col">Asunto</th>
                                         <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Asignado a</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
@@ -135,6 +136,7 @@
                                         <td class="text-center" data-label="Serie:"><?php echo $row['serie']; ?></td>
                                         <td class="text-center" data-label="Area:"><?php echo $row['departamento']; ?></td>
                                         <td class="text-center" data-label="Estado:"><?php echo $row['estado_ticket']; ?></td>
+                                        <td class="text-center" data-label="Area:"><?php echo $row['asunto']; ?></td>
                                         <td class="text-center" data-label="Prioridad:"><?php echo $row['Prioridad']; ?></td>
                                         <td class="text-center" data-label="Solicitado:"><?php echo $row['area_solicitada']; ?></td>
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>

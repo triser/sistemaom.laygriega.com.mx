@@ -32,7 +32,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <?php
             if(isset($_GET['view'])){
                 $content=$_GET['view'];
-                $WhiteList=["index","soporte","ticket","ticketcon","registro","configuracion","reporteU"];
+                $WhiteList=["index","soporte","ticket","ticketcon","registro","configuracion"];
                 if(in_array($content, $WhiteList) && is_file("./user/".$content."-view.php")){
                     include "./user/".$content."-view.php";
                 }else{

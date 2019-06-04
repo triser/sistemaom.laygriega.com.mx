@@ -66,22 +66,22 @@
         <div class="panel-body">
             <form accept-charset="utf-8" role="form" action="" method="POST">
             <div class="form-group">
-              <label><i class="fa fa-male"></i>&nbsp;Nombre completo:</label>
+              <label><i class="fa fa-male"></i>&nbsp;Nombre completo</label>
               <input type="text" class="form-control" name="nom_complete_reg" placeholder="Nombre completo" required="" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+{1,40}" title="Nombre Apellido" maxlength="40">
             </div>
-            <div class="form-group">
-              <label class="control-label"><i class="fa fa-user"></i>&nbsp;Departamento:</label>
-              <input type="text"  class="form-control" name="user_reg" placeholder="Departamento" required="" pattern="[a-zA-Z0-9]{1,15}" title="Ejemplo7 maximo 15 caracteres" maxlength="20">
-              <div></div>
-            </div>
             <div class="form-group has-success has-feedback">
-              <label class="control-label"><i class="fa fa-envelope"></i>&nbsp;Email:</label>
-              
+              <label class="control-label"><i class="fa fa-user"></i>&nbsp;Nombre de usuario</label>
+              <input type="text" id="input_user" class="form-control" name="user_reg" placeholder="Nombre de usuario" required="" pattern="[a-zA-Z0-9]{1,15}" title="Ejemplo7 maximo 15 caracteres" maxlength="20">
               <div id="com_form"></div>
             </div>
-              <div class="form-group">
-              <label><i class="fa fa-key"></i>&nbsp;Contraseña:</label>
-              <input type="password" class="form-control" name="clave_reg" placeholder="Contrasena" required="">
+            <div class="form-group">
+              <label><i class="fa fa-key"></i>&nbsp;Contraseña</label>
+              <input type="password" class="form-control" name="clave_reg" placeholder="Contraseña" required="">
+            </div>
+            <div class="form-group">
+              <label class="control-label"><i class="fa fa-envelope"></i>&nbsp;Email</label>
+              <input type="email" id="input_email" class="form-control"  name="email_reg"  placeholder="Escriba su Email Corporativo" required="">
+              <div id="com_form"></div>
             </div>
             <br>
             <button type="submit" class="btn btn-danger">Crear cuenta</button>
@@ -92,7 +92,7 @@
     <br>
     <div class="col-sm-4 text-center hidden-xs">
       <img src="img/linux.png" class="img-responsive" alt="Image">
-      <h2 class="text-primary">¡Gracias! Por preferirnos</h2>
+      <h2 class="text-primary">¡ Panel de registro ! SISTEMA OM</h2>
     </div>
   </div>
 </div>

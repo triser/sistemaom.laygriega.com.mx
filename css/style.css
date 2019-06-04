@@ -1,3 +1,4 @@
+.red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
 .radio {
   padding-left: 20px; }
   .radio label {
@@ -211,6 +212,20 @@ nav.navbar .navbar-right li a{
 	background:#00acc1;
 	color: #fff;
 }
+.points_table_admin1 thead{
+	background:   #7d3c98;
+		color:  #fff ;
+}
+.points_table_admin2 thead{
+	background: #3498db;
+		color: #fff;
+}
+.points_table_admin3 thead{
+	background: #CC3366;
+		color: #fff;
+}
+
+
 body{
         padding-top: 70px;
 
@@ -224,7 +239,6 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 
 }
-
 
 
 .modal-header2 {

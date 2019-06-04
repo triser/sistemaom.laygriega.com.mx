@@ -190,19 +190,19 @@ imagejpeg($lienzo, $destino1, 80);
                                 <select class="form-control" name="departamento_ticket" required >
                                  <option disabled value="" selected hidden>Elige una opción</option>
                                  <option value="Asesor Externo">Asesor Externo</option>
-                                  <option value="Asistente Comercial">Asistente Comercial</option>
-                                  <option value="Asistente de Direcciòn">Asistente de Direcciòn</option>
+                                  <option value="AComercial">Asistente Comercial</option>
+                                  <option value="ADirecciòn">Asistente de Direcciòn</option>
                                   <option value="SGC">Sistemas de Gestion de Calidad</option>
                                   <option value="Contabilidad">Contabilidad</option>
                                   <option value="Carga">Carga</option>
                                   <option value="Cobranza">Credito y Cobranza</option>
                                   <option value="Compras">Compras</option>
-                                  <option value="Cuentas por Pagar">Cuentas por pagar</option>
-                                  <option value="Cuentas por Cobrar">Cuentas por Cobrar</option>
+                                  <option value="CuentasxPagar">Cuentas por pagar</option>
+                                  <option value="CuentasxCobrar">Cuentas por Cobrar</option>
                                   <option value="Descarga">Descarga</option>
                                   <option value="Dirección">Dirección</option>
                                   <option value="Distribución">Distribución</option>
-                                  <option value="Facturació">Facturación</option>
+                                  <option value="Facturación">Facturación</option>
                                   <option value="Inventarios">Inventarios</option>
                                   <option value="Operaciones">Operaciones</option>
                                   <option value="Mantenimiento">Mantenimiento</option>
@@ -370,8 +370,8 @@ var actividades = {
                 "Hardware Y Software":[
                     " Actualización Sistema de OM "," Instalación y Configuración de Reportes Intelisis "," Mantenimiento Preventivo Equipos Informáticos "," Mantenimiento Correctivo Equipos Informáticos "," Perfiles de Usuarios Intelisis "," Soporte Aplicación Ecommerce "," Soporte ERP Intelisis "," Soporte Móvil Colibrí "," Soporte del sistema de OM "," Soporte General "," Timbrado CFDI "
                     ],
-                "Comunicacion y Seguridad TI":[
-                     " GPS "," Antivirus "," Cámaras de Seguridad "," Conectividad de Red ","Compra de Consumibles "," Correos Corporativos "," Conectividad de Red "," Estructura de la Red "," Firewall   "," Mantenimiento Preventivo de Impresora "," Mantenimiento Correctivo de Impresora "," Telefonía "," Soporte General "
+                "Comunicación y Seguridad TI":[
+                     " GPS "," Antivirus "," Cámaras de Seguridad "," Conectividad de Red ","Compra de Consumibles "," Correos Corporativos "," Conectividad de Red "," Estructura de la Red "," Firewall   "," Mantenimiento Preventivo de Impresora "," Mantenimiento Correctivo de Impresora "," Telefonía "," Soporte Aplicación Ecommerce "," Soporte General "
                     ],
                 
             }

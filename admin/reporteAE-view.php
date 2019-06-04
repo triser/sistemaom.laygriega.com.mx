@@ -109,7 +109,7 @@
 
                                 if(mysqli_num_rows($selticket)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin ">
+                            <table class="table table-hover table-striped table-bordered points_table_admin1">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
@@ -120,7 +120,7 @@
                                         <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Asignado a</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
-                                         <th class="text-center" scope="col">Total</th>
+                                        <th class="text-center" scope="col">Total</th>
                                         <th class="text-center" scope="col">Opciones</th>
                                     </tr>
                                 </thead>
@@ -141,7 +141,7 @@
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['']; ?></td>
                                         <td class="text-center" data-label="Opciones:">
                                             <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                            <a href="admin.php?view=ticketedit&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <a href="admin.php?view=ticketeditAE&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"  ><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             <form action="" method="POST" style="display: inline-block;">
                                                 <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-danger" disabled="disabled"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
@@ -239,6 +239,11 @@
       'resizeDuration': 200,
       'wrapAround': true
     })
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $("a").tooltip();
+});
 </script>
    <!-- LIGHTBOX PLUS JQUERY -->
     <script src="./js/lightbox-plus-jquery.min.js"></script>
