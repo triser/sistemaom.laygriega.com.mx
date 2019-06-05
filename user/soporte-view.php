@@ -29,6 +29,7 @@
         <div class="panel-body text-center">
           <img src="./img/old_ticket.png" alt="">
           <h4>Consultar estado de Orden</h4>
+          <!--
           <form class="form-horizontal" role="form" method="GET" action="./index.php">
             <input type="hidden" name="view" value="ticketcon">
             <div class="form-group">
@@ -49,6 +50,8 @@
               </div>
             </div>
           </form>
+        -->
+        <a href="ticketusuario.php" class="btn btn-success">Ver tickets creados</a>
         </div>
       </div>
     </div><!--fin col-md-6-->

@@ -122,6 +122,8 @@
                                         <th class="text-center" scope="col">Imagen</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
                                         <th class="text-center" scope="col">Opciones</th>
+
+<?php echo $_SESSION['tipo'];?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -146,6 +148,7 @@
                                                 <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-danger" disabled="disabled"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                                             </form>
+                                               <a href="detalleticket.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -230,7 +233,7 @@
                 <div class="col-sm-1">&nbsp;</div>
             </div>
         </div>
-        </section>	
+        </section>  
     
 <?php
 }
