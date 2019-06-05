@@ -9,7 +9,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <html>
     <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-        <title>Sistema</title>
+        <title>Sistema de mejora login</title>
         <?php include "./inc/links.php"; ?>        
     </head>
     <body>   
