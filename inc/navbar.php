@@ -25,7 +25,8 @@
                     
                         <!-- usuarios -->
                         
-                        <?php if($_SESSION['tipo']=="user"): ?><ul class="dropdown-menu">
+                        <?php if($_SESSION['tipo']=="user"):  ?>
+                    <ul class="dropdown-menu">
                          <li>
                     <a href="./index.php?view=soporte"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Solicitud de Ordenes</a>
                         </li>
