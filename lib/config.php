@@ -1,6 +1,6 @@
 <?php
-define("USER", "root");
-define("SERVER", "localhost");
+define("USER", "ygriega_admin");
+define("SERVER", "localhost:3306");
 define("BD", "ygriega_sistemaom");
-define("PASS", "");
+define("PASS", "Day.4251");
 ?>

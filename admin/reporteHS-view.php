@@ -120,7 +120,7 @@
                                         <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Asignado a</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
-                                         <th class="text-center" scope="col">Total</th>
+                                  
                                         <th class="text-center" scope="col">Opciones</th>
                                     </tr>
                                 </thead>
@@ -138,10 +138,10 @@
                                         <td class="text-center" data-label="Prioridad:"><?php echo $row['Prioridad']; ?></td>
                                         <td class="text-center" data-label="Solicitado:"><?php echo $row['area_solicitada']; ?></td>
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>
-                                        <td class="text-center" data-label="F.Entrega:"><?php echo $row['']; ?></td>
+                                        
                                         <td class="text-center" data-label="Opciones:">
                                             <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                            <a href="admin.php?view=ticketedit&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <a href="admin.php?view=ticketeditHS&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             <form action="" method="POST" style="display: inline-block;">
                                                 <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-danger" disabled="disabled"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>

@@ -148,7 +148,7 @@
                                                 <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-danger" disabled="disabled"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                                             </form>
-                                               <a href="detalleticket.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                               <a href="admin.php?view=admindetalleticket&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                     <?php
