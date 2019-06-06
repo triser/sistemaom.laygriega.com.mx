@@ -1,9 +1,8 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8'); 
+session_start();
 include './lib/class_mysql.php';
-include './lib/config.php';
-
-
-	     
+include './lib/config.php';   
 	$id = MysqlQuery::RequestGet('id');
 	$sql = Mysql::consulta("SELECT * FROM ticket WHERE id= '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
@@ -45,31 +44,31 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
 </h4>
    <div class="profile-user-info">
 <div class="profile-info-row">
-<div class="profile-info-name">Generado por</div>
+<div class="profile-info-name">Generado por <?php echo $_SESSION['tipo']; ?>:</div>
 <div class="profile-info-value">
-<span><?php echo $reg['nombre_usuario']?> </span>
+<span><?php echo $reg['nombre_usuario'];?> </span>
 </div>
 </div>
 <div class="profile-info-row">
-<div class="profile-info-name">Departamento </div>
+<div class="profile-info-name">Departamento:</div>
 <div class="profile-info-value">
 <span><?php echo $reg['departamento']?></span>
 </div>
 </div>
 <div class="profile-info-row">
-<div class="profile-info-name">Asunto  </div>
+<div class="profile-info-name">Asunto:</div>
 <div class="profile-info-value">
 <span><?php echo $reg['asunto']?></span>
 </div>
 </div>
 <div class="profile-info-row">
-<div class="profile-info-name">Fecha creación </div>
+<div class="profile-info-name">Fecha creación:</div>
 <div class="profile-info-value">
 <span><?php echo $reg['fecha']?></span>
 </div>
 </div>
 <div class="profile-info-row">
-<div class="profile-info-name">Estatus</div>
+<div class="profile-info-name">Estatus:</div>
 
 
 <div class="profile-info-value">
@@ -84,6 +83,9 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
 		case "Cancelado":
 		echo '<span style="color:red">'.$reg["estado_ticket"].'</span>';
 		break;
+      case "Pendiente":
+    echo '<span style="color:orange">'.$reg["estado_ticket"].'</span>';
+    break;
 
 
 	}
@@ -255,7 +257,9 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
 
     			echo '<script>alert("se ha guardado correctamente el comentario")</script>';
     			/*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
-
+      echo '<script>
+  location.href="detalleticket.php?id='. $id.'";
+  </script>';
           //Preparamos el mensaje de contacto
         $cabeceras = "From:Se ha realizado un comentario al ticket".$reg['serie'].""; //La persona que envia el correo
         $asunto = "Actualizacion de Orden de Mejora"; //El asunto

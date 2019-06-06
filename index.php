@@ -3,7 +3,6 @@ header('Content-Type: text/html; charset=UTF-8');
 session_start();
 include './lib/class_mysql.php';
 include './lib/config.php';
-
 if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
         include "./process/login.php";
 
@@ -86,7 +85,7 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
                 <br />
                 <h4><p>¿Cómo iniciaras sesión?</h4></p>
               
-                    <input type="radio" name="optionsRadios" id="radio3" value="user" >
+                    <input type="radio" name="optionsRadios" id="radio3" value="user" checked="" >
                     <label for="radio3">
                      <h4 class="modal-title text-primary" id="modal-md">Usuario</h4>
                  </label>

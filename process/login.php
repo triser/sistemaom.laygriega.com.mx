@@ -23,8 +23,10 @@
                     </p>
                 </div>
             ';
-
-        header('Location:admin.php?view=ticketadmin');
+              
+  echo '<script>
+  location.href="admin.php?view=ticketadmin";
+  </script>';       
                 
             }else{
                echo '
@@ -46,11 +48,12 @@
                 $_SESSION['nombre_completo']=$reg['nombre_completo'];
                 $_SESSION['email']=$reg['email_cliente'];
                 $_SESSION['clave']=$clave;
-                $_SESSION['tipo']="user";
+                $_SESSION['tipo']='user';
                 $_SESSION['nombre_usuario']=$nombre_usuario;
                
-
-         header('Location:index.php?view=soporte');          
+  echo '<script>
+  location.href="index.php?view=soporte";
+  </script>';     
            echo '
                 <div class="alert alert-info alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed; top:70px; right:10px; z-index:10;"> 
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>

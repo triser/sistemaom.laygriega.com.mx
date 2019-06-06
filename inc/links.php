@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="./css/animate.css">
 <link rel="stylesheet" href="./css/MediaQueries.css">
 <link rel="stylesheet" href="./css/font-awesome.min.css">
+<link rel="stylesheet" href="./css/profile.css">
 <link rel="stylesheet" rel="stylesheet" href="./css/ui-lightness/jquery-ui-1.10.4.custom.min.css"> 
 <link rel="stylesheet" href="./css/lightbox.css">
 <script src="./js/jquery-2.1.0.min.js"></script>
