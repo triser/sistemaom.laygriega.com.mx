@@ -1,6 +1,6 @@
 <?php
 define("USER", "root");
 define("SERVER", "localhost");
-define("BD", "sistemaom");
+define("BD", "ygriega_sistemaom");
 define("PASS", "");
 ?>
