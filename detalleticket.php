@@ -7,9 +7,9 @@ include './lib/config.php';
 	$sql = Mysql::consulta("SELECT * FROM ticket WHERE id= '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
-if($_SESSION['tipo']=""){
+if($_SESSION['tipo']==1){
     session_destroy();
-    header("Location: ./index.php"); 
+echo "<scrip>alert('saliendo...')</script>";
 }
 
 ?>
@@ -26,7 +26,15 @@ if($_SESSION['tipo']=""){
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Panel Administrativo</h1>
+                <?php if ($_SESSION['tipo']=="admin")
+                {
+                echo   '<h1 class="animated lightSpeedIn">Panel Administrativo</h1>';
+              }
+                else {
+                  echo   '<h1 class="animated lightSpeedIn">Panel de comentarios</h1>';
+                }
+                ?>
+
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>
@@ -39,12 +47,11 @@ if($_SESSION['tipo']=""){
             <!-- Example row of columns -->
     <div class="row">
     	<h4 class="blue">
-<span class="middle">Detalle de ticket #<?php 
-echo $_SESSION['tipo']; echo $reg['serie']?> </span>
+<span class="middle">Detalle de ticket #<?php echo $reg['serie']?> </span>
 </h4>
    <div class="profile-user-info">
 <div class="profile-info-row">
-<div class="profile-info-name">Generado por <?php echo $_SESSION['tipo']; ?>:</div>
+<div class="profile-info-name">Generado por:</div>
 <div class="profile-info-value">
 <span><?php echo $reg['nombre_usuario'];?> </span>
 </div>
