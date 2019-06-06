@@ -21,7 +21,7 @@ if($_SESSION['clave']!=""){ $nombre_user= $_SESSION['nombre_completo'];?>
              
             </div>
             <div class="col-sm-10">
-              <p class="lead text-info">Lista de ticket creados <?php echo $_SESSION['tipo']?></p>
+              <p class="lead text-info">Lista de ticket creados:<?php echo  $_SESSION['nombre_completo']; ?></p>
             </div>
           </div>
         </div>
