@@ -48,7 +48,7 @@
                 $_SESSION['nombre_completo']=$reg['nombre_completo'];
                 $_SESSION['email']=$reg['email_cliente'];
                 $_SESSION['clave']=$clave;
-                $_SESSION['tipo']='user';
+                $_SESSION['tipo']="user";
                 $_SESSION['nombre_usuario']=$nombre_usuario;
                
   echo '<script>

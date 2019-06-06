@@ -242,13 +242,25 @@ body{
 
 
 .modal-header2 {
-    background-color: #FF5733;
+    background-color: #ec7063;
     padding:16px 16px;
     color:#FFF;
-    border-bottom:2px dashed #FF5733;
+    border-bottom:2px dashed #ec7063;
+
+    
  }
 
-
+.modal-header2 h5 {
+font-size: 18px;
+    
+ }
+.modal-body{
+font-size: 18px;
+    text-align: center;
+ }
+.modal-footer{
+    text-align: center;
+ }
 #myFooter {
     background-color: #004675;
     color: white;

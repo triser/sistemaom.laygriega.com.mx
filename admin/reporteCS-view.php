@@ -36,23 +36,23 @@
                 }
 
                    /* Todos los tickets*/
-                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='TI'"  );
+                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Comunicacion y Seguridad TI'"  );
                 $num_total_all=mysqli_num_rows($num_ticket_all);
                 
                 /* Tickets pendientes*/
-                $num_ticket_pend=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Pendiente'" );
+                $num_ticket_pend=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada='Comunicacion y Seguridad TI' AND estado_ticket = 'Pendiente'" );
                 $num_total_pend=mysqli_num_rows($num_ticket_pend);
 
                 /* Tickets en proceso*/
-                $num_ticket_proceso=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'En Proceso'");
+                $num_ticket_proceso=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Comunicacion y Seguridad TI' AND estado_ticket = 'En Proceso'");
                 $num_total_proceso=mysqli_num_rows($num_ticket_proceso);
 
                 /* Tickets resueltos*/
-                $num_ticket_res=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Resuelto'");
+                $num_ticket_res=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Comunicacion y Seguridad TI' AND estado_ticket = 'Resuelto'");
                 $num_total_res=mysqli_num_rows($num_ticket_res);
                 
                  /* Tickets Cancelado*/
-                $num_ticket_can=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Cancelado'");
+                $num_ticket_can=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Comunicacion y Seguridad TI' AND estado_ticket = 'Cancelado'");
                 $num_total_can=mysqli_num_rows($num_ticket_can);
             ?>
 
@@ -83,20 +83,20 @@
                                 
                                 if(isset($_GET['ticket'])){
                                     if($_GET['ticket']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="pending"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Pendiente' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' AND estado_ticket = 'Pendiente' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="process"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'En Proceso' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' AND estado_ticket = 'En Proceso' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="resolved"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Resuelto' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' AND estado_ticket = 'Resuelto' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="cancelled"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' AND estado_ticket = 'Cancelado' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' AND estado_ticket = 'Cancelado' LIMIT $inicio, $regpagina";
                                     }else{
                                         $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket ORDER BY id DESC LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='TI' LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Comunicación y Seguridad TI' LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -119,7 +119,6 @@
                                         <th class="text-center" scope="col">Estado</th>
                                          <th class="text-center" scope="col">Asunto</th>
                                         <th class="text-center" scope="col">Prioridad</th>
-                                        <th class="text-center" scope="col">Asignado a</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
                                         
                                         <th class="text-center" scope="col">Opciones</th>
@@ -138,16 +137,15 @@
                                         <td class="text-center" data-label="Estado:"><?php echo $row['estado_ticket']; ?></td>
                                         <td class="text-center" data-label="Area:"><?php echo $row['asunto']; ?></td>
                                         <td class="text-center" data-label="Prioridad:"><?php echo $row['Prioridad']; ?></td>
-                                        <td class="text-center" data-label="Solicitado:"><?php echo $row['area_solicitada']; ?></td>
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>
                                         
                                         <td class="text-center" data-label="Opciones:">
                                             <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                            <a href="admin.php?view=ticketeditCS&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            <form action="" method="POST" style="display: inline-block;">
-                                                <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
-                                                <button type="submit" class="btn btn-sm btn-danger" disabled="disabled"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
-                                            </form>
+                                            <a href="admin.php?view=ticketeditCS&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                          
+                                               <a href="admin.php?view=admindetalleticket&id=<?php echo $row['id']; ?>" class="btn btn-sm btn btn-info"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
+                                            
                                         </td>
                                     </tr>
                                     <?php
@@ -214,7 +212,39 @@
                         <?php endif; ?>
                     </div>
                 </div>
-            </div><!--container principal-->
+              <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header2">
+        <h5 class="modal-title" id="exampleModalLongTitle">PANEL DE ELIMINACION DE REGISTRO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <img src="img/sadminiracion.png">
+          <hr>
+      ¿Estás seguro de Eliminar este registro?
+          <br>
+          <hr>
+    Esta operación es irreversible
+          
+      <div class="modal-footer">
+        
+          <button type="button" class="btn btn-info btn-lg btn" data-dismiss="modal">Salir</button>
+                    <form action="" method="POST" style="display: inline-block;">
+                                                <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
+                                                <button type="submit" class="btn btn-danger btn-lg btn" disabled="disabled">Eliminar</button>
+                                            </form>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+                
+            </div> </div><!--container principal-->
 <?php
 }else{
 ?>

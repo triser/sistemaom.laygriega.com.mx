@@ -16,14 +16,18 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
           <div class="row">
             <div class="col-sm-12">
          
-            </div>
-          </div>
-            <!-- Example row of columns -->
-    <div class="row">
-    	<h4 class="blue">
-<span class="middle">#<?php 
-echo $_SESSION['tipo'];?>Detalle de ticket &nbsp;# <?php echo $reg['serie']?> </span>
-</h4>
+          
+                    
+    <div class="panel panel-default">
+    <div class="panel-heading"> 	<h4 class="blue">
+<span class="middle">Detalle del ticket con Folio&nbsp;<?php echo $reg['serie']?> </span>
+</h4></div>
+    <div class="panel-body">
+        <p>En este apartado podra realizar tus cometarios referente a tu ticket que apareden en pantalla, dando un click Comentarios</p>
+    </div>
+
+    <div class="table-responsive">
+<div class="row">
    <div class="profile-user-info">
 <div class="profile-info-row">
 <div class="profile-info-name">Generado por <?php echo $_SESSION['tipo']; ?>:</div>
@@ -98,11 +102,14 @@ echo $_SESSION['tipo'];?>Detalle de ticket &nbsp;# <?php echo $reg['serie']?> </
     </div>
   </div>
 </form>
-
-	<div>
-</div>
     </div>
-    
+    </div>
+</div>
+                  </div>
+          </div>  
+            
+        
+        
      <div class="container">
                
                 <br>
@@ -240,7 +247,7 @@ echo $_SESSION['tipo'];?>Detalle de ticket &nbsp;# <?php echo $reg['serie']?> </
     			echo '<script>alert("se ha guardado correctamente el comentario")</script>';
     			/*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
       echo '<script>
-  location.href="detalleticket.php?id='. $id.'";
+  location.href="admindetalleticket-view.php?id='. $id.'";
   </script>';
           //Preparamos el mensaje de contacto
         $cabeceras = "From:Se ha realizado un comentario al ticket".$reg['serie'].""; //La persona que envia el correo
