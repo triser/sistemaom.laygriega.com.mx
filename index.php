@@ -24,7 +24,7 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
             <div class="col-sm-12">
               <div class="page-header">
                 <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small> LA Y GRIEGA</small></h1>
-                <span class="label label-danger">Distribuidora de Abarrotes la Y Griega S.A de C.V.</span>
+                <span class="label label-danger"> la Y Griega S.A de C.V.</span>
                 <p class="pull-right text-success">
                   <strong>
                     <!--<span class="glyphicon glyphicon-time"></span>&nbsp;<?php //include "./inc/timezone.php"; ?>-->
