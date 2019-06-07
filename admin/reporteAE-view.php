@@ -58,7 +58,7 @@
                 $num_total_can=mysqli_num_rows($num_ticket_can);
             ?>
 
-            <div class="container">
+           <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-pills nav-justified">
@@ -111,7 +111,7 @@
 
                                 if(mysqli_num_rows($selticket)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin1">
+                            <table class="table table-hover table-striped table-bordered points_table_admin1" class="table table-hover" >
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
@@ -119,6 +119,7 @@
                                         <th class="text-center" scope="col">Serie</th>
                                         <th class="text-center" scope="col">Estado</th>
                                         <th class="text-center" scope="col">Area</th>
+                                    >
                                         <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Imagen</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
@@ -142,13 +143,13 @@
 		echo '<span class="btn btn-info btn-xs" disabled="disabled">'.$row["estado_ticket"].'</span>';
 		break;
         case "En proceso":
-        echo '<span class="btn btn-success btn-xs">'.$row["estado_ticket"].'</span>';
+        echo '<span class="btn btn-success btn-xs" disabled="disabled">'.$row["estado_ticket"].'</span>';
         break;
 		case "Cancelado":
-		echo '<span class="btn btn-warning btn-xs">'.$row["estado_ticket"].'</span>';
+		echo '<span class="btn btn-warning btn-xs" disabled="disabled">'.$row["estado_ticket"].'</span>';
 		break;
         case "Pendiente":
-        echo '<span class="btn btn-danger btn-xs">'.$row["estado_ticket"].'</span>';
+        echo '<span class="btn btn-danger btn-xs" disabled="disabled">'.$row["estado_ticket"].'</span>';
        break;
 	}
 
@@ -160,13 +161,13 @@
 	switch ($row['Prioridad'])
 	{
 		case "Urgente":
-		echo '<span class="btn btn-default btn-xs" style="color:red">'.$row["Prioridad"].'</span>';
+		echo '<span class="btn btn-default btn-xs" disabled="disabled" style="color:red">'.$row["Prioridad"].'</span>';
 		break;
         case "Medio Urgente":
-        echo '<spans class="btn btn-default btn-xs" style="color:orange">'.$row["Prioridad"].'</span>';
+        echo '<spans class="btn btn-default btn-xs" disabled="disabled" style="color:orange">'.$row["Prioridad"].'</span>';
         break;
 		case "No urgente":
-		echo '<span class="btn btn-default btn-xs" style="color:blue">'.$row["Prioridad"].'</span>';
+		echo '<span class="btn btn-default btn-xs" disabled="disabled" style="color:blue">'.$row["Prioridad"].'</span>';
 		break;
 	}
 

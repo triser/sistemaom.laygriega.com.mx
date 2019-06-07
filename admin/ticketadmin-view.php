@@ -58,7 +58,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md">
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="./admin.php?view=ticketadmin&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todas las Ordenes&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
                             <li><a href="./admin.php?view=ticketadmin&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Ordenes pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
@@ -70,7 +70,7 @@
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md">
                         <div class="table-responsive">
                             <?php
                                 $mysqli = mysqli_connect(SERVER, USER, PASS, BD);
