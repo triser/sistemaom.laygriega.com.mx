@@ -162,13 +162,13 @@
 	switch ($row['Prioridad'])
 	{
 		case "Urgente":
-		echo '<span class="btn btn-danger btn-xs">'.$row["Prioridad"].'</span>';
+		echo '<span style="color:red">'.$row["Prioridad"].'</span>';
 		break;
         case "Medio Urgente":
-        echo '<span class="btn btn-warning btn-xs">'.$row["Prioridad"].'</span>';
+        echo '<spans style="color:orange">'.$row["Prioridad"].'</span>';
         break;
 		case "No urgente":
-		echo '<span class="btn btn-info btn-xs">'.$row["Prioridad"].'</span>';
+		echo '<span style="color:blue">'.$row["Prioridad"].'</span>';
 		break;
 	}
 

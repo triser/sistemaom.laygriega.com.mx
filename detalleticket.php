@@ -26,7 +26,7 @@ if($_SESSION['tipo']=""){
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
+                <h1 class="animated lightSpeedIn">Panel Comentarios de Ticket</h1>
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>
@@ -39,7 +39,7 @@ if($_SESSION['tipo']=""){
             <!-- Example row of columns -->
     <div class="row">
     	<h4 class="blue">
-<span class="middle">Detalle de ticket #<?php 
+<span class="middle">Detalle de Ticket <?php 
 echo $_SESSION['tipo']; echo $reg['serie']?> </span>
 </h4>
    <div class="profile-user-info">

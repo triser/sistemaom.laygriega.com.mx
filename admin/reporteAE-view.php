@@ -1,6 +1,19 @@
 <?php if( $_SESSION['nombre']!="" && $_SESSION['clave']!="" && $_SESSION['tipo']=="admin"){ ?>
         <div class="container">
           <div class="row">
+            <div class="row">
+            <div class="col-sm-12">
+              <div class="page-header">
+                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
+                <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
+                <p class="pull-right text-success">
+                  <strong>
+                  <span class="glyphicon glyphicon-time"></span>&nbsp;<?php include "./inc/timezone.php"; ?>
+                 </strong>
+               </p>
+              </div>
+            </div>
+          </div>
             <div class="col-sm-2">
               <center><img src="./img/msj.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
@@ -137,7 +150,7 @@
 	switch ($row['estado_ticket'])
 	{
 		case "Resuelto":
-		echo '<span class="btn btn-info btn-xs">'.$row["estado_ticket"].'</span>';
+		echo '<span class="btn btn-info btn-xs" disabled="disabled">'.$row["estado_ticket"].'</span>';
 		break;
         case "En proceso":
         echo '<span class="btn btn-success btn-xs">'.$row["estado_ticket"].'</span>';
@@ -158,13 +171,13 @@
 	switch ($row['Prioridad'])
 	{
 		case "Urgente":
-		echo '<span class="btn btn-danger btn-xs">'.$row["Prioridad"].'</span>';
+		echo '<span class="btn btn-default btn-xs" style="color:red">'.$row["Prioridad"].'</span>';
 		break;
         case "Medio Urgente":
-        echo '<span class="btn btn-warning btn-xs">'.$row["Prioridad"].'</span>';
+        echo '<spans class="btn btn-default btn-xs" style="color:orange">'.$row["Prioridad"].'</span>';
         break;
 		case "No urgente":
-		echo '<span class="btn btn-info btn-xs">'.$row["Prioridad"].'</span>';
+		echo '<span class="btn btn-default btn-xs" style="color:blue">'.$row["Prioridad"].'</span>';
 		break;
 	}
 
