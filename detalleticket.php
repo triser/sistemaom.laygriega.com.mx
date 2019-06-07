@@ -17,7 +17,7 @@ if($_SESSION['tipo']=""){
 <html>
     <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-        <title>Administracion</title>
+        <title>Panel de Comentarios</title>
         <?php include "./inc/links.php"; ?>        
     </head>
     <body>   
@@ -26,7 +26,7 @@ if($_SESSION['tipo']=""){
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Panel Administrativo</h1>
+                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>

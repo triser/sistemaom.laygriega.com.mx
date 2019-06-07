@@ -23,7 +23,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 <span class="middle">Detalle del ticket con Folio&nbsp;<?php echo $reg['serie']?> </span>
 </h4></div>
     <div class="panel-body">
-        <p>En este apartado podra realizar tus cometarios referente a tu ticket que apareden en pantalla, dando un click Comentarios</p>
+        <p>En este apartado podra realizar tus cometarios referente a tu ticket que aparecen en pantalla, dando un click Comentarios</p>
     </div>
 
     <div class="table-responsive">
@@ -63,16 +63,19 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 	//pintamos de colorores los estados del ticket
 	switch ($reg['estado_ticket'])
 	{
-		case "Resuelto":
-		echo '<span style="color:green">'.$reg["estado_ticket"].'</span>';
+            
+        case "Resuelto":
+		echo '<span class="btn btn-info btn-xs">'.$reg["estado_ticket"].'</span>';
 		break;
+        case "En proceso":
+        echo '<span class="btn btn-success btn-xs">'.$reg["estado_ticket"].'</span>';
+        break;
 		case "Cancelado":
-		echo '<span style="color:red">'.$reg["estado_ticket"].'</span>';
+		echo '<span class="btn btn-warning btn-xs">'.$reg["estado_ticket"].'</span>';
 		break;
-      case "Pendiente":
-    echo '<span style="color:orange">'.$reg["estado_ticket"].'</span>';
-    break;
-
+        case "Pendiente":
+        echo '<span class="btn btn-danger btn-xs">'.$reg["estado_ticket"].'</span>';
+       break;
 
 	}
 
