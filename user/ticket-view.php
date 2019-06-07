@@ -77,14 +77,13 @@ imagejpeg($lienzo, $destino1, 80);
 			
 			//Enviamos el mensaje ala Bd
 			
-			if(MysqlQuery::Guardar("ticket", "fecha, nombre_usuario, email_cliente, departamento, Prioridad, area_solicitada, asunto, mensaje, foto1, fechaE, estado_ticket, serie", "'$fecha_ticket', '$nombre_ticket', '$email_ticket', '$departamento_ticket','$prioridad_ticket', '$solicitud_ticket', '$asunto_ticket', '$mensaje_ticket','$destino1','$fecha2_ticket','$estado_ticket','$id_ticket'"))
-			{
+			if(MysqlQuery::Guardar("ticket", "fecha, nombre_usuario, email_cliente, departamento, Prioridad, area_solicitada, asunto, mensaje, foto1, fechaE, estado_ticket, serie", "'$fecha_ticket', '$nombre_ticket', '$email_ticket', '$departamento_ticket','$prioridad_ticket', '$solicitud_ticket', '$asunto_ticket', '$mensaje_ticket','$destino1','$fecha2_ticket','$estado_ticket','$id_ticket'")){
 
     	  /*
             ----------Enviar correo con los datos del ticket mail($email_ticket, $asunto_ticket, $mensaje_mail, $cabecera)
             ----------*/
             	 /*Fin codigo numero de ticket*/
-		  
+		  $solicitud_ticket = $_POST['solicitud_ticket'];
 		  $fecha_ticket = $_POST['fecha_ticket'];
 		  $nombre_ticket = utf8_decode($_POST['name_ticket']);
 		  $email_ticket = $_POST['email_ticket'];
@@ -96,6 +95,7 @@ imagejpeg($lienzo, $destino1, 80);
 		  $email_to = "$email_ticket, sistemaom@laygriega.com.mx"; //cambiar por tu email
 		  $mensaje_mail="Hola ".$nombre_ticket.",Gracias por reportarnos su problema! Buscaremos una solucion para su problema lo mas pronto posible. Su Orden ID es: ".$id_ticket.",
 		  \n Solicitado Con Fecha: ".$fecha_ticket.",
+           \n Dirigido o solicitado al departamento: ".$solicitud_ticket.",
 		  \n Para poder Consultar su estatus de Su Orden De Trabajo, Visitanos en el siguiente Enlace: http://sistemaom.laygriega.com.mx";
 
 		  //Enviamos el mensaje y comprobamos el resultado
@@ -376,4 +376,3 @@ var actividades = {
                 
             }
    </script>
-   

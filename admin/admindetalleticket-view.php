@@ -250,7 +250,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
     			echo '<script>alert("se ha guardado correctamente el comentario")</script>';
     			/*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
       echo '<script>
-  location.href="admindetalleticket-view.php?id='. $id.'";
+  location.href="admin.php?view=admindetalleticket?id='. $id.'";
   </script>';
           //Preparamos el mensaje de contacto
         $cabeceras = "From:Se ha realizado un comentario al ticket".$reg['serie'].""; //La persona que envia el correo
