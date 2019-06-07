@@ -17,7 +17,7 @@ echo "<scrip>alert('saliendo...')</script>";
 <html>
     <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-        <title>Administracion</title>
+        <title>Panel de Comentarios</title>
         <?php include "./inc/links.php"; ?>        
     </head>
     <body>   
@@ -26,6 +26,7 @@ echo "<scrip>alert('saliendo...')</script>";
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
+<<<<<<< HEAD
                 <?php if ($_SESSION['tipo']=="admin")
                 {
                 echo   '<h1 class="animated lightSpeedIn">Panel Administrativo</h1>';
@@ -35,6 +36,9 @@ echo "<scrip>alert('saliendo...')</script>";
                 }
                 ?>
 
+=======
+                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
+>>>>>>> administrator
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>

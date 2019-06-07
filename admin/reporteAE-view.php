@@ -114,13 +114,12 @@
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
                                         <th class="text-center" scope="col">F.Apertura</th>
-                                        <th class="text-center" scope="col">Folio</th>
-                                        <th class="text-center" scope="col">Departamento</th>
+                                        <th class="text-center" scope="col">Serie</th>
                                         <th class="text-center" scope="col">Estado</th>
+                                        <th class="text-center" scope="col">Area</th>
                                         <th class="text-center" scope="col">Prioridad</th>
-                                        <th class="text-center" scope="col">Asignado a</th>
+                                        <th class="text-center" scope="col">Imagen</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
-                                 
                                         <th class="text-center" scope="col">Opciones</th>
                                     </tr>
                                 </thead>
@@ -133,10 +132,45 @@
                                         <td class="text-center" scope="row" data-label="Registro"><?php echo $ct; ?></td>
                                         <td class="text-center" data-label="F.Apertura:"><?php echo $row['fecha']; ?></td>
                                         <td class="text-center" data-label="Serie:"><?php echo $row['serie']; ?></td>
+                                        <td class="text-center" data-label="Estado:"><?php 
+	//pintamos de colorores los estados del ticket
+	switch ($row['estado_ticket'])
+	{
+		case "Resuelto":
+		echo '<span class="btn btn-info btn-xs">'.$row["estado_ticket"].'</span>';
+		break;
+        case "En proceso":
+        echo '<span class="btn btn-success btn-xs">'.$row["estado_ticket"].'</span>';
+        break;
+		case "Cancelado":
+		echo '<span class="btn btn-warning btn-xs">'.$row["estado_ticket"].'</span>';
+		break;
+        case "Pendiente":
+        echo '<span class="btn btn-danger btn-xs">'.$row["estado_ticket"].'</span>';
+       break;
+	}
+
+	?>
+</td>
                                         <td class="text-center" data-label="Area:"><?php echo $row['departamento']; ?></td>
-                                        <td class="text-center" data-label="Estado:"><?php echo $row['estado_ticket']; ?></td>
-                                        <td class="text-center" data-label="Prioridad:"><?php echo $row['Prioridad']; ?></td>
-                                        <td class="text-center" data-label="Solicitado:"><?php echo $row['area_solicitada']; ?></td>
+                                        <td class="text-center" data-label="Prioridad:"><?php 
+	//pintamos de colorores los estados del ticket
+	switch ($row['Prioridad'])
+	{
+		case "Urgente":
+		echo '<span class="btn btn-danger btn-xs">'.$row["Prioridad"].'</span>';
+		break;
+        case "Medio Urgente":
+        echo '<span class="btn btn-warning btn-xs">'.$row["Prioridad"].'</span>';
+        break;
+		case "No urgente":
+		echo '<span class="btn btn-info btn-xs">'.$row["Prioridad"].'</span>';
+		break;
+	}
+
+	?>
+</td>
+                                        <td class="text-center" data-label="Imagen:"><a class="example-image-link" href=<?php echo $row['Foto1']; ?> data-lightbox="example-set" data-title="<?php echo $row['mensaje']; ?>"><img src=<?php echo $row['Foto1']; ?> width="25" height="25" class="property_img"/></a></td><div class="property_details">
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>
                                         
                                         <td class="text-center" data-label="Opciones:">

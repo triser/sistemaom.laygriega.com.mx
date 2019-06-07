@@ -62,9 +62,9 @@
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="./admin.php?view=ticketadmin&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todas las Ordenes&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
                             <li><a href="./admin.php?view=ticketadmin&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Ordenes pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
-                            <li><a href="./admin.php?view=ticketadmin&ticket=process"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;Ordenes en proceso&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_proceso; ?></span></a></li>
-                            <li><a href="./admin.php?view=ticketadmin&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Ordenes resueltos&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_res; ?></span></a></li>
-                            <li><a href="./admin.php?view=ticketadmin&ticket=cancelled"><i class="fa fa-minus-square"></i>&nbsp;&nbsp;Ordenes Cancelados&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_can; ?></span></a></li>
+                            <li><a href="./admin.php?view=ticketadmin&ticket=process"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;Ordenes en proceso&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_proceso; ?></span></a></li>
+                            <li><a href="./admin.php?view=ticketadmin&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Ordenes resueltos&nbsp;&nbsp;<span class="label label-info"><?php echo $num_total_res; ?></span></a></li>
+                            <li><a href="./admin.php?view=ticketadmin&ticket=cancelled"><i class="fa fa-minus-square"></i>&nbsp;&nbsp;Ordenes Cancelados&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_can; ?></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,6 +75,7 @@
                             <?php
                                 $mysqli = mysqli_connect(SERVER, USER, PASS, BD);
                                 mysqli_set_charset($mysqli, "utf8");
+                              
 
                                 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
                                 $regpagina = 15;
@@ -104,6 +105,7 @@
 
                                 $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                                 $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
+                                
                         
                                 $numeropaginas = ceil($totalregistros["FOUND_ROWS()"]/$regpagina);
 
@@ -116,9 +118,9 @@
                                         <th class="text-center" scope="col">F.Apertura</th>
                                         <th class="text-center" scope="col">Serie</th>
                                         <th class="text-center" scope="col">Estado</th>
-                                        <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Area</th>
                                         <th class="text-center" scope="col">Solicitado</th>
+                                        <th class="text-center" scope="col">Prioridad</th>
                                         <th class="text-center" scope="col">Imagen</th>
                                         <th class="text-center" scope="col">F.Entrega</th>
                                         <th class="text-center" scope="col">Opciones</th>
@@ -133,10 +135,45 @@
                                         <td class="text-center" scope="row" data-label="Registro"><?php echo $ct; ?></td>
                                         <td class="text-center" data-label="F.Apertura:"><?php echo $row['fecha']; ?></td>
                                         <td class="text-center" data-label="Serie:"><?php echo $row['serie']; ?></td>
-                                        <td class="text-center" data-label="Estado:"><?php echo $row['estado_ticket']; ?></td>
-                                        <td class="text-center" data-label="Prioridad:"><?php echo $row['Prioridad']; ?></td>
+                                        <td class="text-center" data-label="Estado:"><?php 
+	//pintamos de colorores los estados del ticket
+	switch ($row['estado_ticket'])
+	{
+		case "Resuelto":
+		echo '<span class="btn btn-info btn-xs">'.$row["estado_ticket"].'</span>';
+		break;
+        case "En proceso":
+        echo '<span class="btn btn-success btn-xs">'.$row["estado_ticket"].'</span>';
+        break;
+		case "Cancelado":
+		echo '<span class="btn btn-warning btn-xs">'.$row["estado_ticket"].'</span>';
+		break;
+        case "Pendiente":
+        echo '<span class="btn btn-danger btn-xs">'.$row["estado_ticket"].'</span>';
+       break;
+	}
+
+	?>
+</td>
                                         <td class="text-center" data-label="Area:"><?php echo $row['departamento']; ?></td>
                                         <td class="text-center" data-label="Solicitado:"><?php echo $row['area_solicitada']; ?></td>
+                                        <td class="text-center" data-label="Prioridad:"><?php 
+	//pintamos de colorores los estados del ticket
+	switch ($row['Prioridad'])
+	{
+		case "Urgente":
+		echo '<span class="btn btn-danger btn-xs">'.$row["Prioridad"].'</span>';
+		break;
+        case "Medio Urgente":
+        echo '<span class="btn btn-warning btn-xs">'.$row["Prioridad"].'</span>';
+        break;
+		case "No urgente":
+		echo '<span class="btn btn-info btn-xs">'.$row["Prioridad"].'</span>';
+		break;
+	}
+
+	?>
+</td>
                                         <td class="text-center" data-label="Imagen:"><a class="example-image-link" href=<?php echo $row['Foto1']; ?> data-lightbox="example-set" data-title="<?php echo $row['mensaje']; ?>"><img src=<?php echo $row['Foto1']; ?> width="25" height="25" class="property_img"/></a></td><div class="property_details">
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>
                                         <td class="text-center" data-label="Opciones:">
