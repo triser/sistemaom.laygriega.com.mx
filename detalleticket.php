@@ -26,7 +26,6 @@ echo "<scrip>alert('saliendo...')</script>";
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-<<<<<<< HEAD
                 <?php if ($_SESSION['tipo']=="admin")
                 {
                 echo   '<h1 class="animated lightSpeedIn">Panel Administrativo</h1>';
@@ -36,9 +35,7 @@ echo "<scrip>alert('saliendo...')</script>";
                 }
                 ?>
 
-=======
-                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
->>>>>>> administrator
+                <h1 class="animated lightSpeedIn">Panel Comentarios de Ticket</h1>administrator
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>
@@ -52,6 +49,7 @@ echo "<scrip>alert('saliendo...')</script>";
     <div class="row">
     	<h4 class="blue">
 <span class="middle">Detalle de ticket #<?php echo $reg['serie']?> </span>
+echo $_SESSION['tipo']; echo $reg['serie']?> </span>
 </h4>
    <div class="profile-user-info">
 <div class="profile-info-row">

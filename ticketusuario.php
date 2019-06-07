@@ -8,23 +8,38 @@ if($_SESSION['clave']!=""){ $nombre_user= $_SESSION['nombre_completo'];?>
     <!DOCTYPE html>
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-        <title>Administracion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Reporte Usuario</title>
         <?php include "./inc/links.php"; ?>        
     </head>
     <body>   
         <?php include "./inc/navbar.php"; ?>
         <br>
         <div class="container">
+<<<<<<< HEAD
           <div class="row">
             <div class="col-sm-2">
              
             </div>
             <div class="col-sm-10">
               <p class="lead text-info">Lista de ticket creados:<?php echo  $_SESSION['nombre_completo']; ?></p>
+=======
+                    <div class="row">
+            <div class="col-sm-12">
+              <div class="page-header">
+                <h1 class="animated lightSpeedIn">Reporte de Ticket Solicitados</h1>
+                <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
+                <p class="pull-right text-success">
+                  <strong>
+                  <span class="glyphicon glyphicon-time"></span>&nbsp;<?php include "./inc/timezone.php"; ?>
+                 </strong>
+               </p>
+              </div>
+>>>>>>> administrator
             </div>
           </div>
         </div>
+        
             <?php
                 if(isset($_POST['id_del'])){
                     $id = MysqlQuery::RequestPost('id_del');
