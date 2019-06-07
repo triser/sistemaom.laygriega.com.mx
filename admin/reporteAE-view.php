@@ -2,17 +2,6 @@
         <div class="container">
           <div class="row">
             <div class="row">
-            <div class="col-sm-12">
-              <div class="page-header">
-                <h1 class="animated lightSpeedIn">Panel Comentarios</h1>
-                <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
-                <p class="pull-right text-success">
-                  <strong>
-                  <span class="glyphicon glyphicon-time"></span>&nbsp;<?php include "./inc/timezone.php"; ?>
-                 </strong>
-               </p>
-              </div>
-            </div>
           </div>
             <div class="col-sm-2">
               <center><img src="./img/msj.png" alt="Image" class="img-responsive animated tada"></center>
