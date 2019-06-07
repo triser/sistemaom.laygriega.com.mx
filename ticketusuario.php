@@ -16,15 +16,7 @@ if($_SESSION['clave']!=""){ $nombre_user= $_SESSION['nombre_completo'];?>
         <?php include "./inc/navbar.php"; ?>
         <br>
         <div class="container">
-<<<<<<< HEAD
-          <div class="row">
-            <div class="col-sm-2">
-             
-            </div>
-            <div class="col-sm-10">
-              <p class="lead text-info">Lista de ticket creados:<?php echo  $_SESSION['nombre_completo']; ?></p>
-=======
-                    <div class="row">
+            <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
                 <h1 class="animated lightSpeedIn">Reporte de Ticket Solicitados</h1>
@@ -35,7 +27,6 @@ if($_SESSION['clave']!=""){ $nombre_user= $_SESSION['nombre_completo'];?>
                  </strong>
                </p>
               </div>
->>>>>>> administrator
             </div>
           </div>
         </div>
