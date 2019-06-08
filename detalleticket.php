@@ -46,89 +46,102 @@ echo "<scrip>alert('saliendo...')</script>";
             </div>
           </div>
             <!-- Example row of columns -->
-    <div class="row">
-    	<h4 class="blue">
-<span class="middle">Detalle de ticket #<?php echo $reg['serie']?> </span>
-echo $_SESSION['tipo']; echo $reg['serie']?> </span>
-</h4>
-   <div class="profile-user-info">
-<div class="profile-info-row">
-<div class="profile-info-name">Generado por:</div>
-<div class="profile-info-value">
-<span><?php echo $reg['nombre_usuario'];?> </span>
-</div>
-</div>
-<div class="profile-info-row">
-<div class="profile-info-name">Departamento:</div>
-<div class="profile-info-value">
-<span><?php echo $reg['departamento']?></span>
-</div>
-</div>
-<div class="profile-info-row">
-<div class="profile-info-name">Asunto:</div>
-<div class="profile-info-value">
-<span><?php echo $reg['asunto']?></span>
-</div>
-</div>
-<div class="profile-info-row">
-<div class="profile-info-name">Fecha creación:</div>
-<div class="profile-info-value">
-<span><?php echo $reg['fecha']?></span>
-</div>
-</div>
-<div class="profile-info-row">
-<div class="profile-info-name">Estatus:</div>
+            <div class="row">        
+               <div class="col-sm-12">             
+                <div class="panel panel-default">
+                  <div class="panel-heading">  
+                    <h4 class="blue">
+                      <span class="middle">Detalle del ticket con Folio&nbsp;<?php echo $reg['serie']?> </span>
+                    </h4></div>
+                    <div class="panel-body">
+                      <p>En este apartado podra realizar tus cometarios referente a tu ticket que aparecen en pantalla, dando un click Comentarios</p>
+                    </div>
+
+                    <div class="table-responsive">
+                      <div class="row">
+                       <div class="profile-user-info">
+                        <div class="profile-info-row">
+                          <div class="profile-info-name">Generado por:</div>
+                          <div class="profile-info-value">
+                            <span><?php echo $reg['nombre_usuario'];?> </span>
+                          </div>
+                        </div>
+                        <div class="profile-info-row">
+                          <div class="profile-info-name">Departamento:</div>
+                          <div class="profile-info-value">
+                            <span><?php echo $reg['departamento']?></span>
+                          </div>
+                        </div>
+                        <div class="profile-info-row">
+                          <div class="profile-info-name">Asunto:</div>
+                          <div class="profile-info-value">
+                            <span><?php echo $reg['asunto']?></span>
+                          </div>
+                        </div>
+                        <div class="profile-info-row">
+                          <div class="profile-info-name">Fecha creación:</div>
+                          <div class="profile-info-value">
+                            <span><?php echo $reg['fecha']?></span>
+                          </div>
+                        </div>
+                        <div class="profile-info-row">
+                          <div class="profile-info-name">Estatus:</div>
 
 
-<div class="profile-info-value">
+                          <div class="profile-info-value">
 
-	<?php 
-	//pintamos de colorores los estados del ticket
-	switch ($reg['estado_ticket'])
-	{
-		case "Resuelto":
-		echo '<span style="color:green">'.$reg["estado_ticket"].'</span>';
-		break;
-		case "Cancelado":
-		echo '<span style="color:red">'.$reg["estado_ticket"].'</span>';
-		break;
-      case "Pendiente":
-    echo '<span style="color:orange">'.$reg["estado_ticket"].'</span>';
-    break;
+                            <?php 
+  //pintamos de colorores los estados del ticket
+                            switch ($reg['estado_ticket'])
+                            {
 
+                              case "Resuelto":
+                              echo '<span class="btn btn-info btn-xs">'.$reg["estado_ticket"].'</span>';
+                              break;
+                              case "En proceso":
+                              echo '<span class="btn btn-success btn-xs">'.$reg["estado_ticket"].'</span>';
+                              break;
+                              case "Cancelado":
+                              echo '<span class="btn btn-warning btn-xs">'.$reg["estado_ticket"].'</span>';
+                              break;
+                              case "Pendiente":
+                              echo '<span class="btn btn-danger btn-xs">'.$reg["estado_ticket"].'</span>';
+                              break;
 
-	}
+                            }
 
-	?>
+                            ?>
 
-</div>
-<div>
-	<button type="button" class="btn btn-success" id="btncomentar">Comentar</button>
-	<button type="button" class="btn btn-primary" id="btnback">Regresar</button>
-	</div>		
-	</div>
-</div>
-</br>
-<!--FORMULARIO QUE ENVIA EL COMENTARIO-->
-	<form class="form-horizontal" role="form" id="formcomenta" action="detalleticket.php" method="GET">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
-    <div class="col-sm-10">
-      <textarea type="text" rows="5" class="form-control" name="comentario" id="comentario" placeholder="Escriba aqui su comentario"></textarea>
-      <input type="hidden" name="id" value="<?php echo "$id"?>">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" name="envia">Enviar</button>
-         <a class="btn btn-danger" id="cancelar">Cancelar</a>
-    </div>
-  </div>
-</form>
-
-	<div>
-</div>
-    </div>
+                          </div>
+                          <div>
+                            <button type="button" class="btn btn-success" id="btncomentar">Comentar</button>
+                            <button type="button" class="btn btn-primary" id="btnback">Regresar</button>
+                          </div>    
+                        </div>
+                      </div>
+                    </br>
+                    <!--FORMULARIO QUE ENVIA EL COMENTARIO-->
+                    <form class="form-horizontal" role="form" id="formcomenta" action="detalleticket.php" method="GET">
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
+                        <div class="col-sm-10">
+                          <textarea type="text" rows="5" class="form-control" name="comentario" id="comentariotext" placeholder="Escriba aqui su comentario" required></textarea>
+                          <input type="hidden" name="id" value="<?php echo "$id"?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <button type="submit" class="btn btn-default" name="envia">Guardar</button>
+                          <a class="btn btn-danger" id="cancelar">Cancelar</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>  
+            
     
      <div class="container">
                
@@ -170,7 +183,7 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $ct; ?></td>
-                                        <td class="text-center"><?php echo $row['comentario']; ?></td>
+                                        <td style="text-align:justify" width="50%"><?php echo $row['comentario']; ?></td>
                                         <td class="text-center"><?php echo $row['nombre_usuario']; ?></td>
                                         <td class="text-center"><?php echo $row['fecha']; ?></td>                                                       
                                     </tr>
@@ -245,7 +258,7 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
          		$("#formcomenta").show();
          	});
          	$("#cancelar").click(function(){
-
+            $("#comentariotext").val('');      
          		$("#formcomenta").hide();
          	});
          	 	$("#btnback").click(function(){
@@ -264,10 +277,10 @@ echo $_SESSION['tipo']; echo $reg['serie']?> </span>
     echo $date=date('Y/m/d');
     	if(MysqlQuery::Guardar("detalle_ticket", "id_ticket,id_usuario,comentario,fecha","'$id',1,'$comentario','$date'")){
 
-    			echo '<script>alert("se ha guardado correctamente el comentario")</script>';
+    			echo '<script>alert("Su comentario se guardo correctamente")</script>';
     			/*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
       echo '<script>
-  location.href="detalleticket.php?id='. $id.'";
+  history.back(2);
   </script>';
           //Preparamos el mensaje de contacto
         $cabeceras = "From:Se ha realizado un comentario al ticket".$reg['serie'].""; //La persona que envia el correo

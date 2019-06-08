@@ -30,7 +30,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 <div class="row">
    <div class="profile-user-info">
 <div class="profile-info-row">
-<div class="profile-info-name">Generado por <?php echo $_SESSION['tipo']; ?>:</div>
+<div class="profile-info-name">Generado por:</div>
 <div class="profile-info-value">
 <span><?php echo $reg['nombre_usuario'];?> </span>
 </div>
@@ -90,17 +90,17 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 </div>
 </br>
 <!--FORMULARIO QUE ENVIA EL COMENTARIO-->
-	<form class="form-horizontal" role="form" id="formcomenta" action="detalleticket.php" method="GET">
+	<form class="form-horizontal" role="form" id="formcomenta" action="admin/guardarcomentario.php" method="GET">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
     <div class="col-sm-10">
-      <textarea type="text" rows="5" class="form-control" name="comentario" id="comentario" placeholder="Escriba aqui su comentario"></textarea>
+      <textarea type="text" rows="5" class="form-control" name="comentario" id="comentariotext" placeholder="Escriba aqui su comentario" required></textarea>
       <input type="hidden" name="id" value="<?php echo "$id"?>">
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" name="envia">Enviar</button>
+      <button type="submit" class="btn btn-default" name="envia">Guardar</button>
          <a class="btn btn-danger" id="cancelar">Cancelar</a>
     </div>
   </div>
@@ -153,7 +153,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $ct; ?></td>
-                                        <td class="text-center"><?php echo $row['comentario']; ?></td>
+                                        <td style="text-align:justify" width="50%"><?php echo $row['comentario']; ?></td>
                                         <td class="text-center"><?php echo $row['nombre_usuario']; ?></td>
                                         <td class="text-center"><?php echo $row['fecha']; ?></td>                                                       
                                     </tr>
@@ -228,7 +228,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
          		$("#formcomenta").show();
          	});
          	$("#cancelar").click(function(){
-
+$("#comentariotext").val('');  
          		$("#formcomenta").hide();
          	});
          	 	$("#btnback").click(function(){
@@ -241,31 +241,23 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
          </script>
     </body>
+    
     <?php 
     if(isset($_GET['envia'])){
     $comentario=$_GET['comentario'];
     echo $date=date('Y/m/d');
-    	if(MysqlQuery::Guardar("detalle_ticket", "id_ticket,id_usuario,comentario,fecha","'$id',1,'$comentario','$date'")){
+      if(MysqlQuery::Guardar("detalle_ticket", "id_ticket,id_usuario,comentario,fecha","'$id',1,'$comentario','$date'")){
 
-    			echo '<script>alert("se ha guardado correctamente el comentario")</script>';
-    			/*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
+          echo '<script>alert("se ha guardado correctamente el comentario")</script>';
+          /*addslashes($email_edit, $asunto_edit, $mensaje_mail, $cabecera);----------Fin codigo numero de ticket*/
       echo '<script>
-  location.href="admin.php?view=admindetalleticket?id='. $id.'";
+  history.back(1);
   </script>';
-          //Preparamos el mensaje de contacto
-        $cabeceras = "From:Se ha realizado un comentario al ticket".$reg['serie'].""; //La persona que envia el correo
-        $asunto = "Actualizacion de Orden de Mejora"; //El asunto
-        $email_to = "".$row['email_cliente']."; , sistemaom@laygriega.com.mx"; //cambiar por tu email
-        $mensaje_mail="Estimado usuario ".$name_edit." Su Orden de Mejora esta Resuelto con Fecha: ".$fecha2_edit.".
-        \nfolio: ".$serie_edit." 
-        \n La solución a su problema es la siguiente:".$solucion_edit;
-       
-       
-
-          //Enviamos el mensaje y comprobamos el resultado
-        if (@mail($email_to, $asunto ,$mensaje_mail ,$cabeceras )) ;
-    	
-    	}
+      
+      
+      
+      }
     }
     ?>
+
 </html>
