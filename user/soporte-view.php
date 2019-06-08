@@ -29,6 +29,9 @@
         <div class="panel-body text-center">
           <img src="./img/old_ticket.png" alt="">
           <h4>Consultar estado de Orden</h4>
+            
+            <p class="text-justify">Si tienes un problema con cualquiera de nuestras Ordenes repórtalo y/o comenta ticket seleccionado y en breve te ayudaremos a solucionarlo. Si desea actualizar un comentario puedes utilizar el formulario del<em>Panel de comentario</em>, solamente los <strong>usuarios registrados</strong>pueden Comentar en elTicket.</p>
+          <p>Para Consultar y comentar <strong>orden</strong> has click en el siguiente boton</p>
           <!--
           <form class="form-horizontal" role="form" method="GET" action="./index.php">
             <input type="hidden" name="view" value="ticketcon">

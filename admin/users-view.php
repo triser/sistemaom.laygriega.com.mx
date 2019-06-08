@@ -102,10 +102,8 @@
                                         <td class="text-center"><?php echo $row['fecha_alta']; ?></td>
                                         <td class="text-center"><?php echo $row['fecha_modificacion']; ?></td>
                                         <td class="text-center">
-                                            <form action="" method="POST" style="display: inline-block;">
-                                                <input type="hidden" name="id_del" value="<?php echo $row['id_cliente']; ?>">
-                                                <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                            </form>
+                                        <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
+                                            
                                         </td>
                                     </tr>
                                     <?php
@@ -165,6 +163,39 @@
                         <?php endif; ?>
                     </div>
                 </div>
+            </div>
+              <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header2">
+        <h5 class="modal-title" id="exampleModalLongTitle">PANEL DE ELIMINACION DE REGISTRO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <img src="img/sadminiracion.png">
+          <hr>
+      ¿Estás seguro de Eliminar este registro?
+          <br>
+          <hr>
+    Esta operación es irreversible
+          
+      <div class="modal-footer">
+        
+          <button type="button" class="btn btn-info btn-lg btn" data-dismiss="modal">Salir</button>
+                    <form action="" method="POST" style="display: inline-block;">
+                                                <input type="hidden" name="id_del" value="<?php echo $row['id']; ?>">
+                                                <button type="submit" class="btn btn-danger btn-lg btn" disabled="disabled">Eliminar</button>
+                                            </form>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+                
             </div>
 <?php
 }else{
