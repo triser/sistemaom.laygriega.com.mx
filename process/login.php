@@ -13,6 +13,7 @@
                 $_SESSION['email']=$reg['email_admin'];
                 $_SESSION['clave']=$clave;
                 $_SESSION['tipo']="admin";
+                $_SESSION['nombreadmin']=$reg['nombre_admin'];
                      
            echo '
                 <div class="alert alert-info alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed; top:70px; right:10px; z-index:10;"> 
@@ -50,6 +51,8 @@
                 $_SESSION['clave']=$clave;
                 $_SESSION['tipo']="user";
                 $_SESSION['nombre_usuario']=$nombre_usuario;
+                $_SESSION['id_cliente']=$reg['id_cliente'];
+                 $_SESSION['nombreusuario']=$reg['nombre_usuario'];
                
   echo '<script>
   location.href="index.php?view=soporte";

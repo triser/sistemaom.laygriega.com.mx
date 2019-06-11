@@ -140,8 +140,9 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                                 $regpagina = 15;
                                 $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
-                                $selusers=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS  * FROM detalle_ticket AS tik 
-                                	INNER JOIN cliente AS cl ON  tik.id_usuario=cl.id_cliente where id_ticket='$id' LIMIT $inicio, $regpagina");
+                                $selusers=mysqli_query($mysqli,"SELECT SQL_CALC_FOUND_ROWS  * FROM ticket AS tk
+                                  INNER JOIN  detalle_ticket AS dtk ON tk.id=dtk.id_ticket 
+                                  where id_ticket='$id' LIMIT $inicio, $regpagina");
 
                                 $totalregistros = mysqli_query($mysqli,"SELECT FOUND_ROWS()");
                                 $totalregistros = mysqli_fetch_array($totalregistros, MYSQLI_ASSOC);
@@ -167,7 +168,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                                     <tr>
                                         <td class="text-center"><?php echo $ct; ?></td>
                                         <td style="text-align:justify" width="50%"><?php echo $row['comentario']; ?></td>
-                                        <td class="text-center"><?php echo $row['nombre_usuario']; ?></td>
+                                        <td class="text-center"><?php echo $row['id_usuario']; ?></td>
                                         <td class="text-center"><?php echo $row['fecha']; ?></td>                                                       
                                     </tr>
                                     <?php
