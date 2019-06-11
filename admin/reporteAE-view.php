@@ -180,7 +180,10 @@
                                             <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
                                             <a href="admin.php?view=ticketeditAE&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"  ><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     
-                                               <a href="admin.php?view=admindetalleticket&id=<?php echo $row['id']; ?>" class="btn btn-sm btn btn-info"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            <!--ver lista de comentarios-->
+                                          <a href="admin.php?view=admindetalleticket&id=<?php echo $row['id']; ?>" 
+                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['mensaje']; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            
                                             <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                                             
                                         </td>
@@ -316,3 +319,15 @@
 </script>
    <!-- LIGHTBOX PLUS JQUERY -->
     <script src="./js/lightbox-plus-jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .red-tooltip + .tooltip > .tooltip-arrow { border-right-color:#428bca; }
+    .red-tooltip + .tooltip > .tooltip-inner {background-color: #428bca;}
+</style>   
+        <script type="text/javascript">
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+  $("a").tooltip();
+});
+</script>

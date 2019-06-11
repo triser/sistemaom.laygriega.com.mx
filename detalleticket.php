@@ -79,63 +79,76 @@ echo "<scrip>alert('saliendo...')</script>";
                           </div>
                         </div>
                         <div class="profile-info-row">
-                          <div class="profile-info-name">Fecha creación:</div>
-                          <div class="profile-info-value">
-                            <span><?php echo $reg['fecha']?></span>
-                          </div>
-                        </div>
-                        <div class="profile-info-row">
-                          <div class="profile-info-name">Estatus:</div>
+<div class="profile-info-name">Descripción:</div>
+<div class="profile-info-value">
+<span><?php echo $reg['mensaje']?></span>
+</div>
+</div>
+<div class="profile-info-row">
+<div class="profile-info-name">Fecha creación:</div>
+<div class="profile-info-value">
+<span><?php echo $reg['fecha']?></span>
+</div>
+</div>
+<div class="profile-info-row">
+<div class="profile-info-name" >Estatus:</div>
 
 
-                          <div class="profile-info-value">
+<div class="profile-info-value">
 
-                            <?php 
+  <?php 
   //pintamos de colorores los estados del ticket
-                            switch ($reg['estado_ticket'])
-                            {
+  switch ($reg['estado_ticket'])
+  {
+            
+        case "Resuelto":
+    echo '<span class="btn btn-info btn-xs">'.$reg["estado_ticket"].'</span>';
+    break;
+        case "En proceso":
+        echo '<span class="btn btn-success btn-xs">'.$reg["estado_ticket"].'</span>';
+        break;
+    case "Cancelado":
+    echo '<span class="btn btn-warning btn-xs">'.$reg["estado_ticket"].'</span>';
+    break;
+        case "Pendiente":
+        echo '<span class="btn btn-danger btn-xs">'.$reg["estado_ticket"].'</span>';
+       break;
 
-                              case "Resuelto":
-                              echo '<span class="btn btn-info btn-xs">'.$reg["estado_ticket"].'</span>';
-                              break;
-                              case "En proceso":
-                              echo '<span class="btn btn-success btn-xs">'.$reg["estado_ticket"].'</span>';
-                              break;
-                              case "Cancelado":
-                              echo '<span class="btn btn-warning btn-xs">'.$reg["estado_ticket"].'</span>';
-                              break;
-                              case "Pendiente":
-                              echo '<span class="btn btn-danger btn-xs">'.$reg["estado_ticket"].'</span>';
-                              break;
+  }
 
-                            }
+  ?>
 
-                            ?>
+</div>
+  
+  </div>
+  <div class="profile-info-row">
+    <div class="profile-info-name"></div>
+    <div class="profile-info-value">
+      <div class="col-sm-12 col-xs-12" style="display: flex;">
+        <button type="button" class="btn btn-success" style="margin-right:10px" id="btncomentar">Comentar</button>
+        <button type="button" class="btn btn-primary" id="btnback">Regresar</button>
+      </div>
+    </div>
 
-                          </div>
-                          <div>
-                            <button type="button" class="btn btn-success" id="btncomentar">Comentar</button>
-                            <button type="button" class="btn btn-primary" id="btnback">Regresar</button>
-                          </div>    
-                        </div>
-                      </div>
-                    </br>
-                    <!--FORMULARIO QUE ENVIA EL COMENTARIO-->
-                    <form class="form-horizontal" role="form" id="formcomenta" action="detalleticket.php" method="GET">
-                      <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
-                        <div class="col-sm-10">
-                          <textarea type="text" rows="5" class="form-control" name="comentario" id="comentariotext" placeholder="Escriba aqui su comentario" required></textarea>
-                          <input type="hidden" name="id" value="<?php echo "$id"?>">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-default" name="envia">Guardar</button>
-                          <a class="btn btn-danger" id="cancelar">Cancelar</a>
-                        </div>
-                      </div>
-                    </form>
+  </div>
+</div>
+</br>
+<!--FORMULARIO QUE ENVIA EL COMENTARIO-->
+  <form class="form-horizontal" role="form" id="formcomenta" action="admin/guardarcomentario.php" method="GET">
+  <div class="form-group" style="margin-right:100px">
+    <label for="inputEmail3" class="col-sm-2 control-label">Comentario</label>
+    <div class="col-sm-10">
+      <textarea type="text" rows="5" class="form-control" name="comentario" id="comentariotext" placeholder="Escriba aqui su comentario" required></textarea>
+      <input type="hidden" name="id" value="<?php echo "$id"?>">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" name="envia">Guardar</button>
+         <a class="btn btn-danger" id="cancelar">Cancelar</a>
+    </div>
+  </div>
+</form>
                   </div>
                 </div>
               </div>

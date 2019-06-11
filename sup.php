@@ -85,7 +85,7 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
                 <br />
                
               
-                    <input type="hidden" name="optionsRadios" id="radio3" value="user">
+                    <input type="hidden" name="optionsRadios" id="radio3" value="admin">
                     <label for="radio3">
            
                  </label>
