@@ -310,22 +310,12 @@
     .red-tooltip + .tooltip > .tooltip-arrow { border-right-color:#428bca; }
     .red-tooltip + .tooltip > .tooltip-inner {background-color: #428bca;}
 </style>   
-<script type="text/javascript">
-    lightbox.option({
-      'resizeDuration': 200,
-      'wrapAround': true
-    })
-</script>
-   <!-- LIGHTBOX PLUS JQUERY -->
-    <script src="./js/lightbox-plus-jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <!-- LIGHTBOX PLUS JQUERY -->
         <script type="text/javascript">
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
   $("a").tooltip();
 });
 </script>
-    });
-    </script>
+ 

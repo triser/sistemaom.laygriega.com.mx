@@ -9,9 +9,13 @@
 <link rel="stylesheet" rel="stylesheet" href="./css/ui-lightness/jquery-ui-1.10.4.custom.min.css"> 
 <link rel="stylesheet" href="./css/lightbox.css">
 <script src="./js/jquery-2.1.0.min.js"></script>
-<script src="./js/bootstrap.js"></script>
+
 <script src="./js/jquery-ui-1.10.4.custom.min.js"></script>
 <script src="./js/moment.min.js"></script>
 <script src="./js/bootstrap-datetimepicker.min.js"></script>
 <script src="./js/bootstrap-datetimepicker.es.js"></script>
 <link href="./css/bootstrap-datetimepicker.min.css" rel="stylesheet"> 
+ <!-- Latest compiled and minified CSS -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
