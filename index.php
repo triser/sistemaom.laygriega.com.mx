@@ -23,7 +23,7 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small> LA Y GRIEGA</small></h1>
+                <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small>DISTRIBUIDORA DE ABARROTES LA Y GRIEGA</small></h1>
                 <span class="label label-danger"> la Y Griega S.A de C.V.</span>
                 <p class="pull-right text-success">
                   <strong>
