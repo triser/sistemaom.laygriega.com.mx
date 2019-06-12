@@ -197,6 +197,7 @@
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10 text-center">
                               <button type="submit" class="btn btn-info">Actualizar ticket</button>
+                              <a class="btn btn-danger" id="cancelar">Cancelar</a>
                           </div>
                         </div>
                       </form>
@@ -229,4 +230,12 @@
 });
    
    </script>
+   <script type="text/javascript">
+     $(document).ready(function(){
+      $("#cancelar").click(function(){
+       history.back(1);
+     });
+
+    });
+  </script>
           </div><!--container-->

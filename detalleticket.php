@@ -34,9 +34,7 @@ echo "<scrip>alert('saliendo...')</script>";
                   echo   '<h1 class="animated lightSpeedIn">Panel de comentarios</h1>';
                 }
                 ?>
-
-                <h1 class="animated lightSpeedIn">Panel Comentarios de Ticket</h1>administrator
-                <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
+                <p>administrator<span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span></p>
                 <p class="pull-right text-success">
                   <strong>
                   <span class="glyphicon glyphicon-time"></span>&nbsp;<?php include "./inc/timezone.php"; ?>
