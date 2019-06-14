@@ -9,22 +9,34 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
     }
      
 ?>
+<?php 
 
+function ae_nocache() 
+{
+    header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+}
+
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <head> 
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
         <title>Sistema OM</title>
         <?php include "./inc/links.php"; ?>        
     </head>
+    
     <body>   
         <?php include "./inc/navbar.php"; ?>
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small>DISTRIBUIDORA DE ABARROTES LA Y GRIEGA</small></h1>
-                <span class="label label-danger"> la Y Griega S.A de C.V.</span>
+                <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small> LA Y GRIEGA</small></h1>
+                <span class="label label-danger"> Distribuidora de la Y Griega S.A de C.V.</span>
                 <p class="pull-right text-success">
                   <strong>
                     <!--<span class="glyphicon glyphicon-time"></span>&nbsp;<?php //include "./inc/timezone.php"; ?>-->
@@ -70,7 +82,7 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
                 <div class="avatar">
                     <center><img src="img/lay.png" class="img-responsive" alt="Image"></center>
                 </div>              
-                <center><h4 class="modal-title">Inicio de Sesion de Ordenes de Mejora</h4></center> 
+                <center><h4 class="modal-title">Inicio de Sesión de Ordenes de Mejora</h4></center> 
 
                 <form action="" method="POST">
                  <div class="input-group">
@@ -99,18 +111,10 @@ if(isset($_POST['nombre_login']) && isset($_POST['contrasena_login'])){
     </div>
 </div>
 </div>
-</div>
 <br>
-
-            
-        
-
                 <?php
             }
         ?>
-
-        
       <?php include './inc/footer.php'; ?>
-
     </body>
 </html>
