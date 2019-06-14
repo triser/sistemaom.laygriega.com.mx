@@ -5,7 +5,6 @@
 		$solucion_edit=  MysqlQuery::RequestPost('solucion_ticket');
 		$radio_email=  MysqlQuery::RequestPost('optionsRadios');
 		$fecha2_edit=  MysqlQuery::RequestPost('fecha2_ticket');
-        $hra2_edit=  MysqlQuery::RequestPost('hra2_ticket');
 	    $email_edit=  MysqlQuery::RequestPost('email_ticket');
 	    $name_edit=  MysqlQuery::RequestPost('name_ticket');
 	    $serie_edit=MysqlQuery::RequestPost('serie_ticket');
@@ -14,7 +13,7 @@
 		$mensaje_mail="Estimado usuario la solución a su problema es la siguiente : ".$solucion_edit;
 		$mensaje_mail=wordwrap($mensaje_mail, 70, "\r\n");*/
 
-		if(MysqlQuery::Actualizar("ticket", "estado_ticket='$estado_edit', solucion='$solucion_edit', fechaE='$fecha2_edit', hra_E='$hra2_edit'", "id='$id_edit'")){
+		if(MysqlQuery::Actualizar("ticket", "estado_ticket='$estado_edit', solucion='$solucion_edit', fechaE='$fecha2_edit'", "id='$id_edit'")){
 
 			echo '
                 <div class="alert alert-info alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed; top:70px; right:10px; z-index:10;"> 
@@ -87,7 +86,7 @@
                             <label class="col-sm-2 control-label">Fecha</label>
                             <div class='col-sm-10'>
                                 <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="fecha_ticket" readonly=""  style="border:f92913; background-color:#e3f2fd" value="<?php echo $reg['fecha']?>">
+                                    <input class="form-control" readonly type="text" name="fecha_ticket" readonly="" value="<?php echo $reg['fecha']?>">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
@@ -97,7 +96,7 @@
                             <label class="col-sm-2 control-label">Serie</label>
                             <div class='col-sm-10'>
                                 <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="serie_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo $reg['serie']?>">
+                                    <input class="form-control" readonly type="text" name="serie_ticket" readonly="" value="<?php echo $reg['serie']?>">
                                     <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
                                 </div>
                             </div>
@@ -123,7 +122,7 @@
                           <label  class="col-sm-2 control-label">Nombre</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo utf8_encode($reg['nombre_usuario']); ?>">
+                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" value="<?php echo utf8_encode($reg['nombre_usuario']); ?>">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                               </div>
                           </div>
@@ -133,7 +132,7 @@
                           <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="email" readonly class="form-control"  name="email_ticket" readonly=""  style="border:f92913; background-color:#e3f2fd" value="<?php echo $reg['email_cliente']?>">
+                                  <input type="email" readonly class="form-control"  name="email_ticket" readonly="" value="<?php echo $reg['email_cliente']?>">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                               </div> 
                           </div>
@@ -143,7 +142,7 @@
                           <label  class="col-sm-2 control-label">Departamento</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="departamento_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo $reg['departamento']?>">
+                                  <input type="text" readonly class="form-control"  name="departamento_ticket" readonly="" value="<?php echo $reg['departamento']?>">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
                               </div> 
                           </div>
@@ -153,7 +152,7 @@
                           <label  class="col-sm-2 control-label">Asunto</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="asunto_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo utf8_encode($reg['asunto']); ?>">
+                                  <input type="text" readonly class="form-control"  name="asunto_ticket" readonly="" value="<?php echo utf8_encode($reg['asunto']); ?>">
                                 <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
                               </div> 
                           </div>
@@ -162,7 +161,7 @@
                         <div class="form-group">
                           <label  class="col-sm-2 control-label">Mensaje</label>
                           <div class="col-sm-10">
-                              <textarea class="form-control" readonly rows="3"  name="mensaje_ticket" readonly="" style="border:f92913; background-color:#e3f2fd" ><?php echo utf8_encode($reg['mensaje']); ?></textarea>
+                              <textarea class="form-control" readonly rows="3"  name="mensaje_ticket" readonly=""><?php echo utf8_encode($reg['mensaje']); ?></textarea>
                           </div>
                         </div>
                     
@@ -174,17 +173,11 @@
                         </div>
                   
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha hra de Entrega</label>
-                            <div class='col-sm-5'>
+                            <label class="col-sm-2 control-label">Fecha Entrega</label>
+                            <div class='col-sm-10'>
                                 <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(strftime("%Y-%m-%d")) ?>" readonly="" style="border:f92913; background-color: #fef9e7" name="fecha2_ticket">
+                                     <input required aria-required="true" class="form-control" type="text" id="fechainput" placeholder="dd/mm/aaaa"  name="fecha2_ticket">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                                    <div class='col-sm-5'>
-                                <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php date_default_timezone_set('America/Mexico_city'); echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:#fef9e7" name="hra2_ticket">
-                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -208,5 +201,32 @@
                         </div>
                       </form>
             </div><!--col-md-12-->
-        
+             <script type="text/javascript">
+   $(function() {
+
+	$('#fechainput').datepicker({
+        dateFormat: 'dd/mm/yy',
+        minDate:' 0',
+        	firstDay: 1,
+					monthNames: ['Enero', 'Febreo', 'Marzo',
+					'Abril', 'Mayo', 'Junio',
+					'Julio', 'Agosto', 'Septiembre',
+					'Octubre', 'Noviembre', 'Diciembre'],
+					dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+        onSelect: function(datetext){
+            var d = new Date(); // for now
+            var h = d.getHours();
+        		h = (h < 10) ? ("0" + h) : h ;
+
+        		var m = d.getMinutes();
+            m = (m < 10) ? ("0" + m) : m ;
+
+        		datetext = datetext + " " + h + ":" + m ;
+            $('#fechainput').val(datetext);
+            
+        },
+    });
+});
+   
+   </script>
           </div><!--container-->

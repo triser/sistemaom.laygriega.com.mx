@@ -32,7 +32,28 @@
             
             <p class="text-justify">Si tienes un problema con cualquiera de nuestras Ordenes repórtalo y/o comenta ticket seleccionado y en breve te ayudaremos a solucionarlo. Si desea actualizar un comentario puedes utilizar el formulario del<em>Panel de comentario</em>, solamente los <strong>usuarios registrados</strong>pueden Comentar en elTicket.</p>
           <p>Para Consultar y comentar <strong>orden</strong> has click en el siguiente boton</p>
-            
+          <!--
+          <form class="form-horizontal" role="form" method="GET" action="./index.php">
+            <input type="hidden" name="view" value="ticketcon">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                  <input type="email" class="form-control" name="email_consul" placeholder="Email" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label  class="col-sm-2 control-label">Orden ID</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="id_consul" placeholder="ID Orden" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Consultar</button>
+              </div>
+            </div>
+          </form>
+        -->
         <a href="ticketusuario.php" class="btn btn-success">Ver tickets creados</a>
         </div>
       </div>

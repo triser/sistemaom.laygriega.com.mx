@@ -6,7 +6,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Administracion</title>
         <?php include "./inc/links.php"; ?>        
     </head>
@@ -14,7 +14,10 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
         <?php include "./inc/navbar.php"; ?>
         <div class="container">
           <div class="row">
-            <div class="col-sm-12">             
+            <div class="col-sm-12">
+         
+          
+                    
     <div class="panel panel-default">
     <div class="panel-heading"> 	<h4 class="blue">
 <span class="middle">Detalle del ticket con Folio&nbsp;<?php echo $reg['serie']?> </span>
@@ -85,6 +88,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 	?>
 
 </div>
+	
 	</div>
   <div class="profile-info-row">
     <div class="profile-info-name"></div>
@@ -97,7 +101,7 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
   </div>
 </div>
-<br>
+</br>
 <!--FORMULARIO QUE ENVIA EL COMENTARIO-->
 	<form class="form-horizontal" role="form" id="formcomenta" action="admin/guardarcomentario.php" method="GET">
   <div class="form-group" style="margin-right:100px">
@@ -204,7 +208,8 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                                         }
                                     }
                                 ?>
-            
+                                
+                                
                                 <?php if($pagina == $numeropaginas): ?>
                                     <li class="disabled">
                                         <a aria-label="Previous">
@@ -225,6 +230,8 @@ $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                 </div>
             </div>
         </div>
+        
+        </script>
          <?php include './inc/footer.php'; ?>
          <script type="text/javascript">
          	$(document).ready(function(){
