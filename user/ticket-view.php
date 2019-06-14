@@ -1,4 +1,4 @@
-<?PHP
+<?php
 $nombrefoto1=$_FILES['foto1']['name'];
 $ruta1=$_FILES['foto1']['tmp_name'];
 if(is_uploaded_file($ruta1))
@@ -65,6 +65,7 @@ imagejpeg($lienzo, $destino1, 80);
           /*Fin codigo numero de ticket*/
 			
           $fecha_ticket=  MysqlQuery::RequestPost('fecha_ticket');
+          $hra_ticket=  MysqlQuery::RequestPost('hra_ticket');
           $nombre_ticket=  MysqlQuery::RequestPost('name_ticket');
           $email_ticket= MysqlQuery::RequestPost('email_ticket');
           $departamento_ticket= MysqlQuery::RequestPost('departamento_ticket');
@@ -73,14 +74,18 @@ imagejpeg($lienzo, $destino1, 80);
           $asunto_ticket= MysqlQuery::RequestPost('asunto_ticket');        
           $mensaje_ticket=  MysqlQuery::RequestPost('mensaje_ticket');
           $estado_ticket="Pendiente";
-          $fecha2_ticket="Pendiente";
+          $fecha2_ticket="";
+          $hra2_ticket="";
 			
 			//Enviamos el mensaje ala Bd
 			
-			if(MysqlQuery::Guardar("ticket", "fecha, nombre_usuario, email_cliente, departamento, Prioridad, area_solicitada, asunto, mensaje, foto1, fechaE, estado_ticket, serie", "'$fecha_ticket', '$nombre_ticket', '$email_ticket', '$departamento_ticket','$prioridad_ticket', '$solicitud_ticket', '$asunto_ticket', '$mensaje_ticket','$destino1','$fecha2_ticket','$estado_ticket','$id_ticket'")){
+			if(MysqlQuery::Guardar("ticket", "fecha,hra_creacion, nombre_usuario, email_cliente, departamento, Prioridad, area_solicitada, asunto, mensaje, foto1, fechaE, hra_E, estado_ticket, serie", "'$fecha_ticket', '$hra_ticket','$nombre_ticket', '$email_ticket', '$departamento_ticket','$prioridad_ticket', '$solicitud_ticket', '$asunto_ticket', '$mensaje_ticket','$destino1','$fecha2_ticket','$hra2_ticket','$estado_ticket','$id_ticket'")){
+
+/*
+
 
     	  /*
-            ----------Enviar correo con los datos del ticket mail($email_ticket, $asunto_ticket, $mensaje_mail, $cabecera)
+            ----------Enviar correo con los datos del
             ----------*/
             	 /*Fin codigo numero de ticket*/
 		  $solicitud_ticket = $_POST['solicitud_ticket'];
@@ -154,11 +159,17 @@ imagejpeg($lienzo, $destino1, 80);
                       <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
                           <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">F.Apertura:</label>
-                            <div class='col-sm-10'>
+                            <label class="col-sm-2 control-label">Fecha y Hora Creacion:</label>
+                            <div class='col-sm-5'>
                                 <div class="input-group">
-                                    <input required aria-required="true" class="form-control" type="text" id="fechainput" placeholder="dd/mm/aaaa"  name="fecha_ticket">
+                <input class="form-control" type="text" name="fecha_ticket" value="<?php echo utf8_encode(strftime("%Y-%m-%d")) ?>" readonly="" style="border:f92913; background-color:#fdebd0">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                                   <div class='col-sm-5'>
+                                <div class="input-group">
+                <input class="form-control color-" type="text" name="hra_ticket" value="<?php date_default_timezone_set('America/Mexico_city'); echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:  #fdebd0">
+                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +178,7 @@ imagejpeg($lienzo, $destino1, 80);
                           <label  class="col-sm-2 control-label">Solicitante:</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                <input type="text" class="form-control" name="name_ticket" readonly="" value="<?php echo utf8_encode($_SESSION['nombre_completo']); ?>">
+                                <input type="text" class="form-control" name="name_ticket" readonly="" value="<?php echo utf8_encode($_SESSION['nombre_completo']); ?>" readonly="" style="border:f92913; background-color:  #fdebd0 ">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                               </div>
                           </div>
@@ -177,7 +188,7 @@ imagejpeg($lienzo, $destino1, 80);
                           <label for="inputEmail3" class="col-sm-2 control-label">Correo Solicitante:</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                <input type="email" class="form-control" id="inputEmail3"  name="email_ticket" readonly="" value="<?php echo $_SESSION['email']; ?>">
+                                <input type="email" class="form-control" name="email_ticket" readonly="" value="<?php echo $_SESSION['email']; ?>"readonly="" style="border:f92913; background-color:  #fdebd0 ">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                               </div> 
                           </div>
@@ -306,33 +317,9 @@ imagejpeg($lienzo, $destino1, 80);
 <?php
 }
 ?>
+
    <script type="text/javascript">
-   $(function() {
 
-	$('#fechainput').datepicker({
-        dateFormat: 'dd/mm/yy',
-        minDate:' 0',
-        	firstDay: 1,
-					monthNames: ['Enero', 'Febreo', 'Marzo',
-					'Abril', 'Mayo', 'Junio',
-					'Julio', 'Agosto', 'Septiembre',
-					'Octubre', 'Noviembre', 'Diciembre'],
-					dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-        onSelect: function(datetext){
-            var d = new Date(); // for now
-            var h = d.getHours();
-        		h = (h < 10) ? ("0" + h) : h ;
-
-        		var m = d.getMinutes();
-            m = (m < 10) ? ("0" + m) : m ;
-
-        		datetext = datetext + " " + h + ":" + m ;
-            $('#fechainput').val(datetext);
-            
-        },
-    });
-});
-   
    $(document).ready(function(){
     // Cargamos los departamentos
     var asignado = "<option value='' disabled selected>Selecciona el departamento asignado</option>";
@@ -364,14 +351,14 @@ imagejpeg($lienzo, $destino1, 80);
 
 
 var actividades = {
-                "Accesor Externo":[
-                   "Capacitación ERP Intelisis","Control de Acceso ERP Intelisis","Desarrollo ERP Intelisis","Escenario Contable ERP Intelisis","Mejora ERP Intelisis","Migración ERP Intelisis","Reportes ERP Intelisis"
+                "Asesor Externo":[
+                   "Capacitacion ERP Intelisis","Control de Acceso ERP Intelisis","Desarrollo ERP Intelisis","Escenario Contable ERP Intelisis","Mejora ERP Intelisis","Migración ERP Intelisis","Reportes ERP Intelisis"
                     ],
                 "Hardware Y Software":[
-                    " Actualización Sistema de OM "," Instalación y Configuración de Reportes Intelisis "," Mantenimiento Preventivo Equipos Informáticos "," Mantenimiento Correctivo Equipos Informáticos "," Perfiles de Usuarios Intelisis "," Soporte Aplicación Ecommerce "," Soporte ERP Intelisis "," Soporte Móvil Colibrí "," Soporte del sistema de OM "," Soporte General "," Timbrado CFDI "
+                    "Actualizacion Sistema de OM","Instalacion y Configuracion de Reportes Intelisis","Mantenimiento Preventivo Equipos Informaticos","Mantenimiento Correctivo Equipos Informaticos","Perfiles de Usuarios Intelisis","Soporte Aplicación Ecommerce","Soporte ERP Intelisis","Soporte Movil Colibri","Soporte del sistema de OM","Soporte General","Timbrado CFDI"
                     ],
-                "Comunicación y Seguridad TI":[
-                     " GPS "," Antivirus "," Cámaras de Seguridad "," Conectividad de Red ","Compra de Consumibles "," Correos Corporativos "," Conectividad de Red "," Estructura de la Red "," Firewall   "," Mantenimiento Preventivo de Impresora "," Mantenimiento Correctivo de Impresora "," Telefonía "," Soporte Aplicación Ecommerce "," Soporte General "
+                "Comunicacion y Seguridad TI":[
+                     "GPS","Antivirus","Camaras de Seguridad","Conectividad de Red","Compra de Consumibles","Correos Corporativos","Conectividad de Red","Estructura de la Red","Firewall","Mantenimiento Preventivo de Impresora","Mantenimiento Correctivo de Impresora","Telefonia","Soporte Aplicacion Ecommerce","Soporte General"
                     ],
                 
             }

@@ -6,9 +6,6 @@
         $clave_reg2=MysqlQuery::RequestPost('clave_reg');
         $email_reg=MysqlQuery::RequestPost('email_reg');
 
-        
-
-
         if(MysqlQuery::Guardar("cliente", "nombre_completo, nombre_usuario, email_cliente, clave", "'$nombre_reg', '$user_reg', '$email_reg', '$clave_reg'")){
 
             /*----------  Enviar correo con los datos de la cuenta 
@@ -21,7 +18,6 @@
         $clave_reg2 = $_POST['clave_reg'];
         $mensaje_mail = utf8_decode($_POST['message']);
         $email_reg = $_POST['email_reg'];
-
 
         //Preparamos el mensaje de contacto/ /
         $cabeceras = "From: Registro de cuenta al Sistema de Orden de Mejora LA Y GRIEGA"; //La persona que envia el correo
