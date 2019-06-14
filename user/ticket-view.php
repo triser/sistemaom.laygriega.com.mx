@@ -296,7 +296,6 @@ imagejpeg($lienzo, $destino1, 80);
             </div>
           </div>
         </div>
-
 <?php
 }else{
 ?>
@@ -317,7 +316,6 @@ imagejpeg($lienzo, $destino1, 80);
 <?php
 }
 ?>
-
    <script type="text/javascript">
 
    $(document).ready(function(){

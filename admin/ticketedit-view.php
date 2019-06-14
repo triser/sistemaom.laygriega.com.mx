@@ -77,27 +77,31 @@
             </div>
           </div>
         </div>
-            
-            
           <div class="container">
             <div class="col-sm-12">
-                <form class="form-horizontal" role="form" action="" method="POST">
+                 <form class="form-horizontal" role="form" action="" method="POST">
                 		<input type="hidden" name="id_edit" value="<?php echo $reg['id']?>">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha</label>
-                            <div class='col-sm-10'>
+                            <label class="col-sm-2 control-label">Fecha Hrs de Solicitud</label>
+                            <div class='col-sm-5'>
                                 <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="fecha_ticket" readonly=""  style="border:f92913; background-color:#e3f2fd" value="<?php echo $reg['fecha']?>">
+                                    <input class="form-control" readonly type="text" name="fecha_ticket" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['fecha']?>">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
+                                    <div class='col-sm-5'>
+                                <div class="input-group">
+                                    <input class="form-control" readonly type="text" name="fecha_ticket" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['hra_creacion']?>">
+                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
                         </div>
-                    
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Serie</label>
                             <div class='col-sm-10'>
                                 <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="serie_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo $reg['serie']?>">
+                                    <input class="form-control" readonly type="text" name="serie_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
+" value="<?php echo $reg['serie']?>">
                                     <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
                                 </div>
                             </div>
@@ -123,7 +127,8 @@
                           <label  class="col-sm-2 control-label">Nombre</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo utf8_encode($reg['nombre_usuario']); ?>">
+                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
+" value="<?php echo utf8_encode($reg['nombre_usuario']); ?>">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                               </div>
                           </div>
@@ -133,7 +138,8 @@
                           <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="email" readonly class="form-control"  name="email_ticket" readonly=""  style="border:f92913; background-color:#e3f2fd" value="<?php echo $reg['email_cliente']?>">
+                                  <input type="email" readonly class="form-control"  name="email_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
+" value="<?php echo $reg['email_cliente']?>">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                               </div> 
                           </div>
@@ -143,7 +149,8 @@
                           <label  class="col-sm-2 control-label">Departamento</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="departamento_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo $reg['departamento']?>">
+                                  <input type="text" readonly class="form-control"  name="departamento_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
+" value="<?php echo $reg['departamento']?>">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
                               </div> 
                           </div>
@@ -153,7 +160,8 @@
                           <label  class="col-sm-2 control-label">Asunto</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="asunto_ticket" readonly="" style="border:f92913; background-color:#e3f2fd"  value="<?php echo utf8_encode($reg['asunto']); ?>">
+                                  <input type="text" readonly class="form-control"  name="asunto_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
+" value="<?php echo utf8_encode($reg['asunto']); ?>">
                                 <span class="input-group-addon"><i class="fa fa-paperclip"></i></span>
                               </div> 
                           </div>
@@ -162,28 +170,28 @@
                         <div class="form-group">
                           <label  class="col-sm-2 control-label">Mensaje</label>
                           <div class="col-sm-10">
-                              <textarea class="form-control" readonly rows="3"  name="mensaje_ticket" readonly="" style="border:f92913; background-color:#e3f2fd" ><?php echo utf8_encode($reg['mensaje']); ?></textarea>
+                              <textarea class="form-control" readonly rows="3"  name="mensaje_ticket" readonly="" style="border:f92913; background-color: #ebf5fb"><?php echo utf8_encode($reg['mensaje']); ?></textarea>
                           </div>
                         </div>
                     
                         <div class="form-group">
                           <label  class="col-sm-2 control-label">Solución</label>
                           <div class="col-sm-10">
-                            <textarea class="form-control" rows="3"  name="solucion_ticket" required><?php echo utf8_encode($reg['solucion']); ?></textarea>
+                            <textarea class="form-control" rows="3"  name="solucion_ticket" required ><?php echo utf8_encode($reg['solucion']); ?></textarea>
                           </div>
                         </div>
                   
-                        <div class="form-group">
+                            <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha hra de Entrega</label>
                             <div class='col-sm-5'>
                                 <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(strftime("%Y-%m-%d")) ?>" readonly="" style="border:f92913; background-color: #fef9e7" name="fecha2_ticket">
+            <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(strftime("%Y-%m-%d")) ?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="fecha2_ticket">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                                     <div class='col-sm-5'>
                                 <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php date_default_timezone_set('America/Mexico_city'); echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:#fef9e7" name="hra2_ticket">
+    <input required aria-required="true" class="form-control" type="text" value="<?php date_default_timezone_set('America/Mexico_city'); echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="hra2_ticket">
                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
@@ -202,8 +210,9 @@
                          </div>
                     <br>
                         <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10 text-center">
-                              <button type="submit" class="btn btn-info">Actualizar ticket</button>
+                            <div class="col-sm-offset-2 col-sm-9 text-center">
+                             <button type="submit" class="btn btn-primary"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar</button>
+                              <a href="./admin.php?view=reporteCS" class="btn btn-success"><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver</a>
                           </div>
                         </div>
                       </form>
