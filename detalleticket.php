@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8'); 
+header('Content-Type: text/html; charset=utf-8'); 
 session_start();
 include './lib/class_mysql.php';
 include './lib/config.php';   
@@ -16,7 +16,7 @@ echo "<scrip>alert('saliendo...')</script>";
 <!DOCTYPE html>
 <html>
     <head>
-	 <meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Panel de Comentarios</title>
         <?php include "./inc/links.php"; ?>        
     </head>
@@ -61,7 +61,7 @@ echo "<scrip>alert('saliendo...')</script>";
                         <div class="profile-info-row">
                           <div class="profile-info-name">Generado por:</div>
                           <div class="profile-info-value">
-                            <span><?php echo $reg['nombre_usuario'];?> </span>
+                            <span> <?php echo utf8_encode($reg['nombre_usuario']);?>  </span>
                           </div>
                         </div>
                         <div class="profile-info-row">
@@ -73,13 +73,13 @@ echo "<scrip>alert('saliendo...')</script>";
                         <div class="profile-info-row">
                           <div class="profile-info-name">Asunto:</div>
                           <div class="profile-info-value">
-                            <span><?php echo $reg['asunto']?></span>
+                            <span><?php echo utf8_encode($reg['asunto']);?></span>
                           </div>
                         </div>
                         <div class="profile-info-row">
 <div class="profile-info-name">Descripción:</div>
 <div class="profile-info-value">
-<span><?php echo $reg['mensaje']?></span>
+<span><?php echo utf8_encode($reg['mensaje']);?></span>
 </div>
 </div>
 <div class="profile-info-row">

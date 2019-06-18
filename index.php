@@ -79,9 +79,9 @@ function ae_nocache()
         
               <div class="container">    
         <div id="loginbox" style="margin-top:30px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-            <div class="panel panel-warning" >
+            <div class="panel panel-primary" >
                     <div class="panel-heading">
-                        <div class="panel-title"><i class="fa fa-user-circle "></i>&nbsp;Iniciar sesión </div>
+                        <div class="panel-title"><i class="fa fa-user-circle "></i>&nbsp; Inicio de sesión </div>
                     </div>     
                     <div style="padding-top:25px" class="panel-body" >
                     <div class="avatar">
@@ -90,8 +90,8 @@ function ae_nocache()
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>  
                         <form action="" method="POST" id="loginform" class="form-horizontal" role="form">     
                             <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                        <input id="login-username" type="text" class="form-control"  name="nombre_login" value="" placeholder="Nombre de Usuario" required>                                        
+                                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                        <input id="login-username" type="text" class="form-control"  name="nombre_login" value="" placeholder="Correo Corporativo" required>                                        
                                     </div>
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

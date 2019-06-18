@@ -62,23 +62,25 @@
         <div class="panel-body">
             <form accept-charset="utf-8" role="form" action="" method="POST">
             <div class="form-group">
-              <label><i class="fa fa-male"></i>&nbsp;Nombre completo</label>
+              <label><i class="fa fa-user-circle"></i>&nbsp;Nombre completo</label>
               <input type="text" class="form-control" name="nom_complete_reg" placeholder="Nombre completo" required="" pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+{1,40}" title="Nombre Apellido" maxlength="40">
             </div>
+            <div class="form-group">
+              <label><i class="fa fa-user-o"></i>&nbsp;Usuario</label>
+              <input type="text" class="form-control" name="user_reg" placeholder="Nombre de usuario" required="" pattern="[a-zA-Z0-9]{1,15}" title="Ejemplo7 maximo 15 caracteres" maxlength="20">
+              <div></div>
+            </div>
             <div class="form-group has-success has-feedback">
-              <label class="control-label"><i class="fa fa-user"></i>&nbsp;Nombre de usuario</label>
-              <input type="text" id="input_user" class="form-control" name="user_reg" placeholder="Nombre de usuario" required="" pattern="[a-zA-Z0-9]{1,15}" title="Ejemplo7 maximo 15 caracteres" maxlength="20">
+              <label class="control-label"><i class="fa fa-envelope-o"></i>&nbsp;Corrreo Corporativo</label>
+              <input type="email" id="input_email" class="form-control" name="email_reg"  placeholder="Escriba su Email Corporativo" required="">
               <div id="com_form"></div>
             </div>
+        
             <div class="form-group">
               <label><i class="fa fa-key"></i>&nbsp;Contraseña</label>
               <input type="password" class="form-control" name="clave_reg" placeholder="Contraseña" required="">
             </div>
-            <div class="form-group">
-              <label class="control-label"><i class="fa fa-envelope"></i>&nbsp;Email</label>
-              <input type="email" id="input_email" class="form-control"  name="email_reg"  placeholder="Escriba su Email Corporativo" required="">
-              <div id="com_form"></div>
-            </div>
+    
             <br>
             <button type="submit" class="btn btn-danger">Crear cuenta</button>
           </form>
@@ -87,15 +89,17 @@
     </div>
     <br>
     <div class="col-sm-4 text-center hidden-xs">
+        <h2 class="text-primary">¡ Panel de registro ! SISTEMA MLT</h2>
       <img src="img/linux.png" class="img-responsive" alt="Image">
-      <h2 class="text-primary">¡ Panel de registro ! SISTEMA OM</h2>
+        <strong>Por favor de ingresar su Correo Corporativo Correctamente, el sistema le enviara los datos de inicio de session</strong>
+        
     </div>
   </div>
 </div>
 <br>
 <script>
     $(document).ready(function(){
-        $("#input_user").keyup(function(){
+        $("#input_email").keyup(function(){
             $.ajax({
                 url:"./process/val.php?id="+$(this).val(),
                 success:function(data){

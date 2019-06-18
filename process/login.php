@@ -42,7 +42,7 @@
             }
         
         }elseif($radio=="user"){
-            $sql=Mysql::consulta("SELECT * FROM cliente WHERE nombre_usuario= '$nombre' AND clave='$clave'");
+            $sql=Mysql::consulta("SELECT * FROM cliente WHERE email_cliente= '$nombre' AND clave='$clave'");
             if(mysqli_num_rows($sql)>=1){   
                 $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                 $_SESSION['nombre']=$reg['nombre_usuario'];
