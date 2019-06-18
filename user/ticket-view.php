@@ -284,7 +284,7 @@ imagejpeg($lienzo, $destino1, 80);
 
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                            <button  name="guardar" type="submit" class="btn btn-info">Abrir Orden</button>
+                            <button  name="guardar" type="submit" class="btn btn-warning">Guardar Orden</button>
                           </div>
                         </div>
                              </fieldset> 

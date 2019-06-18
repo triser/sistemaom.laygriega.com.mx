@@ -30,7 +30,7 @@
           <img src="./img/old_ticket.png" alt="">
           <h4>Consultar estado de Orden</h4>
             
-            <p class="text-justify">Si tienes un problema con cualquiera de nuestras Ordenes repórtalo y/o comenta ticket seleccionado y en breve te ayudaremos a solucionarlo. Si desea actualizar un comentario puedes utilizar el formulario del<em>Panel de comentario</em>, solamente los <strong>usuarios registrados</strong>pueden Comentar en elTicket.</p>
+            <p class="text-justify">Si tienes un problema con cualquiera de nuestras Ordenes repórtalo y/o comenta ticket seleccionado y en breve te ayudaremos a solucionarlo. Si desea actualizar un comentario puedes utilizar el formulario del<em>Panel de comentario</em>, solamente los <strong>usuarios registrados</strong>pueden Comentar en el Ticket.</p>
           <p>Para Consultar y comentar <strong>orden</strong> has click en el siguiente boton</p>
             
         <a href="ticketusuario.php" class="btn btn-success">Ver tickets creados</a>
