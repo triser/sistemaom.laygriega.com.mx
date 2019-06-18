@@ -97,13 +97,13 @@
                         <ul class=" nav navbar-nav navbar-right"> 
                          <?php if(!isset($_SESSION['tipo']) && !isset($_SESSION['nombre'])): ?>
                      <li>
-                    <a href="./sup.php"><i class="fa fa-user-secret"></i>&nbsp; Iniciar Session Administrador</a>
+                    <a href="./sup.php"><i class="fa fa-user-secret"></i>&nbsp; Iniciar sesión Administrador</a>
                 </li>
                 <li>
                     <a href="http://www.laygriega.com.mx/"><span class="glyphicon glyphicon-globe"></span> &nbsp;Web LA Y GRIEGA</a>
                 </li>
                 <li>
-                   <a href="./index.php"><i class="fa fa-user"></i>&nbsp; Iniciar Session Usuario</a>
+                   <a href="./index.php"><i class="fa fa-user"></i>&nbsp; Iniciar sesión Usuario</a>
                 </li>
                 <li>
                     <a href="./index.php?view=registro"><i class="fa fa-users"></i>&nbsp;&nbsp;Registro</a>
