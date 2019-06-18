@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand">&nbsp;&nbsp; SISTEMA OM Y GRIEGA &nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.6</span></small></sup></a>
+            <a class="navbar-brand">&nbsp;&nbsp; SISTEMA MLT Y GRIEGA &nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.9</span></small></sup></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <?php if(isset($_SESSION['tipo']) && isset($_SESSION['nombre'])): ?>
@@ -89,36 +89,30 @@
                         
                        <?php endif; ?>  
                        
-                        <li >
+                        <li>
                             
                             <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
-                         </li>
                         <?php endif; ?>
                         
                         <ul class=" nav navbar-nav navbar-right"> 
                          <?php if(!isset($_SESSION['tipo']) && !isset($_SESSION['nombre'])): ?>
                      <li>
-                    <a href="./index.php"><span class="glyphicon glyphicon-home"></span> &nbsp; Inicio</a>
+                    <a href="./sup.php"><i class="fa fa-user-secret"></i>&nbsp; Iniciar Session Administrador</a>
                 </li>
                 <li>
                     <a href="http://www.laygriega.com.mx/"><span class="glyphicon glyphicon-globe"></span> &nbsp;Web LA Y GRIEGA</a>
                 </li>
                 <li>
-                    <a href="./index.php?view=soporte"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Solicitud de Ordenes</a>
+                   <a href="./index.php"><i class="fa fa-user"></i>&nbsp; Iniciar Session Usuario</a>
                 </li>
                 <li>
                     <a href="./index.php?view=registro"><i class="fa fa-users"></i>&nbsp;&nbsp;Registro</a>
                 </li>
-                <li>
-                    <a href="#!" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Inicio de Sesion</a>
-                </li>
-                
                 <?php endif; ?>
             </ul>
         </div>
-    </div>
 </nav>
-<!-- Modal HTML -->
+<!-- Modal HTML
 <div id="myModal" class="modal fade">
 	<div class="modal-dialog modal-login">
 		<div class="modal-content">
@@ -163,4 +157,4 @@
 			</div>
 		</div>
 	</div>
-</div>     
+</div>   -->   

@@ -16,7 +16,7 @@ echo "<scrip>alert('saliendo...')</script>";
 <!DOCTYPE html>
 <html>
     <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+	 <meta http-equiv="Content-Type" content="text/html" charset="UTF8" />
         <title>Panel de Comentarios</title>
         <?php include "./inc/links.php"; ?>        
     </head>
@@ -257,10 +257,9 @@ echo "<scrip>alert('saliendo...')</script>";
                         <?php endif; ?>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        </script>
+              </div>
+          </div>
+      
          <?php include './inc/footer.php'; ?>
          <script type="text/javascript">
          	$(document).ready(function(){

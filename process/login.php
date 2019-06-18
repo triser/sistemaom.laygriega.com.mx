@@ -52,7 +52,7 @@
                 $_SESSION['tipo']="user";
                 $_SESSION['nombre_usuario']=$nombre_usuario;
                 $_SESSION['id_cliente']=$reg['id_cliente'];
-                 $_SESSION['nombreusuario']=$reg['nombre_usuario'];
+                $_SESSION['nombreusuario']=$reg['nombre_usuario'];
                
   echo '<script>
   location.href="index.php?view=soporte";

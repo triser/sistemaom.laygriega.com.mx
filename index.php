@@ -35,8 +35,8 @@ function ae_nocache()
           <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Sistema de Ordenes de Mejora<small> LA Y GRIEGA</small></h1>
-                <span class="label label-danger"> Distribuidora de la Y Griega S.A de C.V.</span>
+                <h1 class="animated lightSpeedIn">Sistema MT 2019<small> MULTIPLE</small></h1>
+                <span class="label label-danger">Distribuidora de la Y Griega S.A de C.V.</span>
                 <p class="pull-right text-success">
                   <strong>
                     <!--<span class="glyphicon glyphicon-time"></span>&nbsp;<?php //include "./inc/timezone.php"; ?>-->
@@ -75,42 +75,63 @@ function ae_nocache()
                 //include "./user/index-view.php";
                 ?>
               
-  <div class="container">
-                    <div class="row" style="margin-left:30%">            
-                        <div class="col-sm-7" style="
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                <div class="avatar">
+
+        
+              <div class="container">    
+        <div id="loginbox" style="margin-top:30px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-warning" >
+                    <div class="panel-heading">
+                        <div class="panel-title"><i class="fa fa-user-circle "></i>&nbsp;Iniciar sesión </div>
+                    </div>     
+                    <div style="padding-top:25px" class="panel-body" >
+                    <div class="avatar">
                     <center><img src="img/lay.png" class="img-responsive" alt="Image"></center>
-                </div>              
-                <center><h4 class="modal-title">Inicio de Sesión de Ordenes de Mejora</h4></center> 
+                </div>
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>  
+                        <form action="" method="POST" id="loginform" class="form-horizontal" role="form">     
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                        <input id="login-username" type="text" class="form-control"  name="nombre_login" value="" placeholder="Nombre de Usuario" required>                                        
+                                    </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="contrasena_login"  placeholder="Contraseña" required>
+                                    <!-- Button -->
+                                     <input type="hidden" name="optionsRadios" id="radio3" value="user">
+                                        <label for="radio3">
+                                        </label>
+                                    </div>
+                                <div class="form-group">
+                        
+                            
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                   <button type="submit"  class="btn btn-primary btn-lg login-btn "><i class="glyphicon glyphicon-log-in"></i>&nbsp; &nbsp;Iniciar sesión</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                          Copyright © 2019 todos los derechos reservados
+                                             <a href="" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            sistemaom.laygriga.com.mx
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>     
 
-                <form action="" method="POST">
-                 <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input type="text" class="form-control" name="nombre_login" placeholder="Ingrese su nombre de Usuario" required=""/>    
-                </div>
-                <br />
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" class="form-control" name="contrasena_login" placeholder="Ingrese su contraseña" required=""/>   
-                </div>
-                <br />
-               
-              
-                    <input type="hidden" name="optionsRadios" id="radio3" value="user">
-                    <label for="radio3">
-           
-                 </label>
+
+
+                        </div>                     
+                    </div>  
+        </div>
+             
       
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block login-btn"><i class="glyphicon glyphicon-log-in"></i>&nbsp; &nbsp; Iniciar sesión</button>
-                    
-            </div>
-
-        </form>
+                 
+      
     </div>
-</div>
-</div>
+    
+
 <br>
                 <?php
             }
