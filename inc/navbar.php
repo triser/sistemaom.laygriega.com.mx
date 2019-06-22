@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand">&nbsp;&nbsp; SISTEMA MLT Y GRIEGA &nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.9</span></small></sup></a>
+            <a class="navbar-brand">&nbsp;&nbsp; SISTEMA MLT Y GRIEGA &nbsp;&nbsp;<sup><small><span class="label label-danger">V 1.9.1</span></small></sup></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <?php if(isset($_SESSION['tipo']) && isset($_SESSION['nombre'])): ?>
@@ -20,7 +20,7 @@
                 
                 <li class="dropdown">
                         <a href="#" class="dropdown-toggle btn btn-sq-sm" data-toggle="dropdown">
-                        <span class=" 	fa fa-user-circle-o" style="color:#f1c40f;"></span> &nbsp;Bienvenido:&nbsp;<strong style="color: #f1c40f ;"><?php echo utf8_encode($_SESSION['nombre']); ?></strong> &nbsp;<b class="caret"></b>
+                        <span class="fa fa-user-circle-o" style="color:#f1c40f;"></span> &nbsp;Bienvenido:&nbsp;<strong style="color: #f1c40f ;"><?php echo utf8_encode($_SESSION['nombre']); ?></strong> &nbsp;<b class="caret"></b>
                     </a>
                     
                         <!-- usuarios -->
@@ -34,17 +34,21 @@
                             <a href="./index.php?view=configuracion"><i class="fa fa-cogs"></i>&nbsp;&nbsp;Configuracion</a>
                         </li> 
                         <li >
-                            <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
-                         </li>
+                            <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a>
+                        </li>
+                         
                     </ul>
                        <li>
                     <a href="./index.php?view=soporte"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Solicitud de Ordenes</a>
+                        </li>
+                  <li>
+                    <a href="./index.php?view=actividaddiaria"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Actividades</a>
                         </li>
                         <li>
                             <a href="./index.php?view=configuracion"><i class="fa fa-cogs"></i>&nbsp;&nbsp;Configuracion</a>
                         </li>
                         <?php endif; ?>
-                        
+                        </li>
                         <!-- admins -->
                         
                  <?php if($_SESSION['tipo']=="admin"): ?>

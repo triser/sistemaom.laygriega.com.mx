@@ -185,6 +185,22 @@
                         </div>
                   
                             <div class="form-group">
+                            <label class="col-sm-2 control-label">Ultima Actualizacion </label>
+                            <div class='col-sm-5'>
+                                <div class="input-group">
+            <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['fechaE']?>" readonly="" style="border:f92913; background-color: #f1948a " name="fecha2_ticket">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                                    <div class='col-sm-5'>
+                                <div class="input-group">
+    <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['hra_E']?>" readonly="" style="border:f92913; background-color: #f1948a " name="hra2_ticket">
+                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+             <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha hra de Entrega</label>
                             <div class='col-sm-5'>
                                 <div class="input-group">
@@ -195,22 +211,6 @@
                                     <div class='col-sm-5'>
                                 <div class="input-group">
     <input required aria-required="true" class="form-control" type="text" value="<?php date_default_timezone_set('America/Mexico_city'); echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="hra2_ticket">
-                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    
-                             <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha hra de ultima actualizacion</label>
-                            <div class='col-sm-5'>
-                                <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(reg('$fechaE')) ?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="fecha2_ticket">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                                    <div class='col-sm-5'>
-                                <div class="input-group">
-    <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(reg('$hra_E')) ?>; echo date("h:i:s A");?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="hra2_ticket">
                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
