@@ -124,7 +124,7 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
   <div id="content-row">
     <div class="form-group">
       <div class="col-sm-11">
-        <textarea class="form-control" id="code_preview0" name="actdiaria" style="height: 450px;" required></textarea>
+        <textarea class="form-control" id="code_preview0" name="actdiaria" style="height: 450px;"></textarea>
       </div>
     </div>
   </div>
