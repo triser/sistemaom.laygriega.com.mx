@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-9 lead">
       <h2 class="text-info">Bienvenido al Sistema de MTL LA Y GRIEGA</h2>
-      <p>Es muy facil de usar, si usted tiene una solicitud o algun requerimiento del sistema nos puede enviar su solicitud a travez de este menu dependiendo de sus necesidades, nosotros lo respondemos y solucionaremos su problema. Si ya nos ha enviado un ticket o su actividad diarai usted puede consultar el estado de este mediante su <strong> su Folio Asignado</strong>.</p>
+      <p>Es muy fácil de usar, si usted tiene una solicitud o algún requerimiento del sistema nos puede enviar su solicitud a través de este menú dependiendo de sus necesidades, nosotros lo respondemos y solucionaremos su problema. Si ya nos ha enviado un ticket o su actividad diaria usted puede consultar el estado mediante<strong> su Folio Asignado</strong>.</p>
     </div>
   </div><!--fin row 1-->
 
