@@ -38,11 +38,14 @@
                         </li>
                          
                     </ul>
+                        <li>
+                    <a href="./index.php?view=menu"><span class="fa fa-sellsy"></span>&nbsp;&nbsp;Inicio</a>
+                        </li>
                        <li>
-                    <a href="./index.php?view=soporte"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Solicitud de Ordenes</a>
+                    <a href="./index.php?view=soporte"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Ticket´s</a>
                         </li>
                   <li>
-                    <a href="./index.php?view=actividaddiaria"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Actividades</a>
+                    <a href="./index.php?view=soporte-actividad"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Actividades</a>
                         </li>
                         <li>
                             <a href="./index.php?view=configuracion"><i class="fa fa-cogs"></i>&nbsp;&nbsp;Configuracion</a>

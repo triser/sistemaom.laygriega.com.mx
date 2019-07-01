@@ -8,9 +8,8 @@
       <p>Es muy facil de usar, si usted tiene una solicitud o algun requerimiento del sistema nos puede enviar una Nueva orden de Mejora, nosotros lo respondemos y solucionaremos su problema. Si ya nos ha enviado una Orden puede consultar el estado de este mediante su <strong>Orden ID</strong>.</p>
     </div>
   </div><!--fin row 1-->
-
-  <div class="row">
-    <div class="col-sm-6">
+      
+          <div class="col-sm-6">
       <div class="panel panel-info">
         <div class="panel-heading text-center"><i class="fa fa-file-text"></i>&nbsp;<strong>Solicitar Orden</strong></div>
         <div class="panel-body text-center">
@@ -23,7 +22,7 @@
       </div>
     </div><!--fin col-md-6-->
     
-    <div class="col-sm-6">
+        <div class="col-sm-6">
       <div class="panel panel-danger">
         <div class="panel-heading text-center"><i class="fa fa-link"></i>&nbsp;<strong>Comprobar estado de Orden</strong></div>
         <div class="panel-body text-center">
@@ -37,5 +36,4 @@
         </div>
       </div>
     </div><!--fin col-md-6-->
-  </div><!--fin row 2-->
 </div><!--fin container-->

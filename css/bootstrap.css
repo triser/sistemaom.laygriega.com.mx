@@ -83,6 +83,7 @@ sup {
 sub {
   bottom: -.25em;
 }
+
 img {
   border: 0;
 }
@@ -568,6 +569,15 @@ a.bg-danger:hover {
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
+
+
+
+ .panel-heading:hover { background-color:    #f8c471
+ !important; } 
+
+
+
+
 ul,
 ol {
   margin-top: 0;

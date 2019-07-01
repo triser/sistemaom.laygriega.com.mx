@@ -175,6 +175,8 @@ nav.navbar .navbar-right li a{
 
 
 
+
+
 .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
   border-bottom: #f4511e 3px solid;
 }
@@ -226,6 +228,8 @@ nav.navbar .navbar-right li a{
 }
 
 
+
+
 body{
         padding-top: 70px;
 
@@ -239,6 +243,7 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 
 }
+
 
 
 .modal-header2 {

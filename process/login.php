@@ -55,7 +55,7 @@
                 $_SESSION['nombreusuario']=$reg['nombre_usuario'];
                
   echo '<script>
-  location.href="index.php?view=soporte";
+  location.href="index.php?view=menu";
   </script>';     
            echo '
                 <div class="alert alert-info alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed; top:70px; right:10px; z-index:10;"> 
