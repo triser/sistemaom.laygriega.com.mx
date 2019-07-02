@@ -4,8 +4,8 @@
       <img src="img/tux_repair.png" class="img-responsive" alt="Image">
     </div>
     <div class="col-sm-9 lead">
-      <h2 class="text-info">Bienvenido al Sistema de MTL LA Y GRIEGA</h2>
-      <p>Es muy fácil de usar, si usted tiene una solicitud o algún requerimiento del sistema nos puede enviar su solicitud a través de este menú dependiendo de sus necesidades, nosotros lo respondemos y solucionaremos su problema. Si ya nos ha enviado un ticket o su actividad diaria usted puede consultar el estado mediante<strong> su Folio Asignado</strong>.</p>
+      <h2 class="text-info">Bienvenido Administrador al Sistema de MTL LA Y GRIEGA</h2>
+      <p>Es muy fácil de usar, si usted tiene una consulta o revision o algún requerimiento del sistem,puede consultar a través de este menú y dependiendo de sus necesidades.</p>
     </div>
   </div><!--fin row 1-->
   <div class="row"> 
@@ -99,23 +99,23 @@
       <div class="col-lg-3">
         <div class="panel panel-warning">
           <div class="panel-heading">
-               <a href="./actividad-usuario-view.php">
+               <a href="admin.php?view=menu-departamento-actividades">
             <div class="row">
               <div class="col-xs-8">
-                <i class="fa fa-search fa-5x"></i>
+                <i class="fa fa-sitemap fa-5x"></i>
               </div>
               <div class="col-xs-8 text-right">
                 <p class="announcement-heading">4</p>
-                <p class="announcement-text">Todas sus Actividades</p>
+                <p class="announcement-text">Actividades por Depto</p>
               </div>
             </div>
               </a>
           </div>
-          <a href="actividad-usuario-view.php">
+          <a href="admin.php?view=menu-departamento-actividades">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
-                  CONSULTAR
+                 Explorar
                 </div>
                 <div class="col-xs-8 text-right">
                   <i class="fa fa-arrow-circle-right"></i>

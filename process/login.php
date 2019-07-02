@@ -26,7 +26,7 @@
             ';
               
   echo '<script>
-  location.href="admin.php?view=ticketadmin";
+  location.href="admin.php?view=menu-admin";
   </script>';       
                 
             }else{

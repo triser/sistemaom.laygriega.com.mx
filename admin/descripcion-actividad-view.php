@@ -1,19 +1,13 @@
 <?php
         /* Todos los tickets*/
-$num_actividad_all=Mysql::consulta("SELECT
-  actividad_diaria.fecha_act,
-  actividad_diaria.hora_act,
-  cliente.nombre_completo,
-  ticket.departamento,
-  actividad_diaria.estatus,
-  actividad_diaria.fecha_revi,
-  actividad_diaria.hora_revi
-FROM
-  ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria
-  INNER JOIN ygriega_sistemaom.cliente
-    ON 
-      actividad_diaria.id_cliente_fk = cliente.id_cliente");
+$num_actividad_all=Mysql::consulta("
+SELECT   fecha_act,hora_act,nombre_completo,departamento,estatus,fecha_revi,hora_revi,id_act
+  FROM actividad_diaria
+  INNER JOIN cliente
+     ON cliente.id_cliente = actividad_diaria.id_cliente_fk AND actividad_diaria.id_cliente_fk = cliente.id_cliente
+  INNER JOIN ticket
+     ON actividad_diaria.id_act = ticket.id
+  WHERE actividad_diaria.id_act  = id");
                 $num_total_all=mysqli_num_rows($num_actividad_all);
             ?>
             ?>
@@ -43,32 +37,30 @@ FROM
                                 $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
                                 
-                                if(isset($_GET['ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria'])){
-                                    if($_GET['  ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM
-  ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria
-  INNER JOIN ygriega_sistemaom.cliente
-    ON 
-      actividad_diaria.id_cliente_fk = cliente.id_cliente LIMIT $inicio, $regpagina";
+                                if(isset($_GET['actividad_diaria'])){
+                                    if($_GET['actividad_diaria']=="all"){
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria
+  INNER JOIN cliente
+     ON cliente.id_cliente = actividad_diaria.id_cliente_fk AND actividad_diaria.id_cliente_fk = cliente.id_cliente
+  INNER JOIN ticket
+     ON actividad_diaria.id_act = ticket.id
+  WHERE actividad_diaria.id_act  = id LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FFROM
-  ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria
-  INNER JOIN ygriega_sistemaom.cliente
-    ON 
-      actividad_diaria.id_cliente_fk = cliente.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria
+  INNER JOIN cliente
+     ON cliente.id_cliente = actividad_diaria.id_cliente_fk AND actividad_diaria.id_cliente_fk = cliente.id_cliente
+  INNER JOIN ticket
+     ON actividad_diaria.id_act = ticket.id
+  WHERE actividad_diaria.id_act  = id LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM
-  ygriega_sistemaom.ticket,
-  ygriega_sistemaom.actividad_diaria
-  INNER JOIN ygriega_sistemaom.cliente
-    ON 
-      actividad_diaria.id_cliente_fk = cliente.id_cliente LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria
+  INNER JOIN cliente
+     ON cliente.id_cliente = actividad_diaria.id_cliente_fk AND actividad_diaria.id_cliente_fk = cliente.id_cliente
+  INNER JOIN ticket
+     ON actividad_diaria.id_act = ticket.id
+  WHERE actividad_diaria.id_act  = id LIMIT $inicio, $regpagina";
                                 }
 
 

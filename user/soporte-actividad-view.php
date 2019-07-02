@@ -25,7 +25,7 @@
     
     <div class="col-sm-6">
       <div class="panel panel-warning">
-        <div class="panel-heading text-center"><i class="fa fa-link"></i>&nbsp;<strong>Comprobar estado de Orden</strong></div>
+        <div class="panel-heading text-center"><i class="fa fa-link"></i>&nbsp;<strong>Consulta tus Actividades</strong></div>
         <div class="panel-body text-center">
           <img src="./img/old_ticket.png" alt="">
           <h4>Consultar Actividad Guardada</h4>
