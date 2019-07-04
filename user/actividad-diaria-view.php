@@ -8,14 +8,14 @@
           $idC=$_SESSION['id_cliente'];
           $fecha_actividad=  MysqlQuery::RequestPost('fecha_actividad');
           $hra_actividad=  MysqlQuery::RequestPost('hra_actividad');    
-          $actdiaria=  MysqlQuery::RequestPost('actdiaria');
+          $descripcion_actividad=  MysqlQuery::RequestPost('descripcion_actividad');
           $estado_actividad="Pendiente";
           $fecha2_revi="";
           $hra2_revi="";
 		
 			//Enviamos el mensaje ala Bd
 			
-if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_act, hora_act, estatus, fecha_revi, hora_revi","'$idC', '$actdiaria', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi'")){
+if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_act, hora_act, estatus, fecha_revi, hora_revi","'$idC', '$descripcion_actividad', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi'")){
 
                 
                 /*
@@ -23,7 +23,7 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
             ----------*/
             	 /*Fin codigo numero de actividad*/
                 
-		  $actdiaria = $_POST['actdiaria'];
+		  $descripcion_actividad = $_POST['descripcion_actividad'];
 		  $fecha_actividad = $_POST['fecha_actividad'];
           $hra_actividad = $_POST['hra_actividad'];
 		  $nombre_act = utf8_decode($_POST['nombre_act']);
@@ -108,56 +108,26 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
                     <div class="row">                           
                     <div class="col-md-3">
                         <ul class="nav">
-                            <li><a><i class="fa fa-list"></i>&nbsp;&nbsp;Consular Tus Actividade Diarias</a><span class="label label-success"></span></li>
+                            <li><a><i class="fa fa-list"></i>&nbsp;&nbsp;Describir tus Actividades</a><span class="label label-success"></span></li>
                         </ul>
                          </div>
-                          <div class="col-md-2">
+                          <div class="col-md-8">
                             <ul class="nav">
-                <a type="button" class="btn btn-success"  href="actividad-usuario-view.php"><i class="fa fa-search"></i>&nbsp;&nbsp;Consultar&nbsp;&nbsp;</a>
+                <a type="button" class="btn btn-success"  href="actividad-usuario-view.php"><i class="fa fa-search"></i>&nbsp;&nbsp;Tus Actividades&nbsp;&nbsp;</a>
                         </ul>
                     </div>
                 </div>
                 <br>
-        <style class="cp-pen-styles">.note-editor {margin-bottom: 1rem !important;}</style>
-<div class="container">
-  <?php $content_row=0 ; ?>
-  <div id="content-row">
-    <div class="form-group">
-      <div class="col-sm-11">
-        <textarea class="form-control" id="code_preview0" name="actdiaria" style="height: 450px;"></textarea>
-      </div>
-    </div>
-  </div>
-  <?php $content_row++; ?>
-</div>
-<!-- Page - Content End -->
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#code_preview0').summernote({height: 450});
-    });
-</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.6.6/summernote.min.js'></script>
-<script >var content_row = 1;
-function addContent() {
-  html = '<div id="content-row">';
-  html += '<div class="form-group">';
-  html += '<label class="col-sm-4">Page Content</label>';
-  html += '<div class="col-sm-12">';
-  html += '<textarea class="form-control"  id="code_preview' + content_row + '" name="page_code[' + content_row + '][code]" style="height: 450px;"></textarea>';
-  html += '</div>';
-  html += '</div>';
-  html += '</div>';
-  $('#content-row').append(html);
-  $('#code_preview' + content_row).summernote({height: 450});
 
-  content_row++;
-}
-//# sourceURL=pen.js
-</script>   
+                                 <div class="form-group">
+                          <div class="col-sm-12">
+                            <textarea class="form-control" rows="23"  placeholder="Por favor de Escribir su actividad del dia"  pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+{1,400}" name="descripcion_actividad" required=""></textarea>
+                          </div>
+                        </div>    
+                              
                               
                           <div class="col-sm-offset-5">
-                            <button  name="guardar" type="submit" class="btn btn-danger">Enviar Actividad</button>
+                            <button  name="guardar" type="submit" class="btn btn-danger"><i class="fa fa-cloud-upload"></i>&nbsp;&nbsp;Subir Actividad</button>
                           </div>
                     
                              </fieldset> 

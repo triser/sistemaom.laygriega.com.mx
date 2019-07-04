@@ -356,7 +356,7 @@ var actividades = {
                     "Actualizacion Sistema de OM","Instalacion y Configuracion de Reportes Intelisis","Mantenimiento Preventivo Equipos Informaticos","Mantenimiento Correctivo Equipos Informaticos","Perfiles de Usuarios Intelisis","Soporte Aplicación Ecommerce","Soporte ERP Intelisis","Soporte Movil Colibri","Soporte del sistema de OM","Soporte General","Timbrado CFDI"
                     ],
                 "Comunicacion y Seguridad TI":[
-                     "GPS","Antivirus","Camaras de Seguridad","Conectividad de Red","Compra de Consumibles","Correos Corporativos","Conectividad de Red","Estructura de la Red","Firewall","Mantenimiento Preventivo de Impresora","Mantenimiento Correctivo de Impresora","Telefonia","Soporte Aplicacion Ecommerce","Soporte General"
+                     "GPS","Antivirus","Camaras de Seguridad","Conectividad de Red","Correos Corporativos","Conectividad de Red","Estructura de la Red","Firewall","Mantenimiento Preventivo de Impresora","Mantenimiento Correctivo de Impresora","Telefonia","Solicitud de Pilas","Solicitud de Toner","Soporte Aplicacion Ecommerce","Soporte General"
                     ],
                 
             }
