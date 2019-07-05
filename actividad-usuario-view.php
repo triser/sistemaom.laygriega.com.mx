@@ -34,7 +34,7 @@ if($_SESSION['clave']!="" && isset($_SESSION['id_cliente'])){ $nombre_user= $_SE
             <?php
 
                 /* Todos los tickets*/
-$num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente WHERE actividad_diaria.id_cliente_fk='$id_clien'");
+$num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien'");
                 $num_total_all=mysqli_num_rows($num_actividad_all);
             ?>
 
@@ -75,13 +75,13 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                 
                                 if(isset($_GET['actividad_diaria'])){
                                     if($_GET['actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente WHERE actividad_diaria.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente WHERE actividad_diaria.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente WHERE actividad_diaria.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -123,7 +123,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
 
                                             <a href="./lib/pdf.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
 
-                                               <a href="detalleticket.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                               <a href="actividad-descripcion-view.php?id=<?php echo $row['id_act'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                     <?php

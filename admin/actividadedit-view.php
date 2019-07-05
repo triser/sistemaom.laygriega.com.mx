@@ -11,7 +11,7 @@
 	}  
 	} 
 	$id = MysqlQuery::RequestGet('id');
-	$sql = Mysql::consulta("SELECT * FROM actividad_diaria WHERE id_act= '$id'");
+	$sql = Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act, email_cliente FROM cliente c INNER JOIN actividad_diaria a ON c.id_cliente = a.id_cliente_fk WHERE  a.id_act = '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
 
@@ -30,40 +30,58 @@
           <div class="container">
             <div class="col-sm-12">
                 <form class="form-horizontal" role="form" action="" method="POST">
-                		<input type="hidden" name="id_edit" value="<?php echo $reg['id_act']?>">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha Hrs de Solicitud</label>
-                            <div class='col-sm-5'>
-                                <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['fecha_act']?>">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                </div>
-                            </div>
-                            <div class='col-sm-5'>
-                                <div class="input-group">
-                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['hora_act']?>">
-                                    <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label  class="col-sm-2 control-label">Nombre</label>
-                          <div class="col-sm-10">
+            <input type="hidden" name="id_edit" value="<?php echo $reg['id_act']?>">
+             <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span>Activida Diaria</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                          <div class="col-sm-4">
                               <div class='input-group'>
-                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" style="border:f92913; background-color: #ebf5fb
-" value="<?php echo utf8_encode($_SESSION['nombre_completo']); ?>">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                  <input type="text" readonly class="form-control"  name="name_ticket" readonly="" style="border:f92913; background-color: #fef9e7
+" value="<?php echo utf8_encode ($reg['nombre_completo']); ?>">
+
                               </div>
                           </div>
-                        </div>
+                            <div class='col-sm-2'>
+                                <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['fecha_act']?>">
+                                </div>
+                            </div>
+                            <div class='col-sm-2'>
+                                <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['hora_act']?>">
+                                </div>
+                            </div>
+                       
+                          <div class='col-sm-4'>
+                                <div class="input-group">
+                                      <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['email_cliente']?>">
+                                </div>
+                            </div>
+                      
+    </div>
+                    
                         <div class="form-group">
-                          <label  class="col-sm-2 control-label">Mensaje</label>
-                          <div class="col-sm-10">
-                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color:#ffffff"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
+                          <div class="col-sm-12">
+                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
                           </div>
                         </div>
+                    
+                </div>
+            </div>
+        </div>
+
+              
                             <div class="form-group">
-                            <label class="col-sm-2 control-label">Fecha hra de Entrega</label>
+                            <label class="col-sm-2 control-label">Fecha hra de revisión</label>
                             <div class='col-sm-5'>
                                 <div class="input-group">
             <input required aria-required="true" class="form-control" type="text" value="<?php echo utf8_encode(strftime("%Y-%m-%d")) ?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="fecha2_ticket">

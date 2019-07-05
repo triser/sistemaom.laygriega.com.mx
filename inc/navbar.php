@@ -39,7 +39,7 @@
                          
                     </ul>
                         <li>
-                    <a href="./index.php?view=menu"><span class="fa fa-sellsy"></span>&nbsp;&nbsp;Inicio</a>
+                    <a href="./index.php?view=menu"><span class="fa fa-home"></span>&nbsp;&nbsp;Inicio</a>
                         </li>
                        <li>
                     <a href="./index.php?view=soporte"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Ticket´s</a>
@@ -57,40 +57,58 @@
                  <?php if($_SESSION['tipo']=="admin"): ?>
                         <ul class="dropdown-menu">
                         <li> 
-                            <a href="admin.php?view=config"><i class="fa fa-cogs"></i> &nbsp;Configuracion Administrador</a>
+                            <a href="admin.php?view=config"><i class="fa fa-cogs"></i>&nbsp;Configuracion Administrador</a>
                         </li> 
                         <li >
                             <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
-                         </li>
+                    
                         </ul>
+                        <li>
+                            <a href="admin.php?view=menu-admin"><span class="fa fa-home"></span>&nbsp;Inicio</a>
+                        </li>
                           <li>
-                                <a href="admin.php?view=users"><span class="fa fa-users"></span> &nbsp; Usuarios</a>
+                            <a href="admin.php?view=users"><span class="fa fa-users"></span>&nbsp; Usuarios</a>
                         </li>
                          <li>
-                             <a href="admin.php?view=admin"><i class="fa fa-users"></i> &nbsp;Administradores</a>
+                             <a href="admin.php?view=admin"><i class="fa fa-users"></i>&nbsp;Administradores</a>
                         </li>
                          <li>
-                            <a href="admin.php?view=ticketadmin"><span class="fa fa-ticket"></span> &nbsp; ADMINISTRAR TICKET</a>
+                            <a href="admin.php?view=ticketadmin"><span class="fa fa-ticket"></span>&nbsp;ADMINISTRAR TICKET</a>
                         </li>  
                         <li>
                              <a href="./index.php?view=soporte"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Solicitud de Ticket</a> 
                         </li> 
                     <li>
-                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reportes <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reportes&nbsp;&nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
                         <li>
-                            <a href="admin.php?view=reporteAE"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Reporte Asesor Externo</a>
+                            <a href="admin.php?view=reporteAE"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Tickets Asesor Externo</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="admin.php?view=reporteHS"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reporte Software y Hardware</a>
+                            <a href="admin.php?view=reporteHS"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Tickets Software y Hardware</a>
                         
                         </li>
                          <li class="divider"></li>
                         <li >
-                            <a href="admin.php?view=reporteCS"><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Reporte Comunicacion y Seguridad TI</a>
+                            <a href="admin.php?view=reporteCS"><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Tickets Comunicacion y Seguridad TI</a>
                         
                         </li>
+                    </ul>
+                </li>
+            
+                          <li>
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reporte de Actividades&nbsp;&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level">
+                        <li>
+                            <a href="admin.php?view=actividades-general"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Todos los reportes</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="admin.php?view=menu-departamento-actividades"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reporte Por Departamento</a>
+                        
+                        </li>
+                  
                     </ul>
                 </li>
                         

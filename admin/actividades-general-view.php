@@ -2,7 +2,7 @@
 
                 /* Todos los tickets*/
 $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act
-    FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente");
+    FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente");
                 $num_total_all=mysqli_num_rows($num_actividad_all);
             ?>
 
@@ -29,9 +29,6 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-           
-                            
-                            
                             <?php
                                 $mysqli = mysqli_connect(SERVER, USER, PASS, BD);
                                 mysqli_set_charset($mysqli, "utf8");
@@ -43,13 +40,13 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                 
                                 if(isset($_GET['actividad_diaria'])){
                                     if($_GET['actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON actividad_diaria.id_cliente_fk=cliente.id_cliente LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -62,7 +59,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
 
                                 if(mysqli_num_rows($selactividad)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin ">
+                            <table class="table table-hover table-striped table-bordered points_table_admin2">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
@@ -93,7 +90,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
 
                                             <a href="./lib/pdf.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
 
-                                              <a href="admin.php?view=actividadedit&id=<?php echo $row['id_act']; ?>" class="btn btn-sm btn btn-info"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                              <a href="admin.php?view=actividadedit&id=<?php echo $row['id_act']; ?>" class="btn btn-sm btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -124,7 +121,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                     </li>
                                 <?php else: ?>
                                     <li>
-                                        <a href="./actividad-usuario-view.php=<?php echo $actividadselected; ?>&pagina=<?php echo $pagina-1; ?>" aria-label="Previous">
+                                        <a href="./admin.php?view=actividades-general&ticket=<?php echo $actividadselected; ?>&pagina=<?php echo $pagina-1; ?>" aria-label="Previous">
                                             <span aria-hidden="true">&larr;</span>&nbsp;Anterior
                                         </a>
                                     </li>
@@ -134,9 +131,9 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                 <?php
                                     for($i=1; $i <= $numeropaginas; $i++ ){
                                         if($pagina == $i){
-                                            echo '<li class="active"><a href="./actividad-usuario-view.php?ticket='.$actividadselected.'&pagina='.$i.'">'.$i.'</a></li>';
+                                            echo '<li class="active"><a href="./admin.php?view=actividades-general&ticket='.$actividadselected.'&pagina='.$i.'">'.$i.'</a></li>';
                                         }else{
-                                            echo '<li><a href="./actividad-usuario-view.php?ticket='.$actividadselected.'&pagina='.$i.'">'.$i.'</a></li>';
+                                            echo '<li><a href="./admin.php?view=actividades-general&ticket='.$actividadselected.'&pagina='.$i.'">'.$i.'</a></li>';
                                         }
                                     }
                                 ?>
@@ -150,7 +147,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                     </li>
                                 <?php else: ?>
                                     <li>
-                                        <a href="./actividad-usuario-view.php?ticket=<?php echo $actividadselected; ?>&pagina=<?php echo $pagina+1; ?>" aria-label="Previous">
+                                        <a href="./admin.php?view=actividades-general&ticket=<?php echo $actividadselected; ?>&pagina=<?php echo $pagina+1; ?>" aria-label="Previous">
                                             <span aria-hidden="true">&rarr;</span>&nbsp;Siguiente
                                         </a>
                                     </li>
