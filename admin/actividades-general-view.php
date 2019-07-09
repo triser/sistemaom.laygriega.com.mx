@@ -42,10 +42,10 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo,  email_cliente, desc
                                         $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente ORDER BY id_act ASC LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente ORDER BY id_act ASC LIMIT $inicio, $regpagina";
                                 }
 
 
