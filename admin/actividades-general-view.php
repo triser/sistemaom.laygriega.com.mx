@@ -1,8 +1,7 @@
             <?php
 
                 /* Todos los tickets*/
-$num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act
-    FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente");
+$num_actividad_all=Mysql::consulta("SELECT nombre_completo,  email_cliente, descripcion, fecha_act, hora_act FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente");
                 $num_total_all=mysqli_num_rows($num_actividad_all);
             ?>
 
@@ -40,13 +39,13 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                 
                                 if(isset($_GET['actividad_diaria'])){
                                     if($_GET['actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
                                 }
 
 
