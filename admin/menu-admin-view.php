@@ -186,7 +186,7 @@
       <div class="col-lg-3">
         <div class="panel panel-success">
           <div class="panel-heading">
-               <a href="./index.php?view=configuracion">
+               <a href="./admin.php?view=config">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-cogs fa-5x"></i>
@@ -198,7 +198,7 @@
             </div>
                    </a>
           </div>
-          <a href="./index.php?view=configuracion">
+          <a href="./admin.php?view=config">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
