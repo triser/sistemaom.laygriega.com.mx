@@ -4,6 +4,23 @@ session_start();
 include './lib/class_mysql.php';
 include './lib/config.php';
 if($_SESSION['clave']!="" && isset($_SESSION['id_cliente'])){ $nombre_user= $_SESSION['email']; $id_clien= $_SESSION['id_cliente'];?>
+<?php
+	if(isset($_POST['id_edit']) && isset($_POST['descripcion'])){
+
+		$id_edit= MysqlQuery::RequestPost('id_edit');
+        $descripcion_edit= MysqlQuery::RequestPost('descripcion');
+
+
+
+		if(MysqlQuery::Actualizar("actividad_semanal", "descripcion='$descripcion_edit'", "id_act='$id_edit'")){
+
+		}
+	}     
+
+$sql = Mysql::consulta("SELECT nombre_completo, descripcion, fecha_sem, hora_sem FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem=c.id_cliente WHERE a.id_cliente_sem='$id_clien'");
+	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
+?>
+
 
     <!DOCTYPE html>
 <html>
@@ -19,7 +36,7 @@ if($_SESSION['clave']!="" && isset($_SESSION['id_cliente'])){ $nombre_user= $_SE
             <div class="row">
             <div class="col-sm-12">
               <div class="page-header">
-                <h1 class="animated lightSpeedIn">Reporte de Actividades Realizadas</h1>
+                <h1 class="animated lightSpeedIn">Reporte de Actividades a Realizar</h1>
                 <span class="label label-danger">Sistema de Ordenes de Mejora LA Y GRIEGA</span>
                 <p class="pull-right text-success">
                   <strong>
@@ -33,29 +50,30 @@ if($_SESSION['clave']!="" && isset($_SESSION['id_cliente'])){ $nombre_user= $_SE
         
             <?php
 
-                /* Todos los tickets*/
-$num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_act, hora_act FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien'");
-                $num_total_all=mysqli_num_rows($num_actividad_all);
+                /* Todos los actividades GENERAL*/
+$num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_sem, hora_sem FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem=c.id_cliente WHERE a.id_cliente_sem='$id_clien'");
+                $num_total_all=mysqli_num_rows($num_actividad_all);                         
+                                        
             ?>
             <div class="container">
                       <div class="row">
                 <div class="col-sm-2">
-                   <a href="actividad-usuario-view.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
+                          <a href="actividad-usuario-view.php" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="tabla-actividad-semanal-usuario-view.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
+                   <a href="tabla-actividad-semanal-usuario-view.php" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-warning btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
             </div>
           </div>
         </div>
@@ -65,6 +83,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                     <div class="col-md-3">
                         <ul class="nav">
                             <li><a href="./actividad-usuario-view.php?ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todas las Actividades&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
+                            
                         </ul>
                          </div>
                     <div class="col-md-3">
@@ -76,6 +95,7 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                           <div class="col-md-2">
                             <ul class="nav">
                 <a type="button" class="btn btn-primary"  href="./index.php?view=actividad-diaria"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Elaborar Actividad&nbsp;&nbsp;</a>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-id-2">Editar</button>
                         </ul>
                     </div>
                 </div>
@@ -95,15 +115,15 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                 $inicio = ($pagina > 1) ? (($pagina * $regpagina) - $regpagina) : 0;
 
                                 
-                                if(isset($_GET['actividad_diaria'])){
-                                    if($_GET['actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                if(isset($_GET['actividad_semanal'])){
+                                    if($_GET['actividad_semanal']=="all"){
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem=c.id_cliente WHERE a.id_cliente_sem='$id_clien' LIMIT $inicio, $regpagina";
                          
                                     }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem=c.id_cliente WHERE a.id_cliente_sem='$id_clien' LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk=c.id_cliente WHERE a.id_cliente_fk='$id_clien' LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem=c.id_cliente WHERE a.id_cliente_sem='$id_clien' LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -116,12 +136,13 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
 
                                 if(mysqli_num_rows($selactividad)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin ">
+                            <table class="table table-hover table-striped table-bordered points_table_admin2 ">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
                                         <th class="text-center" scope="col">Fecha Elaboración</th>
                                         <th class="text-center" scope="col">Hora Elaboración</th>
+                                        <th class="text-center" scope="col">descripcion</th>
                                         <th class="text-center" scope="col">Estatus</th>
                                         <th class="text-center" scope="col">Fecha de Revisión</th>
                                         <th class="text-center" scope="col">Hora de Revisión</th>
@@ -135,17 +156,18 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                                     ?>
                                     <tr>
                                         <td class="text-center" scope="row" data-label="Registro"><?php echo $ct; ?></td>
-                                        <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_act']; ?></td>
-                                        <td class="text-center" data-label="Hora:"><?php echo $row['hora_act']; ?></td>
+                                        <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_sem']; ?></td>
+                                        <td class="text-center" data-label="Hora:"><?php echo $row['hora_sem']; ?></td>
+                                        <td class="text-center" data-label="Fecha:"><?php echo $row['descripcion']; ?></td>
                                         <td class="text-center" data-label="Fecha:"><?php echo $row['estatus']; ?></td>
                                           <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_revi']; ?></td>
                                         <td class="text-center" data-label="Hora:"><?php echo $row['hora_revi']; ?></td>
 
                                         <td class="text-center" data-label="Opciones:">
 
-                                            <a href="./lib/pdf.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                            <a href="./lib/pdf.php?id=<?php echo $row['id_sem']?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
 
-                                               <a href="actividad-descripcion-view.php?id=<?php echo $row['id_act'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                               <a href="actividad-descripcion-view.php?id=<?php echo $row['id_sem'] ?>" class="btn btn-sm btn-warning"><i class="fa fa-list" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -160,8 +182,8 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                         </div>
                         <?php 
                             if($numeropaginas>=1):
-                            if(isset($_GET['actividad_diaria'])){
-                                $actividadselected=$_GET['actividad_diaria'];
+                            if(isset($_GET['actividad_semanal'])){
+                                $actividadselected=$_GET['actividad_semanal'];
                             }else{
                                 $actividadselected="all";
                             }
@@ -213,6 +235,52 @@ $num_actividad_all=Mysql::consulta("SELECT nombre_completo, descripcion, fecha_a
                     </div>
                 </div>
             </div><!--container principal-->
+        
+        
+        
+        <div id="user-id-2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" action="" method="POST">
+            <input type="hidden" name="id_edit" id="id_edit" value="<?php echo $reg['id_sem']?>">
+          <div class="form-group">
+              <div class="col-sm-6">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="id_nombre" value="<?php echo $reg['nombre_completo']; ?>">
+          </div>
+          </div>
+         <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Actividades Semanales:</label>
+                          <div class="col-sm-12">
+                            <textarea class="form-control" rows="20"  name="descripcion" id="descripcion" required ><?php echo utf8_encode($reg['descripcion']); ?></textarea>
+                          </div>
+                        </div>
+          
+          <br>
+          ...
+          <br>
+          ...
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar</button>
+      </div>
+      
+    </div>
+
+
+  </div>
+</div>
+
 <?php
 }else{
 ?>

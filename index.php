@@ -49,7 +49,7 @@ function ae_nocache()
         <?php
             if(isset($_GET['view'])){
                 $content=$_GET['view'];
-                $WhiteList=["index","soporte","soporte-actividad","ticket","ticketcon","registro","configuracion","actividad-diaria","actividad-usuario","menu"];
+    $WhiteList=["index","soporte","soporte-actividad","ticket","ticketcon","registro","configuracion","actividad-diaria","actividad-usuario","actividad-semanal","menu","actividad-semanaledit","menu","tabla-actvidades","tabla-actividad-semanal-usuario"];
                 if(in_array($content, $WhiteList) && is_file("./user/".$content."-view.php")){
                     include "./user/".$content."-view.php";
                 }else{

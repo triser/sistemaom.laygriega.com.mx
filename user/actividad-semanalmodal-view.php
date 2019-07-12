@@ -15,7 +15,7 @@
 		
 			//Enviamos el mensaje ala Bd
 			
-if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_act, hora_act, estatus, fecha_revi, hora_revi","'$idC', '$descripcion_actividad', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi'")){
+if(MysqlQuery::Guardar("actividad_semanal", "id_cliente_sem, descripcion, fecha_sem, hora_sem, estatus, fecha_revi, hora_revi","'$idC', '$descripcion_actividad', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi'")){
 
                 
                 /*
@@ -62,38 +62,42 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
             ';
           }
         }
-        
-        
-        
+        	$id = MysqlQuery::RequestGet('id');
+	$sql = Mysql::consulta("SELECT * FROM actividad_semanal WHERE id_sem= '$id'");
+	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
+            
 ?>
             <div class="container">
                       <div class="row">
                 <div class="col-sm-2">
-                   <a href="./index.php?view=actividad-diaria" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./index.php?view=actividad-semanal" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
+            </div>
+                 <div class="col-sm-2">
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
+                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual / Semestral</a>
             </div>
           </div>
         </div>
+  <br>
+       
+
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
               <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title text-center"><strong><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Panel de Actividad Diaria</strong></h3>
+                    <h3 class="panel-title text-center"><strong><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;&nbsp;Panel de Actividad Semanal</strong></h3>
                 </div>
                 <div class="panel-body">
                   <div class="row">
@@ -135,9 +139,18 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
                             <li><a><i class="fa fa-list"></i>&nbsp;&nbsp;Describir tus Actividades</a><span class="label label-success"></span></li>
                         </ul>
                          </div>
-                          <div class="col-md-8">
+                          <div class="col-md-4">
                             <ul class="nav">
-                <a type="button" class="btn btn-success"  href="actividad-usuario-view.php"><i class="fa fa-search"></i>&nbsp;&nbsp;Tus Actividades&nbsp;&nbsp;</a>
+                <a type="button" class="btn btn-success"  href=""><i class="fa fa-search"></i>&nbsp;&nbsp;Subir Actividades&nbsp;&nbsp;</a>
+                        </ul>
+                    </div>
+                                    <div class="col-md-4">
+                            <ul class="nav">
+                <a type="button" class="btn btn-success"  href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-search"></i>&nbsp;&nbsp;Editar Actividad Semanal&nbsp;&nbsp;</a>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-id">Ver informacion</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-id-2">Editar</button>
+
+
                         </ul>
                     </div>
                 </div>
@@ -145,7 +158,7 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
 
                                  <div class="form-group">
                           <div class="col-sm-12">
-                            <textarea class="form-control" rows="23"  placeholder="Por favor de Escribir su actividad del dia"  pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+{1,400}" name="descripcion_actividad" required=""></textarea>
+                            <textarea class="form-control" rows="23"  placeholder="No se encontro ninguna actividad"  pattern="[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+{1,400}" name="descripcion_actividad" required="" value="<?php echo $reg['descripcion']; ?>"></textarea>
                           </div>
                         </div>    
                               
@@ -163,9 +176,86 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
             </div>
           </div>
         </div>        </div>
+              <!-- Modal -->
+<div id="user-id" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ $user->name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        Nombre: {{  $user->name }}  
+        <br>
+        Apellidos: {{ $user->lastName }}     
+        <br>
+        ...
+
+<br>
+...
+        
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="user-id-2" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" role="form" action="" method="POST">
+            <input type="hidden" name="id_edit" value="<?php echo $reg['id_sem']?>">
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="id_act" value="<?php echo $reg['descripcion_actividad']; ?>">
+          </div>
+         
+         
+         <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="recipient-name" value="{{ user->lastname }}">
+          </div>
+          
+          <br>
+          ...
+          <br>
+          ...
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Editar</button>
+      </div>
+      
+    </div>
+
+
+  </div>
+</div>
+
+
 <?php
 }else{
 ?>
+
+
     <div class="container">
         <div class="row">
             <div class="col-sm-4">

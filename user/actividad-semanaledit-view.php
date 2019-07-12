@@ -9,7 +9,7 @@
 		$mensaje_mail="Estimado usuario la solución a su problema es la siguiente : ".$solucion_edit;
 		$mensaje_mail=wordwrap($mensaje_mail, 70, "\r\n");*/
 
-		if(MysqlQuery::Actualizar("actividad_diaria", "estatus='$estado_edit', fecha_revi='$fecha2_edit', hora_revi='$hra2_edit'", "id_act='$id_edit'")){
+		if(MysqlQuery::Actualizar("actividad_semanal", "estatus='$estado_edit', fecha_revi='$fecha2_edit', hora_revi='$hra2_edit'", "id_sem='$id_edit'")){
 
 	echo '
                  <div class="alert alert-warning alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed;  top: 50%; right:40%; z-index:10;"> 
@@ -36,7 +36,7 @@
 	}     
 	     
 	$id = MysqlQuery::RequestGet('id');
-	$sql = Mysql::consulta("SELECT * FROM actividad_diaria WHERE id_act= '$id'");
+	$sql = Mysql::consulta("SELECT * FROM actividad_semanal WHERE id_act= '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
 
@@ -130,7 +130,7 @@
        
                         <div class="form-group">
                           <div class="col-sm-12">
-                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
+                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"> <?php echo $reg['descripcion']?> </textarea>
                           </div>
                         </div>
                     
