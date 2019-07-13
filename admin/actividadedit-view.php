@@ -1,15 +1,18 @@
 <?php
-	if(isset($_POST['id_edit'])){
+
+	if(isset($_POST['id_edit'])&& isset($_POST['comentario_actividad'])){
 		$id_edit= MysqlQuery::RequestPost('id_edit');
+        $solucion_edit=  MysqlQuery::RequestPost('comentario_actividad');
 		$estado_edit= "Revisado";
 		$fecha2_edit= date("Y-m-d"); 
         $hra2_edit= date("H:i:s");
+        $idA=$_SESSION['id'];
 
 	/*	$cabecera="From: Sistema OT La Y Griega<sistemas2@laygriega.com.mx>";
 		$mensaje_mail="Estimado usuario la solución a su problema es la siguiente : ".$solucion_edit;
 		$mensaje_mail=wordwrap($mensaje_mail, 70, "\r\n");*/
 
-		if(MysqlQuery::Actualizar("actividad_diaria", "estatus='$estado_edit', fecha_revi='$fecha2_edit', hora_revi='$hra2_edit'", "id_act='$id_edit'")){
+		if(MysqlQuery::Actualizar("actividad_diaria", "estatus='$estado_edit', fecha_revi='$fecha2_edit', hora_revi='$hra2_edit', comentario='$solucion_edit', id_admin_fk='$idA'", "id_act='$id_edit'")){
 
 	echo '
                  <div class="alert alert-warning alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed;  top: 50%; right:40%; z-index:10;"> 
@@ -134,6 +137,13 @@
                           </div>
                         </div>
                     
+                           <div class="form-group">
+                          <label  class="col-sm-2 control-label">Comentarios</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" rows="3"  name="comentario_actividad" ><?php echo utf8_encode($reg['comentario']); ?></textarea>
+                          </div>
+                        </div>
+                    
                     
                           </div>
             </div>
@@ -176,7 +186,7 @@
                     <br>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-9 text-center">
-                             <button type="submit" class="btn btn-success"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar a Revisado</button>
+                             <button type="submit" class="btn btn-success"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar Revisado</button>
                               <a href="./admin.php?view=actividades-general" class="btn btn-info "><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver</a>
                           </div>
                         </div>
@@ -184,3 +194,5 @@
             </div><!--col-md-12-->
         
           </div><!--container-->
+
+

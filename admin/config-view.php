@@ -68,7 +68,7 @@
 
             $sql=Mysql::consulta("SELECT * FROM administrador WHERE nombre_admin= '$old_nom_admin_update' AND clave='$old_pass_admin_uptade'");
             if(mysqli_num_rows($sql)>=1){
-                if(MysqlQuery::Actualizar("administrador", "nombre_completo='$nom_complete_update', nombre_admin='$nom_admin_update', clave='$pass_admin_update', email_admin='$email_admin_update'", "nombre_admin='$old_nom_admin_update' and clave='$old_pass_admin_uptade'")){
+                if(MysqlQuery::Actualizar("administrador", "nombre_completo_a='$nom_complete_update', nombre_admin='$nom_admin_update', clave='$pass_admin_update', email_admin='$email_admin_update'", "nombre_admin='$old_nom_admin_update' and clave='$old_pass_admin_uptade'")){
                     
                      //Importamos las variables del formulario/ /
 			
@@ -252,7 +252,7 @@ if (@mail($email_to, $asunto ,$mensaje_mail ,$cabeceras )) ;
                              <form role="form" action="" method="POST">
                              <div class="form-group">
                                <label><i class="fa fa-male"></i>&nbsp;Nombre completo</label>
-                               <input type="text" class="form-control" value="<?php echo $reg1['nombre_completo']; ?>" name="nom_admin_up" placeholder="Nombre completo" required="" pattern="[a-zA-Z ]{1,40}" title="Nombre Apellido" maxlength="40">
+                               <input type="text" class="form-control" value="<?php echo $reg1['nombre_completo_a']; ?>" name="nom_admin_up" placeholder="Nombre completo" required="" pattern="[a-zA-Z ]{1,40}" title="Nombre Apellido" maxlength="40">
                              </div>
                              <div class="form-group">
                                <label><i class="fa fa-user"></i>&nbsp;Nombre de administrador anterior</label>

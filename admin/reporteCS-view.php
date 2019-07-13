@@ -5,7 +5,7 @@
               <center><img src="./img/msj.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
             <div class="col-sm-10">
-              <p class="lead text-info">Bienvenido administrador LIC. FRANCISCO JAVIER RUIZ UTRILLA, aqui se muestran todas los Ticket del departamento de Comunicacion y Seguridad los cuales podra, modificar, Cancela, imprimir y Consultar</p>
+              <p class="lead text-info">Bienvenido administrador <?php echo utf8_encode($_SESSION['nombre_completo_a']); ?>, aqui se muestran todas los Ticket del departamento de Comunicacion y Seguridad los cuales podra, modificar, Cancela, imprimir y Consultar</p>
             </div>
           </div>
         </div>

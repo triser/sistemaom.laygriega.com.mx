@@ -34,10 +34,9 @@
                             <a href="./index.php?view=configuracion"><i class="fa fa-cogs"></i>&nbsp;&nbsp;Configuracion</a>
                         </li> 
                         <li >
-                            <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a>
-                        </li>
-                         
+                            <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
                     </ul>
+              </li>
                         <li>
                     <a href="./index.php?view=menu"><span class="fa fa-home"></span>&nbsp;&nbsp;Inicio</a>
                         </li>
@@ -47,11 +46,8 @@
                   <li>
                     <a href="./index.php?view=soporte-actividad"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Actividades</a>
                         </li>
-                        <li>
-                            <a href="./index.php?view=configuracion"><i class="fa fa-cogs"></i>&nbsp;&nbsp;Configuracion</a>
-                        </li>
                         <?php endif; ?>
-                        </li>
+                     
                         <!-- admins -->
                         
                  <?php if($_SESSION['tipo']=="admin"): ?>
@@ -66,30 +62,42 @@
                         <li>
                             <a href="admin.php?view=menu-admin"><span class="fa fa-home"></span>&nbsp;Inicio</a>
                         </li>
-                          <li>
+                        <li>
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Usuarios&nbsp;&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level">
+                    <li>
                             <a href="admin.php?view=users"><span class="fa fa-users"></span>&nbsp; Usuarios</a>
                         </li>
                          <li>
                              <a href="admin.php?view=admin"><i class="fa fa-users"></i>&nbsp;Administradores</a>
                         </li>
-                         <li>
-                            <a href="admin.php?view=ticketadmin"><span class="fa fa-ticket"></span>&nbsp;ADMINISTRAR TICKET</a>
-                        </li>  
-                        <li>
-                             <a href="./index.php?view=soporte"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Solicitud de Ticket</a> 
-                        </li> 
+                    </ul>
+                </li>
+                
                     <li>
-                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reportes&nbsp;&nbsp;<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Administrar Tickets&nbsp;&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level"> 
+                        <li>
+                             <a href="admin.php?view=solicitud-ticket-admin"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Solicitud de Ticket</a> 
+                        </li> 
+                        <li class="divider"></li>
+                         <li>
+                            <a href="admin.php?view=ticketadmin"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Todos los Tickes</a>
+                        </li> 
                         <li>
                             <a href="admin.php?view=reporteAE"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Tickets Asesor Externo</a>
                         </li>
-                        <li class="divider"></li>
+                         
+                        <li>
+                            <a href="admin.php?view=reporteCM"><span class="fa fa-area-chart"></span>&nbsp;&nbsp;Tickets Calidad</a>
+                        
+                        </li>
+                       
                         <li>
                             <a href="admin.php?view=reporteHS"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Tickets Software y Hardware</a>
                         
                         </li>
-                         <li class="divider"></li>
+                 
                         <li >
                             <a href="admin.php?view=reporteCS"><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Tickets Comunicacion y Seguridad TI</a>
                         
@@ -111,14 +119,10 @@
                   
                     </ul>
                 </li>
-                        
                        <?php endif; ?>  
-                       
                         <li>
-                            
                             <a href="./process/logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
                         <?php endif; ?>
-                        
                         <ul class=" nav navbar-nav navbar-right"> 
                          <?php if(!isset($_SESSION['tipo']) && !isset($_SESSION['nombre'])): ?>
                      <li>
@@ -135,51 +139,7 @@
                 </li>
                 <?php endif; ?>
             </ul>
-        </div>
-</nav>
-<!-- Modal HTML
-<div id="myModal" class="modal fade">
-	<div class="modal-dialog modal-login">
-		<div class="modal-content">
-			<div class="modal-header"> 
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<div class="avatar">
-				<center><img src="img/lay.png" class="img-responsive" alt="Image"></center>
-				</div>				
-				<center><h4 class="modal-title">Inicio de Sesion de Ordenes de Mejora</h4></center>	
-			</div>
-			<div class="modal-body">
-				<form action="" method="POST">
-				           <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" name="nombre_login" placeholder="Ingrese su nombre de Usuario" required=""/>	
-                            </div>
-                            <br />
-                            <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" name="contrasena_login" placeholder="Ingrese su contraseña" required=""/>	
-                            </div>
-				            <br />
-				            <h4><p>¿Cómo iniciaras sesión?</h4></p>
-                  <div class="radio radio-danger">
-                                <input type="radio" name="optionsRadios" id="radio3" value="user"checked="">
-                                <label for="radio3">
-                                   <h4 class="modal-title text-primary" id="modal-md">Usuario</h4>
-                                </label>
-                            </div>
-                            <div class="radio radio-danger">
-                                <input type="radio" name="optionsRadios" id="radio4" value="admin" >
-                                <label for="radio4">
-                                 <h4 class="modal-title text-primary" id="modal-md">Administrador</h4>
-                                </label>
-                            </div>
-           <div class="modal-footer">
-					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-lg btn-block login-btn"><i class="glyphicon glyphicon-log-in"></i>&nbsp; &nbsp; Iniciar sesión</button>
-					</div>
-				</form>
-			</div>
-			</div>
-		</div>
-	</div>
-</div>   -->   
+                </ul>
+      </div>
+    </div>
+</nav> 

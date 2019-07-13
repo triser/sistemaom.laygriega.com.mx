@@ -36,7 +36,7 @@ if($_SESSION['tipo']!="admin"){
           </div>
         </div>
         <?php
-            $WhiteList=["ticketadmin","ticketedit","ticketeditAE","ticketeditHS","ticketeditCS","users","admin","config","reporteAE","reporteHS","reporteCS","admindetalleticket","descripcion-actividad","menu-admin","menu-departamento-actividades","actividadedit","actividades-general","ageneral"];
+            $WhiteList=["ticketadmin","ticketedit","ticketeditAE","ticketeditHS","ticketeditCS","ticketeditCM","users","admin","config","reporteAE","reporteHS","reporteCM","reporteCS","admindetalleticket","descripcion-actividad","menu-admin","menu-departamento-actividades","actividadedit","actividades-general","ageneral","solicitud-ticket-admin"];
             if(isset($_GET['view']) && in_array($_GET['view'], $WhiteList) && is_file("./admin/".$_GET['view']."-view.php")){
                 include "./admin/".$_GET['view']."-view.php";
             }else{

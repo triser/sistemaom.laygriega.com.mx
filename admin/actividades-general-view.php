@@ -5,7 +5,7 @@
               <center><img src="./img/msj.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
             <div class="col-sm-10">
-              <p class="lead text-info">Bienvenido administrador <?php echo $_SESSION['nombre_completo']; ?>, aqui se muestran todas las Actividades de todos los departamento los cuales podra, Revisar, imprimir y Consultar</p>
+              <p class="lead text-info">Bienvenido administrador <?php echo $_SESSION['nombre_completo_a']; ?>, aqui se muestran todas las Actividades de todos los departamento los cuales podra, Revisar, imprimir y Consultar</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                         <td class="text-center" data-label="Hora:"><?php echo $row['hora_act']; ?></td>
                                           <td class="text-center" data-label="Nombre Completo:"><?php echo $row['nombre_completo']; ?></td>
                                         <td class="text-center" data-label="Estatus:"> <?php 
-  //pintamos de colorores los estados del actividad
+  //pintamos de colorores los estados de la actividad
 	switch ($row['estatus'])
 	{
 		case "Pendiente":
@@ -121,7 +121,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                             
                                                       <!--ver lista de comentarios-->
                                           <a href="admin.php?view=actividadedit&id=<?php echo $row['id_act']; ?>" 
-                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['descripcion']; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['descripcion']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
                                         </td>
                             
                                     </tr>

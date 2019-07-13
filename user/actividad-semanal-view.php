@@ -2,7 +2,7 @@
 <?php 
         if(isset($_SESSION['id_cliente']) && isset($_SESSION['nombre']) && isset($_SESSION['tipo']) && isset($_SESSION['email'])){
         
-        if(isset($_POST['fecha_actividad']) && isset($_POST['nombre_act']) && isset($_POST['id_sem'])){
+        if(isset($_POST['fecha_actividad']) && isset($_POST['nombre_act'])){
 			
           /*Fin codigo numero de actividad*/
           $idC=$_SESSION['id_cliente'];
@@ -12,10 +12,11 @@
           $estado_actividad="Pendiente";
           $fecha2_revi="";
           $hra2_revi="";
+          $id_admin="4";
 		
 			//Enviamos el mensaje ala Bd
 			
-if(MysqlQuery::Guardar("actividad_semanal", "id_cliente_sem, descripcion, fecha_sem, hora_sem, estatus, fecha_revi, hora_revi","'$idC', '$descripcion_actividad', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi'")){
+if(MysqlQuery::Guardar("actividad_semanal", "id_cliente_sem, descripcion, fecha_sem, hora_sem, estatus, fecha_revi, hora_revi,id_admin_fks","'$idC', '$descripcion_actividad', '$fecha_actividad', '$hra_actividad', '$estado_actividad', '$fecha2_revi', '$hra2_revi', '$id_admin'")){
 
                 
                 /*
@@ -62,28 +63,29 @@ if(MysqlQuery::Guardar("actividad_semanal", "id_cliente_sem, descripcion, fecha_
             ';
           }
         }
- 
-            
+        
+        
+        
 ?>
             <div class="container">
                       <div class="row">
                 <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
+                   <a href="actividad-usuario-view.php" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
-            </div>
-                 <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
+                   <a href="./index.php?view=actividad-semanal" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
+                   <a href="" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
+                   <a href="" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
             </div>
                    <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual / Semestral</a>
+                   <a href="" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="" class="btn btn-success btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
             </div>
           </div>
         </div>
@@ -100,7 +102,7 @@ if(MysqlQuery::Guardar("actividad_semanal", "id_cliente_sem, descripcion, fecha_
                 <div class="panel-body">
                   <div class="row">
                       <div class="col-sm-12 text-center">
-                      <p class="text-primary text-justify">Por favor llenar el formulario con sus <strong>Actidades Diaria.</strong>la informacion será enviado directamente a su dirección de correo electronico proporcionada en este formulario.</p>
+                      <p class="text-primary text-justify">Por favor llenar el formulario con sus <strong>Actidades Semanal.</strong>la informacion será enviado directamente a su dirección de correo electronico proporcionada en este formulario.</p>
                         <br> 
                     </div>
                       

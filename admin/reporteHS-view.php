@@ -36,7 +36,7 @@
                 }
 
                    /* Todos los tickets*/
-                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Hardware Y Software'"  );
+                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Hardware Y Software'");
                 $num_total_all=mysqli_num_rows($num_ticket_all);
                 
                 /* Tickets pendientes*/

@@ -223,7 +223,12 @@ nav.navbar .navbar-right li a{
 		color: #fff;
 }
 .points_table_admin3 thead{
-	background: #CC3366;
+	background: #8d6e63;
+		color: #fff;
+}
+
+.points_table_admi4 thead{
+	background: #ec407a;
 		color: #fff;
 }
 
@@ -231,6 +236,7 @@ nav.navbar .navbar-right li a{
 		background: #CC3366;
 		color: #fff;
 }
+
 
 
 

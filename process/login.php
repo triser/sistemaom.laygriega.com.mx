@@ -9,7 +9,7 @@
                 $reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
                 $_SESSION['nombre']=$reg['nombre_admin'];
                 $_SESSION['id']=$reg['id_admin'];
-                $_SESSION['nombre_completo']=$reg['nombre_completo'];
+                $_SESSION['nombre_completo_a']=$reg['nombre_completo_a'];
                 $_SESSION['email']=$reg['email_admin'];
                 $_SESSION['clave']=$clave;
                 $_SESSION['tipo']="admin";

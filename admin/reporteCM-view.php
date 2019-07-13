@@ -7,7 +7,7 @@
               <center><img src="./img/msj.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
             <div class="col-sm-10">
-              <p class="lead text-info">Bienvenido administrador <?php echo utf8_encode($_SESSION['nombre_completo_a']); ?>, aqui se muestran todas los Ticket del departamento del Asesor Externo (Intelisis) los cuales podra, modificar, Cancela, imprimir y Consultar</p>
+              <p class="lead text-info">Bienvenido administrador <?php echo utf8_encode($_SESSION['nombre_completo_a']);?> , aqui se muestran todas los Ticket del departamento de Calidad (Mejora Continua) los cuales podra, modificar, Cancela, imprimir y Consultar las No Conformidades</p>
             </div>
           </div>
         </div>
@@ -38,23 +38,23 @@
                 }
 
                    /* Todos los tickets*/
-                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Asesor externo'"  );
+                $num_ticket_all=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Calidad'"  );
                 $num_total_all=mysqli_num_rows($num_ticket_all);
                 
                 /* Tickets pendientes*/
-                $num_ticket_pend=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Pendiente'" );
+                $num_ticket_pend=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada ='Calidad' AND estado_ticket = 'Pendiente'" );
                 $num_total_pend=mysqli_num_rows($num_ticket_pend);
 
                 /* Tickets en proceso*/
-                $num_ticket_proceso=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'En Proceso'");
+                $num_ticket_proceso=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada ='Calidad' AND estado_ticket = 'En Proceso'");
                 $num_total_proceso=mysqli_num_rows($num_ticket_proceso);
 
                 /* Tickets resueltos*/
-                $num_ticket_res=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Resuelto'");
+                $num_ticket_res=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada ='Calidad' AND estado_ticket = 'Resuelto'");
                 $num_total_res=mysqli_num_rows($num_ticket_res);
                 
                  /* Tickets Cancelado*/
-                $num_ticket_can=Mysql::consulta("SELECT * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Cancelado'");
+                $num_ticket_can=Mysql::consulta(" SELECT * FROM ticket WHERE area_solicitada ='Calidad' AND estado_ticket = 'Cancelado'");
                 $num_total_can=mysqli_num_rows($num_ticket_can);
             ?>
 
@@ -62,11 +62,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="./admin.php?view=reporteAE&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todos los Ticket&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
-                            <li><a href="./admin.php?view=reporteAE&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Ticket Pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
-                            <li><a href="./admin.php?view=reporteAE&ticket=process"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;Ticket en proceso&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_proceso; ?></span></a></li>
-                            <li><a href="./admin.php?view=reporteAE&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Ticket resueltos&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_res; ?></span></a></li>
-                            <li><a href="./admin.php?view=reporteAE&ticket=cancelled"><i class="fa fa-minus-square"></i>&nbsp;&nbsp;Ticket Cancelados&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_can; ?></span></a></li>
+                            <li><a href="./admin.php?view=reporteCM&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todos los Ticket&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
+                            <li><a href="./admin.php?view=reporteCM&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Ticket Pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
+                            <li><a href="./admin.php?view=reporteCM&ticket=process"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;Ticket en proceso&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_proceso; ?></span></a></li>
+                            <li><a href="./admin.php?view=reporteCM&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Ticket resueltos&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_res; ?></span></a></li>
+                            <li><a href="./admin.php?view=reporteCM&ticket=cancelled"><i class="fa fa-minus-square"></i>&nbsp;&nbsp;Ticket Cancelados&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_can; ?></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,20 +85,20 @@
                                 
                                 if(isset($_GET['ticket'])){
                                     if($_GET['ticket']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="pending"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Pendiente' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' AND estado_ticket = 'Pendiente' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="process"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'En Proceso' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' AND estado_ticket = 'En Proceso' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="resolved"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Resuelto' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' AND estado_ticket = 'Resuelto' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['ticket']=="cancelled"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' AND estado_ticket = 'Cancelado' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' AND estado_ticket = 'Cancelado' LIMIT $inicio, $regpagina";
                                     }else{
                                         $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket ORDER BY id DESC LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Asesor Externo' LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM ticket WHERE area_solicitada='Calidad' LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -111,7 +111,7 @@
 
                                 if(mysqli_num_rows($selticket)>0):
                             ?>
-                            <table class="table table-hover table-striped table-bordered points_table_admin1" class="table table-hover" >
+                            <table class="table table-hover table-striped table-bordered points_table_admi4" class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>

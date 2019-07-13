@@ -96,7 +96,7 @@
                                     ?>
                                     <tr>
                                         <td class="text-center"><?php echo $ct; ?></td>
-                                        <td class="text-center"><?php echo $row['nombre_completo']; ?></td>
+                                        <td class="text-center"><?php echo $row['nombre_completo_a']; ?></td>
                                         <td class="text-center"><?php echo $row['nombre_admin']; ?></td>
                                         <td class="text-center"><?php echo $row['email_admin']; ?></td>
                                         <td class="text-center"><?php echo $row['fecha_alta']; ?></td>

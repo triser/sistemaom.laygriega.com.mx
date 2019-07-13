@@ -178,7 +178,7 @@ imagejpeg($lienzo, $destino1, 80);
                           <label  class="col-sm-2 control-label">Solicitante:</label>
                           <div class="col-sm-10">
                               <div class='input-group'>
-                                <input type="text" class="form-control" name="name_ticket" readonly="" value="<?php echo utf8_encode($_SESSION['nombre_completo']); ?>" readonly="" style="border:f92913; background-color:  #fdebd0 ">
+                                <input type="text" class="form-control" name="name_ticket" readonly="" value="<?php echo utf8_encode($_SESSION['nombre_completo_a']); ?>" readonly="" style="border:f92913; background-color:  #fdebd0 ">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                               </div>
                           </div>
@@ -193,41 +193,15 @@ imagejpeg($lienzo, $destino1, 80);
                               </div> 
                           </div>
                         </div>
-
                         <div class="form-group">
                           <label  class="col-sm-2 control-label">Area del Solicitante:</label>
                           <div class="col-sm-10">
-                              <div class='input-group'>
-                                <select class="form-control" name="departamento_ticket" required >
-                                 <option disabled value="" selected hidden>Elige una opción</option>
-                                 <option value="Asesor Externo">Asesor Externo</option>
-                                  <option value="AComercial">Asistente Comercial</option>
-                                  <option value="ADirecciòn">Asistente de Direcciòn</option>
-                                  <option value="SGC">Sistemas de Gestion de Calidad</option>
-                                  <option value="Contabilidad">Contabilidad</option>
-                                  <option value="Carga">Carga</option>
-                                  <option value="Cobranza">Credito y Cobranza</option>
-                                  <option value="Compras">Compras</option>
-                                  <option value="CuentasxPagar">Cuentas por pagar</option>
-                                  <option value="CuentasxCobrar">Cuentas por Cobrar</option>
-                                  <option value="Descarga">Descarga</option>
-                                  <option value="Dirección">Dirección</option>
-                                  <option value="Distribución">Distribución</option>
-                                  <option value="Facturación">Facturación</option>
-                                  <option value="Inventarios">Inventarios</option>
-                                  <option value="Operaciones">Operaciones</option>
-                                  <option value="Mantenimiento">Mantenimiento</option>
-                                  <option value="Marketing">Marketing</option>
-                                  <option value="Mostrador">Mostrador</option>
-                                  <option value="Súper">Súper</option>
-                                  <option value="Hard Y Soft">Hardware Y Software</option>
-                                  <option value="TI">Seguridad y Comunicación TI</option>
-                                </select>
-                                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                              </div> 
+                                 <div class='input-group'>
+                                <input type="email" class="form-control" name="departamento_ticket" readonly="" value="<?php echo $_SESSION['nombreadmin']; ?>"readonly="" style="border:f92913; background-color:  #fdebd0 ">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                              </div>
                           </div>
                         </div>
-                        
                         <div class="form-group">
                           <label  class="col-sm-2 control-label">Asignado A:</label>
                           <div class="col-sm-10">
@@ -237,8 +211,6 @@ imagejpeg($lienzo, $destino1, 80);
                               </div> 
                           </div>
                         </div>
-                        
-                        
                               <div class="form-group">
                           <label  class="col-sm-2 control-label">Asunto:</label>
                           <div class="col-sm-10">
@@ -249,7 +221,7 @@ imagejpeg($lienzo, $destino1, 80);
                           </div>
                         </div>
 
-                                   <div class="form-group">
+                        <div class="form-group">
                           <label  class="col-sm-2 control-label">Prioridad:</label>
                           <div class="col-sm-10">
                               <div class='input-group'>

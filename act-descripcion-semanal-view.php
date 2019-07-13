@@ -4,7 +4,7 @@ session_start();
 include './lib/class_mysql.php';
 include './lib/config.php';   
 	$id = MysqlQuery::RequestGet('id');
-	$sql = Mysql::consulta("SELECT * FROM actividad_diaria WHERE id_act= '$id'");
+	$sql = Mysql::consulta("SELECT * FROM actividad_semanal WHERE id_act= '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 
 if($_SESSION['tipo']==1){
@@ -36,7 +36,7 @@ echo "<scrip>alert('saliendo...')</script>";
           <div class="container">
             <div class="col-sm-12">
                 <form class="form-horizontal" role="form" action="" method="POST">
-            <input type="hidden" name="id_edit" value="<?php echo $reg['id_act']?>">
+            <input type="hidden" name="id_edit" value="<?php echo $reg['id_']?>">
              <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -50,13 +50,13 @@ echo "<scrip>alert('saliendo...')</script>";
                             <div class='col-sm-2'>
                                 <div class="input-group">
                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['fecha_act']?>">
+                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['fecha_sem']?>">
                                 </div>
                             </div>
                             <div class='col-sm-2'>
                                 <div class="input-group">
                                       <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['hora_act']?>">
+                                    <input class="form-control" readonly type="text" name="" readonly=""  style="border:f92913; background-color: #fef9e7" value="<?php echo $reg['hora_sem']?>">
                                 </div>
                             </div>
                        
