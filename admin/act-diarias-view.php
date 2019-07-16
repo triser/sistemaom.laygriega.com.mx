@@ -145,7 +145,7 @@ FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente I
                                             
                                                       <!--ver lista de comentarios-->
                                           <a href="admin.php?view=act-diarias-comentario&id=<?php echo $row['id_act']; ?>" 
-                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['descripcion']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="Agregar Comentario"><span class="glyphicon glyphicon-comment"></span></a>
                                         </td>
                             
                                     </tr>

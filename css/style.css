@@ -231,13 +231,19 @@ nav.navbar .navbar-right li a{
 	background: #ec407a;
 		color: #fff;
 }
-
+.points_table_ad1 thead{
+	background: #ff7043;
+		color: #fff;
+}
 .points_table_acti thead{
 		background: #CC3366;
 		color: #fff;
 }
 
-
+.table_actividad thead{
+	background: #ff7043;
+	color: #fff;
+}
 
 
 body{

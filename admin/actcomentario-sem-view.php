@@ -86,7 +86,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-            <span class="glyphicon glyphicon-bookmark"></span>Activida Diaria</h3>
+            <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Agregar Comentario Actividad Semanal</h3>
                 </div>
                 <div class="panel-body">
                             <div class="form-group">
@@ -129,7 +129,7 @@
        
                         <div class="form-group">
                           <div class="col-sm-12">
-                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descrip_sem'])); ?></textarea>
+                              <textarea class="form-control" rows="20"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descrip_sem'])); ?></textarea>
                           </div>
                         </div>
                     

@@ -149,7 +149,7 @@
                     <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reporte de Actividades&nbsp;&nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
                         <li>
-                            <a href="admin.php?view=actividades-general"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Todos los reportes</a>
+                            <a href="admin.php?view=act-diarias"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Todos los reportes</a>
                         </li>
                         <li class="divider"></li>
                         <li>
