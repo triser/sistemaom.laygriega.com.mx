@@ -172,18 +172,19 @@
 
 	?>
 </td>
-                                        <td class="text-center" data-label="Imagen:"><a class="example-image-link" href=<?php echo $row['Foto1']; ?> data-lightbox="example-set" data-title="<?php echo $row['mensaje']; ?>"><img src=<?php echo $row['Foto1']; ?> width="25" height="25" class="property_img"/></a></td><div class="property_details">
+                                        <td class="text-center" data-label="Imagen:"><a class="example-image-link" href="<?php echo $row['Foto1']; ?>" data-lightbox="example-set" data-title="<?php echo $row['mensaje']; ?>"><img src="<?php echo $row['Foto1']; ?>" width="25" height="25" class="property_img"/></a></td>
                                         <td class="text-center" data-label="F.Entrega:"><?php echo $row['fechaE']; ?></td>
                                         
                                         <td class="text-center" data-label="Opciones:">
-                                            <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                            <a href="admin.php?view=ticketeditAE&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning"  ><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a href="./lib/pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-success red-tooltip" data-toggle="tooltip" data-placement="right" id="tooltipex" title="Imprimir Ticket"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                            
+                                            <a href="admin.php?view=ticketeditAE&id=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning red-tooltip" data-toggle="tooltip" data-placement="right" id="tooltipex" title="Editar Ticket"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     
                                             <!--ver lista de comentarios-->
                                           <a href="admin.php?view=admindetalleticket&id=<?php echo $row['id']; ?>" 
-                                            class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['mensaje']; ?>"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                            class="btn btn-sm btn btn-info red-tooltip" data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['mensaje']; ?>"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i></a>
                                             
-                                            <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
+                                            <button type="submit" class="btn btn-sm btn-danger red-tooltip" data-toggle="tooltip" data-placement="right" id="tooltipex" title="Eliminar Ticket" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-o" aria-hidden="true" ></i></button>
                                             
                                         </td>
                                     </tr>
@@ -301,22 +302,18 @@
                 <div class="col-sm-1">&nbsp;</div>
             </div>
         </div>
-        </section>	
+    	
     
 <?php
 }
-?>   <script type="text/javascript">
+?>   
+ <script type="text/javascript">
     lightbox.option({
       'resizeDuration': 200,
       'wrapAround': true
     })
-    </script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-    $("a").tooltip();
-});
 </script>
-   
+
   <style type="text/css">
     .red-tooltip + .tooltip > .tooltip-arrow { border-right-color:#428bca; }
     .red-tooltip + .tooltip > .tooltip-inner {background-color: #428bca;}
@@ -327,3 +324,5 @@ $(document).ready(function(){
   $("a").tooltip();
 });
 </script>
+  <!-- LIGHTBOX PLUS JQUERY -->
+    <script src="./js/lightbox-plus-jquery.min.js"></script>

@@ -45,7 +45,15 @@
 
 
 ?>
-
+<?php
+ /* Todos las actividade diarias*/
+                $num_ticket_all=Mysql::consulta("SELECT * FROM actividad_diaria"  );
+                $num_total_all=mysqli_num_rows($num_ticket_all);
+                
+               /* Todos las actividade semanales*/
+                $num_ticket_pend=Mysql::consulta("SELECT * FROM actividad_semanal" );
+                $num_total_pend=mysqli_num_rows($num_ticket_pend);
+            ?>
 
         <!--************************************ Page content******************************-->
         <div class="container">
@@ -54,34 +62,25 @@
                <center><img src="./img/Edit.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
             <div class="col-sm-9">
-                   <a href="./admin.php?view=act-diarias" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver administrar Actividad</a>
+                   <a href="./admin.php?view=act-semanales" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver administrar Actividad</a>
             </div>
           </div>
 </div>
-  <br>
             <div class="container">
-                      <div class="row">
-             <div class="col-sm-2">
-                   <a href="./admin.php?view=act-diarias" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=act-semanales" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
-            </div>
-          </div>
-        </div>
-  <br>
+           <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="./admin.php?view=act-diarias"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Diaria&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_all; ?></span></a></li>
+                            <li><a href="./admin.php?view=act-semanales"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Semanal&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_pend; ?></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Mensual&nbsp;&nbsp;<span class="label label-warning"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Trimestral&nbsp;&nbsp;<span class="label label-success"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Anual&nbsp;&nbsp;<span class="label label-danger"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act x Periodo&nbsp;&nbsp;<span class="label label-danger"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+ </div>
+<br>
           <div class="container">
             <div class="col-sm-12">
                  <form class="form-horizontal" role="form" action="" method="POST">
@@ -194,5 +193,3 @@
             </div><!--col-md-12-->
         
           </div><!--container-->
-
-

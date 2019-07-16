@@ -22,10 +22,8 @@
                         <a href="#" class="dropdown-toggle btn btn-sq-sm" data-toggle="dropdown">
                         <span class="fa fa-user-circle-o" style="color:#f1c40f;"></span> &nbsp;Bienvenido:&nbsp;<strong style="color: #f1c40f ;"><?php echo utf8_encode($_SESSION['nombre']); ?></strong> &nbsp;<b class="caret"></b>
                     </a>
-                    
                         <!-- usuarios -->
-                        
-                        <?php if($_SESSION['tipo']=="user"):  ?>
+                        <?php if($_SESSION['tipo']=="user"):?>
                     <ul class="dropdown-menu">
                          <li>
                     <a href="./index.php?view=soporte"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;Solicitud de Ordenes</a>
@@ -46,6 +44,30 @@
                   <li>
                     <a href="./index.php?view=soporte-actividad"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Actividades</a>
                         </li>
+                   <li>
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Administrar Actividad&nbsp;&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level"> 
+                        <li>
+                             <a href="actividad-usuario-view.php"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Actividad Diaria</a> 
+                        </li> 
+                         <li>
+                            <a href="act-usuario-semanal-view.php"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Actividad Semanal</a>
+                        </li> 
+                        <li >
+                            <a href=""><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Actividad Mensual</a>
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Actividad Trimetral</a>
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-area-chart"></span>&nbsp;&nbsp;Actividad Semestral/Periodo</a> 
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Actividad Anual</a>
+                        </li>
+                       
+                    </ul>
+                </li>
                         <?php endif; ?>
                      
                         <!-- admins -->
@@ -87,24 +109,42 @@
                         <li>
                             <a href="admin.php?view=reporteAE"><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Tickets Asesor Externo</a>
                         </li>
-                         
                         <li>
-                            <a href="admin.php?view=reporteCM"><span class="fa fa-area-chart"></span>&nbsp;&nbsp;Tickets Calidad</a>
-                        
+                            <a href="admin.php?view=reporteCM"><span class="fa fa-area-chart"></span>&nbsp;&nbsp;Tickets Calidad</a> 
                         </li>
-                       
                         <li>
                             <a href="admin.php?view=reporteHS"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Tickets Software y Hardware</a>
-                        
                         </li>
-                 
                         <li >
                             <a href="admin.php?view=reporteCS"><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Tickets Comunicacion y Seguridad TI</a>
-                        
                         </li>
                     </ul>
                 </li>
-            
+                                   <li>
+                    <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Administrar Actividad&nbsp;&nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu multi-level"> 
+                        <li>
+                             <a href="admin.php?view=act-diarias"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Actividad Diaria</a> 
+                        </li> 
+                         <li>
+                            <a href="admin.php?view=act-semanales"><span class="fa fa-ticket"></span>&nbsp;&nbsp;Actividad Semanal</a>
+                        </li> 
+                        <li >
+                            <a href=""><span class="fa fa-pie-chart"></span>&nbsp;&nbsp;Actividad Mensual</a>
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-line-chart"></span>&nbsp;&nbsp;Actividad Trimetral</a>
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-area-chart"></span>&nbsp;&nbsp;Actividad Semestral/Periodo</a> 
+                        </li>
+                        <li>
+                            <a href=""><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Actividad Anual</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                
                           <li>
                     <a href="#" class="dropdown-toggle btn btn-sq-sm " data-toggle="dropdown"><span class="fa fa-bar-chart"></span>&nbsp;&nbsp;Reporte de Actividades&nbsp;&nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">

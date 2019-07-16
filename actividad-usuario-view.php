@@ -123,18 +123,19 @@ WHERE a.id_cliente_fk = a.id_cliente_fk AND a.id_cliente_fk = '$id_clien'LIMIT $
                                 if(mysqli_num_rows($selactividad)>0):
                             ?>
                             
-                            <div class="panel panel-primary">
+<div class="panel panel-primary">
 <div style="margin:7px">
         <div class="col-xs-6">
         <div class="btn-group">
         <a type="button" class="btn btn-primary"  href="./index.php?view=actividad-diaria"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Elaborar Actividad&nbsp;&nbsp;</a>
         </div>
+             
       </div>
-        <div class="col-xs-6 pull-right form-group">
-            <input type="text" class="form-control" style="border-radius:0px" placeholder="Search">
+     
         </div>
-        </div>
-  <div class="panel-body" style="padding:0px">
+                                 
+  <div class="panel-body" style="padding:20px">
+        <br>
   <table class="table table-striped table-bordered" style="margin:0px">
                                <thead>
                                     <tr>
@@ -198,7 +199,7 @@ WHERE a.id_cliente_fk = a.id_cliente_fk AND a.id_cliente_fk = '$id_clien'LIMIT $
                         ?>
   </div>
   <div class="panel-footer">
-      <div class="col-xs-3"><div class="dataTables_info" id="example_info">Showing 51 - 60 of 100 total results</div></div>
+      <div class="col-xs-3"><div class="dataTables_info" id="example_info">Mostrando 10 - <?php echo $num_total_all; ?> de <?php echo $num_total_all; ?> total resultos</div></div>
     <div class="col-xs-6">
 <div class="dataTables_paginate paging_bootstrap">
 <ul class="pagination pagination-sm" style="margin:0 !important">

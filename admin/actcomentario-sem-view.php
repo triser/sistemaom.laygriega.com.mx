@@ -12,7 +12,7 @@
 		$mensaje_mail="Estimado usuario la solución a su problema es la siguiente : ".$solucion_edit;
 		$mensaje_mail=wordwrap($mensaje_mail, 70, "\r\n");*/
 
-		if(MysqlQuery::Actualizar("actividad_diaria", "estatus='$estado_edit', fecha_revi='$fecha2_edit', hora_revi='$hra2_edit', comentario='$solucion_edit', id_admin_fk='$idA'", "id_act='$id_edit'")){
+		if(MysqlQuery::Actualizar("actividad_semanal", "estatus_sem='$estado_edit', fecha_revi_sem='$fecha2_edit', hora_revi_sem='$hra2_edit', comentario_sem='$solucion_edit', id_admin_fks='$idA'", "id_semanal='$id_edit'")){
 
 	echo '
                  <div class="alert alert-warning alert-dismissible fade in col-sm-3 animated bounceInDown" role="alert" style="position:fixed;  top: 50%; right:40%; z-index:10;"> 
@@ -39,13 +39,18 @@
 	}     
 	     
 	$id = MysqlQuery::RequestGet('id');
-	$sql = Mysql::consulta("SELECT * FROM actividad_diaria WHERE id_act= '$id'");
+	$sql = Mysql::consulta("SELECT * FROM actividad_semanal WHERE id_semanal= '$id'");
 	$reg=mysqli_fetch_array($sql, MYSQLI_ASSOC);
-
-
-
 ?>
-
+<?php
+                   /* Todos las actividade diarias*/
+                $num_ticket_all=Mysql::consulta("SELECT * FROM actividad_diaria"  );
+                $num_total_all=mysqli_num_rows($num_ticket_all);
+                
+               /* Todos las actividade semanales*/
+                $num_ticket_pend=Mysql::consulta("SELECT * FROM actividad_semanal" );
+                $num_total_pend=mysqli_num_rows($num_ticket_pend);
+            ?>
 
         <!--************************************ Page content******************************-->
         <div class="container">
@@ -54,38 +59,29 @@
                <center><img src="./img/Edit.png" alt="Image" class="img-responsive animated tada"></center>
             </div>
             <div class="col-sm-9">
-                   <a href="./admin.php?view=act-diarias" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver administrar Actividad</a>
+                   <a href="./admin.php?view=act-semanales" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver administrar Actividad</a>
             </div>
           </div>
 </div>
-  <br>
             <div class="container">
-                      <div class="row">
-             <div class="col-sm-2">
-                   <a href="./admin.php?view=act-diarias" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=act-semanales" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
-            </div>
-                   <div class="col-sm-2">
-                   <a href="./admin.php?view=actividades-general" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
-            </div>
-          </div>
-        </div>
-  <br>
+           <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills nav-justified">
+                            <li><a href="./admin.php?view=act-diarias"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Diaria&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_all; ?></span></a></li>
+                            <li><a href="./admin.php?view=act-semanales"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Semanal&nbsp;&nbsp;<span class="label label-success"><?php echo $num_total_pend; ?></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Mensual&nbsp;&nbsp;<span class="label label-warning"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Trimestral&nbsp;&nbsp;<span class="label label-success"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act Anual&nbsp;&nbsp;<span class="label label-danger"></span></a></li>
+                            <li><a href=""><i class="fa fa-folder-o"></i>&nbsp;&nbsp;Act x Periodo&nbsp;&nbsp;<span class="label label-danger"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+ </div>
+<br>
           <div class="container">
             <div class="col-sm-12">
                  <form class="form-horizontal" role="form" action="" method="POST">
-                		<input type="hidden" name="id_edit" value="<?php echo $reg['id_act']?>">
+                		<input type="hidden" name="id_edit" value="<?php echo $reg['id_semanal']?>">
                               <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -97,14 +93,14 @@
                             <label class="col-sm-2 control-label">Fecha Elaboracion:</label>
                             <div class='col-sm-4'>
                                 <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['fecha_act']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="fecha2_act">
+            <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['fecha_sem']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="fecha2_act">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                                     <div class='col-sm-5'>
                                         <label class="col-sm-2 control-label">Hora:</label>
                                 <div class="input-group">
-    <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['hora_act']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="hora_act">
+    <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['hora_sem']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="hora_act">
                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
@@ -117,13 +113,13 @@
                          <div class="col-sm-2">
                               <div class='input-group'>
                                                    <p>                       
-    <?php switch ($reg['estatus'])
+    <?php switch ($reg['estatus_sem'])
 	{
 		case "Pendiente":
-		echo '<span class="btn btn-danger" disabled="disabled"> <i class="fa fa-info-circle"></i> '.$reg["estatus"].'</span>';
+		echo '<span class="btn btn-danger" disabled="disabled"> <i class="fa fa-info-circle"></i> '.$reg["estatus_sem"].'</span>';
 		break;
 		case "Revisado":
-		echo '<span class="btn btn-warning" disabled="disabled"><i class="fa fa-info-circle"></i> '.$reg["estatus"].'</span>';
+		echo '<span class="btn btn-warning" disabled="disabled"><i class="fa fa-info-circle"></i> '.$reg["estatus_sem"].'</span>';
 		break;
 	}
   ?></p>
@@ -133,14 +129,14 @@
        
                         <div class="form-group">
                           <div class="col-sm-12">
-                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
+                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descrip_sem'])); ?></textarea>
                           </div>
                         </div>
                     
                            <div class="form-group">
                           <label  class="col-sm-2 control-label">Comentarios</label>
                           <div class="col-sm-10">
-                            <textarea class="form-control" rows="3"  name="comentario_actividad" ><?php echo utf8_encode($reg['comentario']); ?></textarea>
+                            <textarea class="form-control" rows="3"  name="comentario_actividad" ><?php echo utf8_encode($reg['comentario_sem']); ?></textarea>
                           </div>
                         </div>
                     
@@ -153,14 +149,14 @@
                             <label class="col-sm-2 control-label">Fecha de revisión</label>
                             <div class='col-sm-2'>
                                 <div class="input-group">
-            <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['fecha_revi']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="">
+            <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['fecha_revi_sem']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                <label class="col-sm-2 control-label">hora de revisión</label>
                                     <div class='col-sm-2'>
                                 <div class="input-group">
-    <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['hora_revi']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="">
+    <input required aria-required="true" class="form-control" type="text" value="<?php echo $reg['hora_revi_sem']?>" readonly="" style="border:f92913; background-color:#e9f7ef" name="">
                                     <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
                                 </div>
                             </div>
@@ -168,13 +164,13 @@
               
                          <div class="col-sm-2">
                     <p>                       
-    <?php switch ($reg['estatus'])
+    <?php switch ($reg['estatus_sem'])
 	{
 		case "Pendiente":
-		echo '<span class="btn btn-danger" disabled="disabled"> <i class="fa fa-info-circle"></i> '.$reg["estatus"].'</span>';
+		echo '<span class="btn btn-danger" disabled="disabled"> <i class="fa fa-info-circle"></i> '.$reg["estatus_sem"].'</span>';
 		break;
 		case "Revisado":
-		echo '<span class="btn btn-warning" disabled="disabled"><i class="fa fa-info-circle"></i> '.$reg["estatus"].'</span>';
+		echo '<span class="btn btn-warning" disabled="disabled"><i class="fa fa-info-circle"></i> '.$reg["estatus_sem"].'</span>';
 		break;
 	}
   ?></p>
@@ -186,13 +182,11 @@
                     <br>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-9 text-center">
-                             <button type="submit" class="btn btn-success"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar Revisado</button>
-                              <a href="./admin.php?view=actividades-general" class="btn btn-info "><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver</a>
+                             <button type="submit" class="btn btn-success"><i class="fa fa-refresh fa-spin fa-1x fa-fw"></i>&nbsp;Actualizar</button>
+                              <a href="./admin.php?view=act-semanales" class="btn btn-info "><i class="fa fa-reply"></i>&nbsp;&nbsp;Volver</a>
                           </div>
                         </div>
                       </form>
             </div><!--col-md-12-->
         
           </div><!--container-->
-
-

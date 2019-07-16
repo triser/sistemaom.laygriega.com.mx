@@ -22,6 +22,20 @@ echo "<scrip>alert('saliendo...')</script>";
     </head>
     <body>   
         <?php include "./inc/navbar.php"; ?>
+            <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+              <div class="page-header">
+                <h1 class="animated lightSpeedIn">Actividades Diarias</h1>
+                <span class="label label-danger">Sistema MTL LA Y GRIEGA</span>
+                <p class="pull-right text-success">
+                  <strong>
+                  <span class="glyphicon glyphicon-time"></span>&nbsp;<?php include "./inc/timezone.php"; ?>
+                 </strong>
+               </p>
+              </div>
+            </div>
+          </div>
         <!--************************************ Page content******************************-->
         <div class="container">
           <div class="row">
@@ -66,7 +80,7 @@ echo "<scrip>alert('saliendo...')</script>";
                     
                         <div class="form-group">
                           <div class="col-sm-12">
-                              <textarea class="form-control" rows="25"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
+                              <textarea class="form-control" rows="20"  name="descripcion_actividad" readonly style="border:f92913; background-color: #ebf5fb"><?php echo strip_tags (utf8_encode($reg['descripcion'])); ?></textarea>
                           </div>
                         </div>
                     

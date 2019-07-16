@@ -34,19 +34,19 @@ if($_SESSION['clave']!="" && isset($_SESSION['id_cliente'])){ $nombre_user= $_SE
             <?php
 
                 /* Todas los actividades*/
-$num_actividad_all=Mysql::consulta(" SELECT a.fecha_sem,a.hora_sem, a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
+$num_actividad_all=Mysql::consulta(" SELECT a.fecha_sem,a.hora_sem, a.estatus_sem,t.nombre_completo_a,a.fecha_revi_sem,a.hora_revi_sem
 FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fks = t.id_admin WHERE a.id_cliente_sem = a.id_cliente_sem AND a.id_cliente_sem = '$id_clien'");
                 $num_total_all=mysqli_num_rows($num_actividad_all);
                                                              
                                                              
             /* Tickets pendientes*/
-                $num_ticket_pend=Mysql::consulta("SELECT a.fecha_sem,a.hora_sem, a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
-FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fks = t.id_admin WHERE a.id_cliente_sem = a.id_cliente_sem AND a.id_cliente_sem = '$id_clien' AND a.estatus  = 'Pendiente'" );
+                $num_ticket_pend=Mysql::consulta("SELECT a.fecha_sem,a.hora_sem, a.estatus_sem,t.nombre_completo_a,a.fecha_revi_sem,a.hora_revi_sem
+FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fks = t.id_admin WHERE a.id_cliente_sem = a.id_cliente_sem AND a.id_cliente_sem = '$id_clien' AND a.estatus_sem  = 'Pendiente'" );
                 $num_total_pend=mysqli_num_rows($num_ticket_pend);
             
           /* actividades Revisadas*/
-                $num_ticket_res=Mysql::consulta("SELECT a.fecha_sem,a.hora_sem, a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
-FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fks = t.id_admin WHERE a.id_cliente_sem = a.id_cliente_sem AND a.id_cliente_sem = '$id_clien' AND a.estatus  = 'Revisado'");
+                $num_ticket_res=Mysql::consulta("SELECT a.fecha_sem,a.hora_sem, a.estatus_sem,t.nombre_completo_a,a.fecha_revi_sem,a.hora_revi_sem
+FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fks = t.id_admin WHERE a.id_cliente_sem = a.id_cliente_sem AND a.id_cliente_sem = '$id_clien' AND a.estatus_sem  = 'Revisado'");
                 $num_total_res=mysqli_num_rows($num_ticket_res);
         ?>
             <div class="container">
@@ -152,22 +152,22 @@ FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente
                                         <td class="text-center" data-label="Hora:"><?php echo $row['hora_sem']; ?></td>
                                     <td class="text-center" data-label="Estatus:"> <?php 
   //pintamos de colorores los estados de la actividad
-	switch ($row['estatus'])
+	switch ($row['estatus_sem'])
 	{
 		case "Pendiente":
-		echo '<span class="btn btn-danger btn-xs" disabled="disabled">'.$row["estatus"].'</span>';
+		echo '<span class="btn btn-danger btn-xs" disabled="disabled">'.$row["estatus_sem"].'</span>';
 		break;
 		case "Revisado":
-		echo '<span class="btn btn-info btn-xs" disabled="disabled">'.$row["estatus"].'</span>';
+		echo '<span class="btn btn-info btn-xs" disabled="disabled">'.$row["estatus_sem"].'</span>';
 		break;
 	}
   ?>
 </td>                                       <td class="text-center" data-label="Fecha:"><?php echo $row['nombre_completo_a']; ?></td>
-                                          <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_revi']; ?></td>
-                                        <td class="text-center" data-label="Hora:"><?php echo $row['hora_revi']; ?></td>
+                                          <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_revi_sem']; ?></td>
+                                        <td class="text-center" data-label="Hora:"><?php echo $row['hora_revi_sem']; ?></td>
                                         <td class="text-center" data-label="Opciones:">
-                                            <a href="./lib/pdf.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
-                                               <a href="act-descripcion-semanal-view.php?id=<?php echo $row['id_act'] ?>" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                            <a href="./lib/pdf.php?id=<?php echo $row['id_semanal'] ?>" class="btn btn-sm btn-success" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
+                                               <a href="act-descripcion-semanal-view.php?id=<?php echo $row['id_semanal'] ?>" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-eye-open"></span></a>
                                         </td>
                                     </tr>
                                     <?php
@@ -191,7 +191,7 @@ FROM actividad_semanal a INNER JOIN cliente c ON a.id_cliente_sem = c.id_cliente
                         ?>
   </div>
   <div class="panel-footer">
-      <div class="col-xs-3"><div class="dataTables_info" id="example_info">Showing 51 - 60 of 100 total results</div></div>
+      <div class="col-xs-3"><div class="dataTables_info" id="example_info">Mostrando 10 - <?php echo $num_total_all; ?> de <?php echo $num_total_res; ?> total Revisados</div></div>
     <div class="col-xs-6">
 <div class="dataTables_paginate paging_bootstrap">
 <ul class="pagination pagination-sm" style="margin:0 !important">

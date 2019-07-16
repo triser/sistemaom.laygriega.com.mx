@@ -12,7 +12,7 @@
             <div class="col-lg-3">
         <div class="panel panel-info">
           <div class="panel-heading">
-                 <a href="admin.php?view=ageneral">
+                 <a href="admin.php?view=act-diarias">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-group fa-5x"></i>
@@ -24,7 +24,7 @@
             </div>
               </a>
           </div>
-          <a href="./index.php?view=ticket">
+          <a href="./index.php?view=act-diarias">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">

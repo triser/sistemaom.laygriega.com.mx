@@ -12,7 +12,7 @@
       <div class="col-lg-3">
         <div class="panel panel-info">
           <div class="panel-heading">
-                 <a href="./index.php?view=ticket">
+                 <a href="admin.php?view=solicitud-ticket-admin">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-ticket fa-5x"></i>
@@ -24,7 +24,7 @@
             </div>
               </a>
           </div>
-          <a href="./index.php?view=ticket">
+          <a href="admin.php?view=solicitud-ticket-admin">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
@@ -41,19 +41,19 @@
       <div class="col-lg-3">
         <div class="panel panel-info">
           <div class="panel-heading">
-                  <a href="ticketusuario.php">
+                  <a href="admin.php?view=ticketadmin">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-search fa-5x"></i>
               </div>
               <div class="col-xs-8 text-right">
                 <p class="announcement-heading">2</p>
-                <p class="announcement-text">Todos sus Ticket</p>
+                <p class="announcement-text">Todos los Ticket</p>
               </div>
             </div>
                </a>
           </div>
-          <a href="ticketusuario.php">
+          <a href="admin.php?view=ticketadmin">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">

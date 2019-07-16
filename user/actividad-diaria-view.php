@@ -70,7 +70,7 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
             <div class="container">
                       <div class="row">
                 <div class="col-sm-2">
-                   <a href="actividad-diaria-view.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
+                   <a href="actividad-usuario-view.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
             </div>
                    <div class="col-sm-2">
                    <a href="act-usuario-semanal-view.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
@@ -89,6 +89,7 @@ if(MysqlQuery::Guardar("actividad_diaria", "id_cliente_fk, descripcion, fecha_ac
             </div>
           </div>
         </div>
+<br>
         <div class="container">
           <div class="row">
             <div class="col-sm-12">

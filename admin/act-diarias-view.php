@@ -11,27 +11,52 @@
         </div>
             <?php
                    /* Todos los tickets*/
-                $num_ticket_all=Mysql::consulta("SELECT nombre_completo,  email_cliente, descripcion, fecha_act, hora_act FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente"  );
+                $num_ticket_all=Mysql::consulta("SELECT a.fecha_act,a.hora_act, c.nombre_completo,a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
+FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin"  );
                 $num_total_all=mysqli_num_rows($num_ticket_all);
                 
                 /* Tickets pendientes*/
-                $num_ticket_pend=Mysql::consulta("SELECT nombre_completo,  email_cliente, descripcion, fecha_act, hora_act, estatus FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente AND  estatus='Pendiente'" );
+                $num_ticket_pend=Mysql::consulta("SELECT a.fecha_act,a.hora_act, c.nombre_completo,a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
+FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin WHERE a.id_cliente_fk = a.id_cliente_fk AND estatus='Pendiente'" );
                 $num_total_pend=mysqli_num_rows($num_ticket_pend);
 
     
                 /* Tickets resueltos*/
-                $num_ticket_res=Mysql::consulta("SELECT nombre_completo,  email_cliente, descripcion, fecha_act, hora_act, estatus FROM actividad_diaria INNER JOIN cliente ON cliente.id_cliente = actividad_diaria.id_cliente_fk WHERE actividad_diaria.estatus ='Revisado'");
+                $num_ticket_res=Mysql::consulta("SELECT a.fecha_act,a.hora_act, c.nombre_completo,a.estatus,t.nombre_completo_a,a.fecha_revi,a.hora_revi
+FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin WHERE a.id_cliente_fk = a.id_cliente_fk AND estatus='Revisado'");
                 $num_total_res=mysqli_num_rows($num_ticket_res);
   
             ?>
-
+            <div class="container">
+                      <div class="row">
+                       <div class="col-sm-2">
+                   <a href="./admin.php?view=act-diarias" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Diaria</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="./admin.php?view=act-semanales" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Semanal</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Mensual</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Trimestral</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad Anual</a>
+            </div>
+                   <div class="col-sm-2">
+                   <a href="" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i>&nbsp;&nbsp;Actividad x Periodo</a>
+            </div>
+          </div>
+        </div>
+  <br>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-pills nav-justified">
-                            <li><a href="./admin.php?view=actividades-general&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todos las actividaes&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
-                            <li><a href="./admin.php?view=actividades-general&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Actividades Pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
-                            <li><a href="./admin.php?view=actividades-general&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Actividades Revisadas&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_res; ?></span></a></li>
+                            <li><a href="./admin.php?view=act-diarias&ticket=all"><i class="fa fa-list"></i>&nbsp;&nbsp;Todos las actividaes&nbsp;&nbsp;<span class="label label-primary"><?php echo $num_total_all; ?></span></a></li>
+                            <li><a href="./admin.php?view=act-diarias&ticket=pending"><i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;Actividades Pendientes&nbsp;&nbsp;<span class="label label-danger"><?php echo $num_total_pend; ?></span></a></li>
+                            <li><a href="./admin.php?view=act-diarias&ticket=resolved"><i class="fa fa-check-square-o"></i>&nbsp;&nbsp;Actividades Revisadas&nbsp;&nbsp;<span class="label label-warning"><?php echo $num_total_res; ?></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,18 +75,17 @@
                                 
                                 if(isset($_GET['actividad_diaria'])){
                                     if($_GET['actividad_diaria']=="all"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin LIMIT $inicio, $regpagina";
                                     }elseif($_GET['actividad_diaria']=="pending"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente AND estatus='Pendiente' LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin WHERE a.id_cliente_fk = a.id_cliente_fk AND estatus='Pendiente' LIMIT $inicio, $regpagina";
                                     }elseif($_GET['actividad_diaria']=="resolved"){
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria INNER JOIN cliente ON cliente.id_cliente = actividad_diaria.id_cliente_fk
-WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin WHERE a.id_cliente_fk = a.id_cliente_fk AND = 'Revisado' LIMIT $inicio, $regpagina";
                                     
                                                                 }else{
-                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente ORDER BY id_act ASC LIMIT $inicio, $regpagina";
+                                        $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin ORDER BY id_act ASC LIMIT $inicio, $regpagina";
                                     }
                                 }else{
-                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a, cliente c WHERE a.id_cliente_fk = c.id_cliente ORDER BY id_act ASC LIMIT $inicio, $regpagina";
+                                    $consulta="SELECT SQL_CALC_FOUND_ROWS * FROM actividad_diaria a INNER JOIN cliente c ON a.id_cliente_fk = c.id_cliente INNER JOIN administrador t ON  a.id_admin_fk = t.id_admin ORDER BY id_act ASC LIMIT $inicio, $regpagina";
                                 }
 
 
@@ -79,12 +103,12 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">#</th>
+                                        <th class="text-center" scope="col">Nombre Completo</th>
                                         <th class="text-center" scope="col">Fecha Elaboración</th>
-                                        <th class="text-center" scope="col">Hora Elaboración</th>
-                                         <th class="text-center" scope="col">Nombre Completo</th>
+                                        <th class="text-center" scope="col">Hora</th>
+                                         <th class="text-center" scope="col">Nombre del Revisor</th>
                                         <th class="text-center" scope="col">Estatus</th>
-                                        <th class="text-center" scope="col">Fecha de Revisión</th>
-                                        <th class="text-center" scope="col">Hora de Revisión</th>
+                                        <th class="text-center" scope="col">Fecha Revisión</th>
                                         <th class="text-center" scope="col">Opciones</th>
                                     </tr>
                                 </thead>
@@ -95,9 +119,10 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                     ?>
                                     <tr>
                                         <td class="text-center" scope="row" data-label="Registro"><?php echo $ct; ?></td>
-                                        <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_act']; ?></td>
+                                         <td class="text-center" data-label="Nombre del Usuario:"><?php echo $row['nombre_completo']; ?></td>
+                                        <td class="text-center" data-label="Fecha de Elaboracion:"><?php echo $row['fecha_act']; ?></td>
                                         <td class="text-center" data-label="Hora:"><?php echo $row['hora_act']; ?></td>
-                                          <td class="text-center" data-label="Nombre Completo:"><?php echo $row['nombre_completo']; ?></td>
+                                          <td class="text-center" data-label="Nombre del Revisor:"><?php echo $row['nombre_completo_a']; ?></td>
                                         <td class="text-center" data-label="Estatus:"> <?php 
   //pintamos de colorores los estados de la actividad
 	switch ($row['estatus'])
@@ -111,8 +136,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
 	}
   ?>
 </td>
-                                          <td class="text-center" data-label="Fecha Revicion:"><?php echo $row['fecha_revi']; ?></td>
-                                        <td class="text-center" data-label="Hora:"><?php echo $row['hora_revi']; ?></td>
+                                          <td class="text-center" data-label="Fecha Revisión:"><?php echo $row['fecha_revi']; ?></td>
 
                                         <td class="text-center" data-label="Opciones:">
 
@@ -120,7 +144,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                      
                                             
                                                       <!--ver lista de comentarios-->
-                                          <a href="admin.php?view=actividadedit&id=<?php echo $row['id_act']; ?>" 
+                                          <a href="admin.php?view=act-diarias-comentario&id=<?php echo $row['id_act']; ?>" 
                                             class="btn btn-sm btn btn-info red-tooltip"data-toggle="tooltip" data-placement="right" id="tooltipex" title="<?php echo $row['descripcion']; ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
                                         </td>
                             
@@ -137,8 +161,8 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                         </div>
                         <?php 
                             if($numeropaginas>=1):
-                            if(isset($_GET['ticket'])){
-                                $ticketselected=$_GET['ticket'];
+                            if(isset($_GET['actividad_diaria'])){
+                                $ticketselected=$_GET['actividad_diaria'];
                             }else{
                                 $ticketselected="all";
                             }
@@ -153,7 +177,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                     </li>
                                 <?php else: ?>
                                     <li>
-                                        <a href="./admin.php?view=actividades-general&ticket=<?php echo $ticketselected; ?>&pagina=<?php echo $pagina-1; ?>" aria-label="Previous">
+                                        <a href="./admin.php?view=act-diarias&ticket=<?php echo $ticketselected; ?>&pagina=<?php echo $pagina-1; ?>" aria-label="Previous">
                                             <span aria-hidden="true">&larr;</span>&nbsp;Anterior
                                         </a>
                                     </li>
@@ -163,9 +187,9 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                 <?php
                                     for($i=1; $i <= $numeropaginas; $i++ ){
                                         if($pagina == $i){
-                                            echo '<li class="active"><a href="./admin.php?view=actividades-general&ticket='.$ticketselected.'&pagina='.$i.'">'.$i.'</a></li>';
+                                            echo '<li class="active"><a href="./admin.php?view=act-diarias&ticket='.$ticketselected.'&pagina='.$i.'">'.$i.'</a></li>';
                                         }else{
-                                            echo '<li><a href="./admin.php?view=actividades-general&ticket='.$ticketselected.'&pagina='.$i.'">'.$i.'</a></li>';
+                                            echo '<li><a href="./admin.php?view=act-diarias&ticket='.$ticketselected.'&pagina='.$i.'">'.$i.'</a></li>';
                                         }
                                     }
                                 ?>
@@ -179,7 +203,7 @@ WHERE actividad_diaria.estatus = 'Revisado'LIMIT $inicio, $regpagina";
                                     </li>
                                 <?php else: ?>
                                     <li>
-                                        <a href="./admin.php?view=actividades-general&ticket=<?php echo $ticketselected; ?>&pagina=<?php echo $pagina+1; ?>" aria-label="Previous">
+                                        <a href="./admin.php?view=act-diarias&ticket=<?php echo $ticketselected; ?>&pagina=<?php echo $pagina+1; ?>" aria-label="Previous">
                                             <span aria-hidden="true">&rarr;</span>&nbsp;Siguiente
                                         </a>
                                     </li>

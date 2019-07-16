@@ -96,7 +96,7 @@ SELECT   fecha_act,hora_act,nombre_completo,departamento,estatus,fecha_revi,hora
                                         <td class="text-center" scope="row" data-label="Registro"><?php echo $ct; ?></td>
                                         <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_act']; ?></td> 
                                         <td class="text-center" data-label="Hora:"><?php echo $row['hora_act']; ?></td>
-                                        <td class="text-center" data-label="Nombre:"><?php echo utf8_encode($_SESSION['nombre_completo']); ?></td>
+                                        <td class="text-center" data-label="Nombre:"><?php echo $row['nombre_completo']; ?></td>
                                         <td class="text-center" data-label="Departamento:"><?php echo $row['departamento']; ?></td>
                                         <td class="text-center" data-label="Fecha:"><?php echo $row['estatus']; ?></td>
                                           <td class="text-center" data-label="Fecha:"><?php echo $row['fecha_revi']; ?></td>

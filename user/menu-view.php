@@ -70,7 +70,7 @@
       <div class="col-lg-3">
         <div class="panel panel-warning">
           <div class="panel-heading">
-        <a href="./index.php?view=actividad-diaria">
+        <a href="actividad-usuario-view.php">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-pencil-square-o fa-5x"></i>
@@ -82,11 +82,11 @@
             </div>
             </a>
           </div>
-          <a href="./index.php?view=actividad-diaria">
+          <a href="actividad-usuario-view.php">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
-                 ELABORAR
+                 CONSULTAR
                 </div>
                 <div class="col-xs-8 text-right">
                   <i class="fa fa-arrow-circle-right"></i>
@@ -99,19 +99,135 @@
       <div class="col-lg-3">
         <div class="panel panel-warning">
           <div class="panel-heading">
-               <a href="./actividad-usuario-view.php">
+               <a href="act-usuario-semanal-view.php">
             <div class="row">
               <div class="col-xs-8">
                 <i class="fa fa-search fa-5x"></i>
               </div>
               <div class="col-xs-8 text-right">
                 <p class="announcement-heading">4</p>
-                <p class="announcement-text">Todas sus Actividades</p>
+                <p class="announcement-text">Actividad Semanal</p>
               </div>
             </div>
               </a>
           </div>
-          <a href="actividad-usuario-view.php">
+          <a href="act-usuario-semanal-view.php">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-8">
+                  CONSULTAR
+                </div>
+                <div class="col-xs-8 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+            <div class="col-lg-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+        <a href="">
+            <div class="row">
+              <div class="col-xs-8">
+                <i class="fa fa-pencil-square-o fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <p class="announcement-heading">3</p>
+                <p class="announcement-text">Actividades Mensual</p>
+              </div>
+            </div>
+            </a>
+          </div>
+          <a href="">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-8">
+                 CONSULTAR
+                </div>
+                <div class="col-xs-8 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+               <a href="">
+            <div class="row">
+              <div class="col-xs-8">
+                <i class="fa fa-search fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <p class="announcement-heading">4</p>
+                <p class="announcement-text">Actividad Trimestral</p>
+              </div>
+            </div>
+              </a>
+          </div>
+          <a href="act-usuario-semanal-view.php">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-8">
+                  CONSULTAR
+                </div>
+                <div class="col-xs-8 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+            <div class="col-lg-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+        <a href="">
+            <div class="row">
+              <div class="col-xs-8">
+                <i class="fa fa-pencil-square-o fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <p class="announcement-heading">3</p>
+                <p class="announcement-text">Actividades Anual</p>
+              </div>
+            </div>
+            </a>
+          </div>
+          <a href="">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-8">
+                 CONSULTAR
+                </div>
+                <div class="col-xs-8 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+               <a href="">
+            <div class="row">
+              <div class="col-xs-8">
+                <i class="fa fa-search fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <p class="announcement-heading">4</p>
+                <p class="announcement-text">Actividad Semestral/periodo</p>
+              </div>
+            </div>
+              </a>
+          </div>
+          <a href="">
             <div class="panel-footer announcement-bottom">
               <div class="row">
                 <div class="col-xs-8">
